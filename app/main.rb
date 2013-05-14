@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+## Load Required Gems ##
+
 %w[sinatra haml rdiscount i18n ./lib/helper].each do |gem| require gem end
 # require 'i18n/backend/fallbacks' #doesn't seem needed.
 # require 'sinatra/simple-navigation' #for breadcrumbs
@@ -14,14 +16,12 @@ class JCA_Sinatra < Sinatra::Base
   helpers TextHelpers 
   
   configure do
-    # enable :sessions
     set :views, File.dirname(__FILE__) + '/../views'
-    # set :public_folder, File.dirname(__FILE__) + '/../public'
     mime_type :plain, 'text/plain'
     
     #Internationalization (I18n) with Fallbacks & loads YAML files
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-    #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app.
+    #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
     I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
   end
@@ -138,30 +138,10 @@ class JCA_Sinatra < Sinatra::Base
     redirect :pdfs
   end
 
-
-  ## Calendar ##
-  # get '/calendar' do
-  #   # include_gon
-  #   #https://www.googleapis.com/calendar/v3/users/userID/lists?parameters
-  #   #get /calendars/calendarId get /users/me/calendarList/calendarId
-  #   user_key = ENV['GOOGLE_API']
-  #   user_id = ENV['GOOGLE_ID']
-  #   parameters = "key=#{user_key}"
-  #   google_cal_list_resource_path ="https://www.googleapis.com/calendar/v3/users/#{user_id}/calendarList"
-  #   google_cal_colors_resource_path = "https://www.googleapis.com/calendar/v3/colors"
-  #   # gon.calendar_list = "#{google_cal_list_resource_path}?#{parameters}"
-  #   # gon.calendar_colors = "#{google_cal_colors_resource_path}?#{parameters}"
-  #   haml :calendar
-  # end
-  
   get '/admin' do
     request.secure? ? nil : not_found #separate this to a different app.
   end
   
-  ### Accesibility to Text ###
-  # get '/helping/:content' do
-  #     sanitize(params[:content])
-  #   end
   
   ### Accesibility to Text ###
   
@@ -169,21 +149,23 @@ class JCA_Sinatra < Sinatra::Base
     content_type :plain
     logger.info params[:captures] #log requests
     path4txt = sanitize(params[:captures].join('')) unless params[:captures].nil?
+    path2mds= 'views/content'
     if path4txt == "press"
       #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
-      txt_output = File.read("views/press.md") + "\n\s"
+      txt_output = File.read("views/content/press.md") + "\n====================\n"
       Dir.chdir('public/press') do
         Dir.glob('*.md').each do |file|
-          txt_output << file.to_s + "\n\s"
+          txt_output << "\s" + file.to_s + "\n\n"
           txt_output << File.read(file)
+          txt_output << "\n====================\n"
         end
       end
       txt_output
-    elsif File.exists?("views/#{path4txt}.md")
-      File.read("views/#{path4txt}.md") 
+    elsif File.exists?("views/content/#{path4txt}.md")
+      File.read("views/content/#{path4txt}.md") 
     elsif path4txt =~ /\w/i
       txt_output = "Opciones Disponibles: \n" #TODO INTERNATIONALIZE
-      Dir.chdir('views') do
+      Dir.chdir('views/content') do
         Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
       end
       txt_output

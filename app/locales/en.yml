@@ -262,15 +262,15 @@ en:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ', y '
-      two_words_connector: ! ' y '
+      last_word_connector: ! ', & '
+      two_words_connector: ! ' & '
       words_connector: ! ', '
   time:
     am: am
     formats:
-      default: ! '%A, %d de %B de %Y %H:%M:%S %z'
-      long: ! '%d de %B de %Y %H:%M'
-      short: ! '%d de %b %H:%M'
+      default: ! '%A, %B %d, %Y %H:%M:%S %z'
+      long: ! '%B %d %Y %H:%M'
+      short: ! '%b/%d/%Y %H:%M'
     pm: pm
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
