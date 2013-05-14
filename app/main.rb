@@ -15,6 +15,9 @@ class JCA_Sinatra < Sinatra::Base
   # register Sinatra::SimpleNavigation
   helpers TextHelpers 
   
+  
+  
+  
   configure do
     set :views, File.dirname(__FILE__) + '/../views'
     mime_type :plain, 'text/plain'
@@ -27,6 +30,9 @@ class JCA_Sinatra < Sinatra::Base
   end
   configure :production, :development do
     enable :logging
+  end
+  configure :production do
+    set :server, :puma
   end
   
 
@@ -74,11 +80,7 @@ class JCA_Sinatra < Sinatra::Base
     end
     haml :home
   end
-  
-  get '/areas' do
-    haml :areas
-  end
-  
+
   ## Press News ##
   get '/press' do
     # set :haml, :default_encoding => "UTF-8"
@@ -89,6 +91,10 @@ class JCA_Sinatra < Sinatra::Base
       @file_list = Dir.glob('*.md').sort.map{|f| f.match(/(.*)\.md/).captures.at(0) }
     end
     haml :press, :format => :html5, :default_encoding => "UTF-8" 
+  end
+  
+  get '/areas' do
+    haml :areas
   end
   
   get '/education' do
@@ -119,10 +125,6 @@ class JCA_Sinatra < Sinatra::Base
     haml :env_reports
   end
   
-  # get '/info' do
-  #   erb markdown(:'internal_divisions_page'), :layout => "top_menu_layout"
-  # end
-    
   get '/mobile' do #separate this to a different app (w/ different views folder)
     if (request.user_agent =~ /iPhone|Android|iPad/i) or (settings.environment == :development)
       erb :mobile
@@ -164,7 +166,7 @@ class JCA_Sinatra < Sinatra::Base
     elsif File.exists?("views/content/#{path4txt}.md")
       File.read("views/content/#{path4txt}.md") 
     elsif path4txt =~ /\w/i
-      txt_output = "Opciones Disponibles: \n" #TODO INTERNATIONALIZE
+      txt_output = "#{I18n.t('available_options')} \n"
       Dir.chdir('views/content') do
         Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
       end
@@ -179,12 +181,11 @@ class JCA_Sinatra < Sinatra::Base
   #### Error 404 ###
   
   not_found do
+    #TODO INTERNATIONALIZE
     @panda_msg = "Error 404: &iexcl;Que no Panda el C&uacute;nico!"
-    @error_msg = "Disculpe, no encontramos la p&aacute;gina buscada."
+    @fourOhfour_msg = "Disculpe, no encontramos la p&aacute;gina buscada."
     @panda_msg + "<br>" + @error_msg
     # haml :404, :layout => :'layouts/errors'
   end
   
 end
-
-# JCA_Sinatra.run!

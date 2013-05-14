@@ -1,6 +1,6 @@
 .DS_Store
-/public/images
-/public/resources/pdfs
+/public/images/*
+/public/resources/pdfs/*
 .localeapp
 cert_file
 db.sqlite3
