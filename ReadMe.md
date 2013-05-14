@@ -8,6 +8,7 @@ Environmental Quality Board Website
 This is a modular Sinatra website. It is intended as a precursor to a much more complete Rails Website that will involve paperless grievance form inputting.
 
 The primary goals of the Sinatra website are:
+
 1. Institute Responsive Design and Modernize pages.
 2. Actualize Content
 - Maintain a PDF repository of all documents.
