@@ -1,0 +1,82 @@
+:css
+  header {
+    opacity: 0.9;
+  }
+  /*Must consolidate .topbar and .barraAgencial!!!*/
+  .topbar {
+    background-color:honeydew;
+    -webkit-border-radius: 10px; 
+    -moz-border-radius: 10px; 
+    border-radius: 10px;
+  }
+  .barraAgencial {
+    background: #141414;
+    font-size: 13px;
+    font-weight: bold;
+    height: 40px;
+  }
+  ul.enlaces {
+    float: right;
+    text-align: right;
+  /*  width: 500px;*/
+  }
+  iframe {
+    border:solid 1px #777;
+  }
+  #myCarousel {
+    padding: 10px;
+  }
+%body    
+  .row-fluid
+    %div{:class => "span12"}
+      .row-fluid
+        / Add padding instead of offsetting!
+        %div{:class => "span8"}
+          / Slide Show
+          -#Slideshow partial here::
+          =haml :'partials/_carousel'
+        /Right Sidebar (logos)
+        %div{:class => "span3"}
+          %a{:href => "/airquality"}
+            %img{:src => "/images/ICA.jpg", :alt => "Indice de Calidad de Aire"}
+          %a{:href => "/beaches"}
+            %img{:src => "/images/MP.jpg", :alt => "Monitoria de las Playas"}
+          %br
+  .row-fluid
+    %br
+    #googlecalendar{:class => "span4 offset1"}
+      / This iFrame should load on $(document).ready only -- DONE
+      / TODO set default link to iFrame to a Page requesting google login for calendar. 
+      %iframe{:src => "/css/spinner.source.html", :width => "400", :height => "300", :frameborder => "0", :scrolling => "no"}
+    -# The Above needs logic to handle when user is not logged in so a javascript thing.    
+    %div{:class => "span4 offset1"}
+      %b{:class => "btn btn-large btn-success", :src => "/images/MP.jpg", :href => "/beaches"}!="#{t 'Home.air_quality_index'}"
+      %b{:class => "btn btn-large btn-success", :href => "/beaches"}!="#{t 'Home.beach_monitoring'}"
+      %br
+      %b{:class => "btn btn-large btn-success"}!="#{t 'Home.convocations'}"
+      %br
+      %b{:class => "btn btn-large btn-success"}!="#{t 'Home.contact_us'}"
+      %br
+    %aside
+      
+      %div{:class => "span 4"}   
+        #markdown= markdown(:'content/home')
+%footer
+  :javascript
+    $(document).ready(function(){
+      $('.carousel').carousel();
+      $('body').css({
+        "background":"url(../images/backgrounds/bg7.png) no-repeat center top",
+        "background-size":"100% 100%"  
+      });
+      setTimeout(function() {
+        $('#googlecalendar').html("<iframe frameborder='0' height='300' scrolling='no' src='https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico' width='400'></iframe>")
+      },3800);
+      setTimeout(function() {
+        $('body').css({
+          "background":"url(../images/backgrounds/bg5.png) no-repeat center top",
+          "background-size":"100% 100%"  
+        })
+      }, 2000)
+    });
+      

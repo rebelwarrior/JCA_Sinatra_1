@@ -1,0 +1,281 @@
+es:
+  hi: "&iexcl;Hola!"
+  nav:
+    home: "Inicio"
+    about_us: "Con&oacute;cenos"
+    dropdown-about:
+      about: "&iquest;Que es la JCA?"
+      history: "Historia de la JCA "
+      board: "Junta de Gobierno"
+      legal_office: "Asuntos Legales"
+      management: "Asuntos Gerenciales"
+      budget: "Of. de Presupuesto"
+      sec: "Of. de la Secretar&iacute;a"
+      sysops: "Of. de Inform&aacute;tica"
+      hr: "Recursos Humanos"
+    areas: "&Aacute;reas \"Programaticas\"" 
+    dropdown-areas:
+      water: "Calidad de Agua"
+      land: "Calidad de Terrenos"
+      air: "Calidad de Aire"
+      noise: "Control de Ruidos"
+      env911: "Emergencias Ambientales"
+      sci: "Asesoramiento Cient&iacute;fico"
+      lab: "Laboratorio Ambiental"
+      strategic: "Evaluaci&oacute;n y Planificaci&oacute;n Estrategica"
+    dropdown-education:
+      edu_institute: "Instituto de Educaci&oacute;n Ambiental"
+      library: "Bibiot&eacute;ca"
+    field_offices: "Officinas de Campo Regionales"
+    grievances: "Querellas Ambientales"
+    press_and_news: "Prensa y Noticias"
+    dropdown-press: 
+      press: "Comunicaci&oacute;n"
+      calendar: "Calendario de Vistas P&uacute;blicas"
+      important_affairs: "Asuntos Importantes"
+      auction_notices: "Avisos de Subastas"
+      grievance_reports: "Informe de Querellas"
+      env_reports: "Informes Ambientales"
+      resolutions: "Resoluciones"
+      presentations: "Presentaciones"
+    permits: "Permisos y Formularios"
+    dropdown-permits:
+      general: "Permisos Generales"
+      water: "Permisos de Agua"
+      air: "Permisos de Aire"
+      land: "Permisos de Terrenos"
+    laws_and_regulations: "Leyes y Reglamentos"
+    dropdown-laws:
+      proposed: "Enmiendas y Reglamentos Propuestos"
+      laws: "Leyes"
+      regulations: "Reglamentos"
+    anual_reports: "Documentos Anuales"
+  Areas:
+    areas: Areas
+    land: Terrenos
+    noise: Ruidos
+    lab: Lab.
+    water: Agua
+    sci: "Assesor. Cient&iacute;fico"
+    env911: Emrgen. Amb.
+    air: Aire
+  news: "Not&iacute;cias:"
+  Home:
+    beach_monitoring: "Monitoreo de Playas"
+    air_quality_index: "&Iacute;ndice de Calidad de Aire"
+    contact_us: "Cont&aacute;tanos"
+    convocations: "Convocatorias"
+  About:
+    about: "&iquest;Que es la JCA?"
+    history: "Historia de la JCA"
+    board: "Junta de Gobierno"
+    legal_office: "Oficina de Asuntos Legales"
+    management: "Oficina de Asuntos Gerenciales"
+    budget: "Oficina de Presupuesto"
+    sec: "Oficina de la Secretar&iacute;a"
+    sysops: "Sistemas"
+    hr: "Recursos Humanos"
+  BarraGubernamental:
+    online_services: "Servicios en L&iacute;nea"
+    agency_directory: "Directorio de Agencias"
+    municipality_directory: "Directorio de Municipios"  
+
+
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - "mi&eacute;"
+    - jue
+    - vie
+    - "s&aacute;b"
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - "mi&eacute;rcoles"
+    - jueves
+    - viernes
+    - "s&aacute;bado"
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: "alrededor de 1 año"
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: "casi 1 año"
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de %{count} años"
+      x_days:
+        one: 1 día
+        other: ! '%{count} días'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mes
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      confirmation: "no coincide con la confirmación"
+      empty: "no puede estar vacío"
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: "está reservado"
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: "no es válido"
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      not_a_number: "no es un número"
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      record_invalid: ! 'La validación falló: %{errors}'
+      taken: ya está en uso
+      too_long: es demasiado largo (%{count} caracteres máximo)
+      too_short: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+    template:
+      body: ! 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%n %u'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: millardo
+          million: "mill&oacute;n"
+          quadrillion: mil billones
+          thousand: mil
+          trillion: "bill&oacute;n"
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', y '
+      two_words_connector: ! ' y '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%A, %d de %B de %Y %H:%M:%S %z'
+      long: ! '%d de %B de %Y %H:%M'
+      short: ! '%d de %b %H:%M'
+    pm: pm
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors

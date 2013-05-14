@@ -1,0 +1,35 @@
+-# coding: UTF-8
+!!!5
+%html{:lang => "#{@lang}"}
+  %head
+    %meta{:charset => "UTF-8", :name => "Junta de Calidad Ambiental", :content => "text/html ", :'http-equiv' => "Content-Type"}
+    %title{:name => "Junta de Calidad Ambiental"}JCA - Junta de Calidad Ambiental
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %link{:href => "../bootstrap/css/bootstrap.css", :rel => "stylesheet", :media => "screen"}
+    %link{:href => "../bootstrap/css/bootstrap-responsive.css", :rel => "stylesheet", :media => "screen"}
+    %script{:src => "../jquery/jquery-1.9.1.min.js", :type => "text/javascript"}
+    / %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", :type => "text/javascript"}s
+    -# Javascript lo load local JQuery if CDN is unavailable (keep in-line)
+    / :javascript
+    /       window.$ || document.write('<script src="../js/jquery/jquery-1.9.1.min.js"><\/script>')
+    %script{:src => "../bootstrap/js/bootstrap.js", :type => "text/javascript"}
+    /[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]
+    -# Fav and touch icons
+    / %link{:rel => "shortcut icon", :href => "favicon.png"}
+    / %link{:rel => "apple-touch-icon-precomposed", :href => "57.png"}    
+  %body
+    -#pr.gov Top Bar
+    =haml :'partials/_pr_gov_topbar'  
+    %header.container.pagination-centered
+      %img#logo{:src => "../images/jca_logo.png", :alt => "Logo de la Junta de Calidad Ambiental", :height => "191px", :width => "967px"}
+    -#NAVBAR partial here::
+    =haml :'partials/_navbar'                               
+    .yielded
+      =yield
+    %footer.footer 
+      =haml :'partials/_footer_bar'   
+      / # Le Javascript: (JQuery & Bootstrap required at top due to inline js requirements.)
+      %script{:src => "../js/layout.js", :type => "text/javascript"}
+
+
+     

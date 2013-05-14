@@ -1,0 +1,130 @@
+%nav.topbar.container{:style => "width: 1100px;"}
+  %ul{:class => "nav nav-pills"}
+    %li
+      %a{:href => "home"}!="#{t 'nav.home'}"      
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href =>"#"}
+        !="#{t 'nav.about_us'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li 
+          %a{:href => "about"}!="#{t 'nav.dropdown-about.about'}" 
+        %li
+          %a{:href => "about#history"}!="#{t 'nav.dropdown-about.history'}"
+        %li
+          %a{:href => "about#board"}!="#{t 'nav.dropdown-about.board'}" 
+        %li
+          %a{:href => "about#legal_office"}!="#{t 'nav.dropdown-about.legal_office'}"
+        %li
+          %a{:href => "about#management"}!="#{t 'nav.dropdown-about.management'}"
+        %li
+          %a{:href => "about#budget"}!="#{t 'nav.dropdown-about.budget'}"
+        %li
+          %a{:href => "about#sec"}!="#{t 'nav.dropdown-about.sec'}"
+        %li
+          %a{:href => "about#sysops"}!="#{t 'nav.dropdown-about.sysops'}"
+        %li
+          %a{:href => "about#hr"}!="#{t 'nav.dropdown-about.hr'}"
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href =>"/areas"}
+        !="#{t 'nav.areas'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li 
+          %a{:href => "areas#water"}!="#{t 'nav.dropdown-areas.water'}"
+        %li 
+          %a{:href => "areas#land"}!="#{t 'nav.dropdown-areas.land'}"
+        %li 
+          %a{:href => "areas#air"}!="#{t 'nav.dropdown-areas.air'}"
+        %li 
+          %a{:href => "areas#noise"}!="#{t 'nav.dropdown-areas.noise'}"
+        %li 
+          %a{:href => "areas#env911"}!="#{t 'nav.dropdown-areas.env911'}"
+        %li 
+          %a{:href => "areas#sci"}!="#{t 'nav.dropdown-areas.sci'}"
+        %li 
+          %a{:href => "education#library"}!="#{t 'nav.dropdown-education.library'}"
+        %li 
+          %a{:href => "strategic"}!="#{t 'nav.dropdown-areas.strategic'}"
+        %li 
+          %a{:href => "education#eduinstitute"}!="#{t 'nav.dropdown-education.edu_institute'}"
+        %li 
+          %a{:href => "areas#lab"}!="#{t 'nav.dropdown-areas.lab'}"
+        %li 
+          %a{:href => "field_offices"}!="#{t 'nav.field_offices'}"
+        %li 
+          %a{:href => "grievances#"}!="#{t 'nav.grievances'}"
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
+        !="#{t 'nav.press_and_news'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "press"}!="#{t 'nav.dropdown-press.press'}"
+        %li 
+          %a{:href => "calendar"}!="#{t 'nav.dropdown-press.calendar'}"
+        %li 
+          %a{:href => "/pdfs/communications/important_affairs"}!="#{t 'nav.dropdown-press.important_affairs'}"
+        %li 
+          %a{:href => "#"}!="#{t 'nav.dropdown-press.auction_notices'}"
+        %li 
+          %a{:href => "/pdfs/communications/grievance_reports"}!="#{t 'nav.dropdown-press.grievance_reports'}"
+        %li 
+          /TODO: ADD HAML for this page /pdfs/communications/environmental_reports
+          %a{:href => "env_reports"}!="#{t 'nav.dropdown-press.env_reports'}"
+        %li 
+          %a{:href => "/pdfs/communications/resolutions"}!="#{t 'nav.dropdown-press.resolutions'}"
+        %li
+          %a{:href => "/pdfs/communications/presentations"}!="#{t 'nav.dropdown-press.presentations'}"
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
+        !="#{t 'nav.permits'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "/pdfs/permits/general"}!="#{t 'nav.dropdown-permits.general'}"
+        %li
+          %a{:href => "/pdfs/permits/water"}!="#{t 'nav.dropdown-permits.water'}"
+        %li
+          %a{:href => "/pdfs/permits/air"}!="#{t 'nav.dropdown-permits.air'}"
+        %li
+          %a{:href => "/pdfs/permits/land"}!="#{t 'nav.dropdown-permits.land'}"
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
+        !="#{t 'nav.laws_and_regulations'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "/pdfs/laws_and_regulations/proposed"}!="#{t 'nav.dropdown-laws.proposed'}"
+        %li
+          %a{:href => "/pdfs/laws_and_regulations/laws"}!="#{t 'nav.dropdown-laws.laws'}"
+        %li
+          %a{:href => "/pdfs/laws_and_regulations/regulations"}!="#{t 'nav.dropdown-laws.regulations'}"
+    %li{:class => "dropdown bar"} 
+      %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
+        !="#{t 'nav.anual_reports'}"
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "/pdfs/anual_reports"}!="#{t 'nav.anual_reports'}"
+        %li
+          %a{:href => "/pdfs/anual_reports/2013"}2013
+        %li 
+          %a{:href => "/pdfs/anual_reports"}2012
+        %li 
+          %a{:href => "#"}2012
+        %li 
+          %a{:href => "#"}2011
+        %li 
+          %a{:href => "#"}2010
+        %li 
+          %a{:href => "#"}2009
+        %li 
+          %a{:href => "#"}2008
+        %li
+          %a{:href => "#"}2007
+        %li
+          %a{:href => "#"}2006
+        %li
+          %a{:href => "#"}2005 
+  / End Top Menu

@@ -1,0 +1,109 @@
+pirate:
+  nav:
+    home: "Yo-ho-ho Talk like a Pirate day!"
+    about_us: "Dead men tell no tales!"
+    dropdown-about:
+      about: "We're Pirates! Arrg!"
+      history: "Go on Account"
+      board: "Matey or Me Hardy"
+      legal_office: "Articles"
+      management: "The Cap'n and First Mate"
+      budget: "No Prey, No Pay"
+      sec: "Arrrr!"
+      sysops: "Bunch of smart lads."
+      hr: "Jack Tar & Fine Lads"
+    areas: "Some places to plunder, matey." 
+    dropdown-areas:
+      water: "We prefer Rum, but 'tis water."
+      land: "Land Ho!"
+      air: "Air: We Breathe it, Aye!"
+      noise: "Cover your ears! Fire in the hole!"
+      env911: "Shiver me timbers!"
+      sci: "Keep a weathered eye open matey!"
+      lab: "I hear they make good Grog here"
+      strategic: "Cap'n sets the course, matey!"
+    dropdown-education:
+      edu_institute: "You know how to read, matey?"
+      library: "Books make good ballast, aye!"
+    field_offices: "Landlubbers, Yarrr!"
+    grievances: "Complaints? Arr! Walk the plank."
+    press_and_news: "News & Parley"
+    dropdown-press: 
+      press: "Parley"
+      calendar: "Marroned counting days"
+      important_affairs: "Rum and other important affairs"
+      auction_notices: "Auction Notices"
+      grievance_reports: "Reports of fish feedings."
+      env_reports: "Weather Reports, aye!"
+      resolutions: "No Quarter Given!"
+      presentations: "Shiver me timbers!"
+    permits: "Permits"
+    dropdown-permits:
+      general: "Boarding Permits"
+      water: "Sailing Permits"
+      air: "Flag Permits"
+      land: "Docking Permits"
+    laws_and_regulations: "Articles and suggestions"
+    dropdown-laws:
+      proposed: "Mutiny, me boy."
+      laws: "Articles"
+      regulations: "Regulations, Arrr, no such thing"
+    anual_reports: "X marks the spot"
+  BarraGubernamental:
+    online_services: "Online Services, Arr!"
+    agency_directory: "Gov. Agencies Directory, Matey!"
+    municipality_directory: "Directory of Municipalities, aye."
+
+  date:
+    abbr_day_names:
+    - Sun
+    - Moon
+    - Tiw
+    - Woden
+    - Thor
+    - Frey
+    - Sat.
+    abbr_month_names:
+    - 
+    - Jan.
+    - Feb.
+    - Mar.
+    - Apr.
+    - May
+    - Jun.
+    - Jul.
+    - Aug.
+    - Sep.
+    - Oct.
+    - Nov.
+    - Dec.
+    day_names:
+    - "Sun's Day, Matey"
+    - "Mooning day, lad"
+    - "Tiu's day, Arr!"
+    - "Woden's day, aye!"
+    - "Thor's day, Arr!"
+    - "Frey's day, aye!"
+    - "Saturday, oi vey!"
+    formats:
+      default: ! '%m/%d/%Y'
+      long: ! ' Speak like a pirate day %d of %B of %Y'
+      short: ! '%d of %b'
+    month_names:
+    - 
+    - "Janus, two-faced"
+    - February
+    - March in formation
+    - April showers
+    - May pole
+    - June bug
+    - July flame
+    - August of a secret heart
+    - September
+    - October
+    - November rain
+    - December
+    order:
+    - :month
+    - :day
+    - :year        

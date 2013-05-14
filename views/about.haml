@@ -1,0 +1,31 @@
+%link{:href => "../css/areas.css", :rel => "stylesheet"}
+%body
+  %div{:class => "container"}
+    .row
+      %div{:class => "span3 areas-sidebar hidden-phone"}
+        %div{:class => "contentbar navbar navbar-static", :id => "navbar_for_about", :'data-spy' => "affix", :'data-offset-top' => "250"}
+          %div{:class => "navbar-inner"}
+            .container
+            /    %a.brand{:href => "#internal-divisions"}Divisiones Internas:
+            %ul{:class => "nav nav-list areas-sidenav affix-top"}
+              %li.active
+                %a{:href => "#about"}!="#{t 'About.about'}"
+              %li
+                %a{:href => "#history"}!="#{t 'About.history'}"
+              %li
+                %a{:href => "#board"}!="#{t 'About.board'}"
+              %li
+                %a{:href => "#legal_office"}!="#{t 'About.legal_office'}"
+              %li
+                %a{:href => "#management"}!="#{t 'About.management'}"  
+              %li
+                %a{:href => "#budget"}!="#{t 'About.budget'}"
+              %li
+                %a{:href => "#sec"}!="#{t 'About.sec'}"
+              %li
+                %a{:href => "#sysops"}!="#{t 'About.sysops'}"
+              %li
+                %a{:href => "#hr"}!="#{t 'About.hr'}"  
+      %div{:class => "scrollspy span9", :'data-offset' => "0", :'data-target' =>"#navbar_for_about", :'data-spy' => "scroll"}
+        %div= markdown(:'content/about')
+        %div= markdown(:internal_divisions)

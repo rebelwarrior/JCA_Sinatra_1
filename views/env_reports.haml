@@ -1,0 +1,13 @@
+%body
+  .container
+    .span2.hidden-phone
+    .span10#markdowncontent= markdown(:'content/env_reports')
+  .containter
+    .span2.hidden-phone
+    .span10#pdfs_env_reports
+      %iframe{:src => "/css/spinner.source.html", :frameborder => "1", :scrolling => "no"}
+
+:javascript
+  $(document).ready(function(){
+    $('#pdfs_env_reports').html("<iframe frameborder='1' src='/pdfs/communications/environmental_reports' width=600></iframe>")
+  });  

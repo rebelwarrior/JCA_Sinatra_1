@@ -1,0 +1,135 @@
+en:
+  hi: "Hi!"
+  nav:
+    home: Home
+    about_us: About us
+    dropdown-about:
+      about: What is the Environmental Quality Board (JCA)?
+      history: History of the Environmental Quality Board
+      board: "Governing Board"
+      legal_office: "Legal Office"
+      management: "Management Office"
+      budget: "Budget & Finance Office"
+      sec: "Ofice of the Secretariat"
+      sysops: "Information Systems"
+      hr: "Human Resources"
+    areas: "Programatic Areas" 
+    dropdown-areas:
+      water: "Water Quality"
+      land: "Land Quality"
+      air: "Air Quality"
+      noise: "Noise Control"
+      env911: "Environmental Emergencies"
+      sci: "Environmental Impact Statements"
+      lab: "Environmental Laboratory"
+      strategic: "Strategic Planing"
+    dropdown-education:
+      edu_institute: "Educational Institute"
+      library: "Environmental Library"
+    field_offices: "Regional Offices"
+    grievances: "Environmental Proceedings??"
+    press_and_news: "News & Press"
+    dropdown-press: 
+      press: "Press"
+      calendar: "Calendar of Public Hearings"
+      important_issues: "Imporant Issues"
+      auction_notices: "Auction Notices"
+      grievance_reports: "Legal Proceedings Reports??"
+      env_reports: "Environmental Reports"
+      resolutions: "Resolutions"
+      presentations: "Presentations"
+    permits: "Permits"
+    dropdown-permits:
+      general: "General Permits"
+      water: "Water Permits"
+      air: "Air Permits"
+      land: "Land Permits"
+    laws_and_regulations: "Laws and Regulations"
+    dropdown-laws:
+      proposed: "Proposed Regulations and Ammendments"
+      laws: "Laws"
+      regulations: "Regulations"
+    anual_reports: "Anual Reports"
+  Areas:
+    areas: "Areas:"
+    land: Land
+    noise: Noise Control
+    lab: Env. Lab.
+    water: Water
+    sci: Env. Impact Reports
+    env911: Env. Emerg.
+    air: Air
+  news: 'News:'
+  Home:
+    beach_monitoring: "Beach Monitoring"
+    air_quality_index: "Air Quality Index"
+    contact_us: "Contact Us"
+    convocations: "Convocations"
+  About:
+    about: "What is the Environmental Quality Board (JCA)?"
+    history: "History of the Environmental Quality Board"
+    board: "Governing Board"
+    legal_office: "Office of Legal Affairs"
+    management: "Management Office"
+    budget: "Budget Office"
+    sec: "Secretariat Office"
+    sysops: "Systems"
+    hr: "Human Resources"
+  BarraGubernamental:
+    online_services: "Online Services"
+    agency_directory: "Gov. Agencies Directory"
+    municipality_directory: "Directory of Municipalities"
+
+  date:
+    abbr_day_names:
+    - Sun.
+    - Mon.
+    - Tue.
+    - Wed.
+    - Thu.
+    - Fri.
+    - Sat.
+    abbr_month_names:
+    - 
+    - Jan.
+    - Feb.
+    - Mar.
+    - Apr.
+    - May
+    - Jun.
+    - Jul.
+    - Aug.
+    - Sep.
+    - Oct.
+    - Nov.
+    - Dec.
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: ! '%m/%d/%Y'
+      long: ! ' day %d of %B of %Y'
+      short: ! '%d of %b'
+    month_names:
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :month
+    - :day
+    - :year    

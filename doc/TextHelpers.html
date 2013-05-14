@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module TextHelpers - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-accents_to_html">#accents_to_html</a>
+    
+    <li><a href="#method-i-dir_listing">#dir_listing</a>
+    
+    <li><a href="#method-i-haml_force_encoding">#haml_force_encoding</a>
+    
+    <li><a href="#method-i-sanitize">#sanitize</a>
+    
+    <li><a href="#method-i-t">#t</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./public/images/icons/glyphish-icons/00-Read me first - license_txt.html">00-Read me first - license</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CalendarOfPublicHearings.html">CalendarOfPublicHearings</a>
+  
+    <li><a href="./CreatePdfResources.html">CreatePdfResources</a>
+  
+    <li><a href="./JCA_Sinatra.html">JCA_Sinatra</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./PDFResource.html">PDFResource</a>
+  
+    <li><a href="./TextHelpers.html">TextHelpers</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module TextHelpers</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-accents_to_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accents_to_html</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="accents_to_html-source">
+            <pre><span class="ruby-comment"># File lib/helper.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accents_to_html</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">prob_chars</span> = <span class="ruby-node">%w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ &amp; ´]</span>
+  <span class="ruby-identifier">html_codes</span> = {
+    <span class="ruby-string">'á'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;aacute;&quot;</span>,
+    <span class="ruby-string">'é'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;eacute;&quot;</span>,
+    <span class="ruby-string">'í'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;iacute;&quot;</span>,
+    <span class="ruby-string">'ó'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;oacute;&quot;</span>,
+    <span class="ruby-string">'ú'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;uacute;&quot;</span>,
+    <span class="ruby-string">'Á'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Aacute;&quot;</span>,
+    <span class="ruby-string">'É'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Eacute;&quot;</span>,
+    <span class="ruby-string">'Í'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Iacute;&quot;</span>,
+    <span class="ruby-string">'Ó'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Oacute;&quot;</span>,
+    <span class="ruby-string">'Ú'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Uacute;&quot;</span>,
+    <span class="ruby-string">'ü'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;uuml;&quot;</span>,
+    <span class="ruby-string">'Ü'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Uuml;&quot;</span>,
+    <span class="ruby-string">'ñ'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;ntilde;&quot;</span>,
+    <span class="ruby-string">'Ñ'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;Ntilde;&quot;</span>,
+    <span class="ruby-string">'¿'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;iquest;&quot;</span>,
+    <span class="ruby-string">'¡'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;iexcl;&quot;</span>,
+    <span class="ruby-string">'&quot;'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'\&quot;'</span>,
+    <span class="ruby-string">'´'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'&amp;yacute;'</span>,
+    <span class="ruby-string">'&amp;'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&amp;amp;&quot;</span>    
+  }      
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>  
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prob_chars</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>)
+      <span class="ruby-identifier">html_codes</span>[<span class="ruby-identifier">c</span>]
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">ascii_only?</span>
+      <span class="ruby-identifier">c</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Strage Character Encoding&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+ <span class="ruby-identifier">result</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">''</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- accents_to_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- accents_to_html-method -->
+
+    
+      <div id="method-i-dir_listing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dir_listing</span><span
+            class="method-args">(path)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dir_listing-source">
+            <pre><span class="ruby-comment"># File lib/helper.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dir_listing</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dir_listing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dir_listing-method -->
+
+    
+      <div id="method-i-haml_force_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">haml_force_encoding</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="haml_force_encoding-source">
+            <pre><span class="ruby-comment"># File lib/helper.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">haml_force_encoding</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;ASCII-8BIT&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- haml_force_encoding-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- haml_force_encoding-method -->
+
+    
+      <div id="method-i-sanitize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sanitize</span><span
+            class="method-args">(txt)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sanitize-source">
+            <pre><span class="ruby-comment"># File lib/helper.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sanitize</span>(<span class="ruby-identifier">txt</span>)
+  <span class="ruby-identifier">txt</span> = <span class="ruby-identifier">txt</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">''</span>).<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[a-z]|[0-9]/</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">''</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sanitize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sanitize-method -->
+
+    
+      <div id="method-i-t" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">t</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="t-source">
+            <pre><span class="ruby-comment"># File lib/helper.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">t</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Just a simple alias</span>
+  <span class="ruby-comment"># Might want to do some processing here later to do nav.home to nav_home work.</span>
+  <span class="ruby-identifier">haml_force_encoding</span>(<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(*<span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- t-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- t-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,26 @@
+%link{:href => "../css/areas.css", :rel => "stylesheet"}
+%body
+  %div{:class => "container"}
+    .row
+      %div{:class => "span2 areas-sidebar hidden-phone"}
+        %div{:class => "contentbar navbar navbar-static", :id => "navbar_for_areas", :'data-spy' => "affix", :'data-offset-top' => "250"}
+          %div{:class => "navbar-inner"}
+            .container
+              %a.brand{:href => "#"}!="#{t 'Areas.areas'}"
+            %ul{:class => "nav nav-list areas-sidenav affix-top"}
+              %li
+                %a{:href => "#land"}!="#{t 'Areas.land'}"
+              %li
+                %a{:href => "#noise"}!="#{t 'Areas.noise'}"
+              %li
+                %a{:href => "#lab"}!="#{t 'Areas.lab'}"
+              %li
+                %a{:href => "#water"}!="#{t 'Areas.water'}"
+              %li
+                %a{:href => "#sci"}!="#{t 'Areas.sci'}"
+              %li
+                %a{:href => "#env911"}!="#{t 'Areas.env911'}"
+              %li
+                %a{:href => "#air"}!="#{t 'Areas.air'}"  
+      %div#spyon{:class => "span10", :'data-offset' => "0", :'data-target' =>"#navbar_for_areas", :'data-spy' => "scroll"}= markdown(:'content/areas')
+ 

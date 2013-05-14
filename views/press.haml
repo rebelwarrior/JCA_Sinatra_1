@@ -1,0 +1,26 @@
+-# coding: UTF-8
+%link{:href => "../css/areas.css", :rel => "stylesheet"}
+%body{:height => "100%"}
+  .container
+    .span2.hidden-phone
+    %section.span10= markdown(:'content/press')
+  .container
+    .row
+      .span3.hidden-phone
+        %nav{:class => "contentbar navbar navbar-static", :id => "navbar_for_news", :'data-spy' => "affix", :'data-offset-top' => "#{@sidebar_offset_num + 110}"}
+          %div{:class => "navbar-inner"}
+            .container
+              %a.brand{:href => "#"}!="#{t 'news'}"
+            %nav{:class => "nav nav-list areas-sidenav affix-top"}
+              -@press_title_list.reverse.take(10).each do |title|
+                %li
+                  %a{:href => "##{sanitize(title)}"}#{title} 
+      %section.span9#spyon{:'data-spy' => "scroll", :'data-offset' => "0"}
+        -acc = @press_title_list.size
+        -@file_list.reverse.each do |file|
+          %article{:id => "#{sanitize(@press_title_list.at(acc - 1))}"}=markdown(:"../public/press/#{file}")
+          -acc -= 1
+          %hr
+      / 
+
+

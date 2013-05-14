@@ -1,0 +1,18 @@
+-#slideshow
+#myCarousel{:class => "carousel slide", :style => "max-width: 768px; float:right;"}
+  %ol{:class => "carousel-indicators"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "0", :class => "active"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "1"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "2"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "3"}
+  /Carousel items 
+  %div{:class => "carousel-inner", :style => "width: auto;"}
+    -num_images = @file_list.size
+    -@file_list.reverse.each do |file|
+      -item_class = (num_images == @file_list.size ? "active item" : "item")
+      -num_images -= 1
+      %div{:class => "#{item_class} CarouselImg"}
+        %img{:src => "../#{file}", :alt => "Imagen #{num_images + 1} del Slideshow"}
+  /Carousel nav 
+  %a{:class => "carousel-control left", :href => "#myCarousel", :'data-slide' => "prev"}!="&lsaquo;"
+  %a{:class => "carousel-control right", :href => "#myCarousel", :'data-slide' => "next"}!="&rsaquo;"

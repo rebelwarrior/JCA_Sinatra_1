@@ -1,0 +1,15 @@
+Tue, 07 May 2013 12:57:13 -0400
+./app/main.rb	Mon, 29 Apr 2013 15:37:55 -0400
+./app/models.rb	Thu, 21 Mar 2013 14:10:18 -0400
+./app/webp.rb	Wed, 24 Apr 2013 16:07:19 -0400
+./db/migrate/20130318153442_create_pdf_resources.rb	Mon, 18 Mar 2013 14:26:04 -0400
+./features/step_definitions/_language.rb	Tue, 07 May 2013 10:11:41 -0400
+./features/step_definitions/_news.rb	Tue, 07 May 2013 10:03:31 -0400
+./Gemfile	Tue, 07 May 2013 09:51:21 -0400
+./lib/calendar_logic.rb	Thu, 21 Mar 2013 15:07:13 -0400
+./lib/helper.rb	Fri, 26 Apr 2013 16:05:47 -0400
+./lib/i18n_preprocess.rb	Mon, 01 Apr 2013 09:24:54 -0400
+./lib/sintara_helper.rb	Tue, 09 Apr 2013 12:47:47 -0400
+./public/images/icons/glyphish-icons/00-Read me first - license.txt	Wed, 28 Jul 2010 10:20:56 -0400
+./Rakefile	Tue, 07 May 2013 09:49:38 -0400
+./spec/rspec.rb	Tue, 02 Apr 2013 10:37:55 -0400

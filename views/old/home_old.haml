@@ -1,0 +1,65 @@
+-# %script{:src => "../jquery_ui/jquery-ui-1.10.2.custom.min.js", :type => "text/javascript"}
+-# %script{:src => "../jquery_ui/jquery.ui.datepicker-es.js", :type => "text/javascript"}
+-# %link{:href => "../jquery_ui/css/south-street/jquery-ui-1.10.2.custom.min.css", :rel => "stylesheet", :media => "screen"}
+-# %script{:type => "text/javascript", :src => "../coffee/coffee-script.js"}
+-# %script{:type => "text/coffeescript", :src => "../coffee/datepicker.coffee"}
+-# $(document).ready(function(){ 
+-#   $('div#date').datepicker()
+-# });
+
+
+%link{:href => "../css/ResponsiveSlides.css", :rel => "stylesheet", :media => "screen"}
+%body    
+  / Slide Show
+  .row-fluid
+    %div{:class => "span12"}
+      .row-fluid
+        %div{:class => "span9"}
+          #slideshow
+            %ul.rslides
+              %li 
+                %img{:src => "../images/slideshow/CICAAE.jpg", :alt => "Imagen 1 del Slideshow"}
+              %li
+                %img{:src => "../images/slideshow/gomas.jpg", :alt => "Imagen 2 del Slideshow"}
+              %li
+                %img{:src => "../images/slideshow/CleanDiesel.jpg", :alt => "Imagen 3 del Slideshow"}
+              %li
+                %img{:src => "../images/slideshow/CleanWatershedLogo2012.jpg", :alt => "Imagen 4 del Slideshow"}
+        %div{:class => "span3"}
+          %a{:href => "/airquality"}
+            %img{:src => "/images/ICA.jpg", :alt => "Indice de Calidad de Aire"}
+          %a{:href => "/beaches"}
+            %img{:src => "/images/MP.jpg", :alt => "Monitoria de las Playas"}
+          %br         
+  .row-fluid  
+    %div{:class => "span4 offset1"}
+      %iframe{:src => "https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTz=0&amp;height=300&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=juntacalidadambientalcalendar%40gmail.com&amp;color=%23125A12&amp;ctz=America%2FPuerto_Rico", :style => " border:solid 1px #777 ", :width => "400", :height => "300", :frameborder => "0", :scrolling => "no"}
+    -# The Above needs logic to handle when user is not logged in so a javascript thing.    
+    %div{:class => "span4 offset1"}
+      %b{:class => "btn btn-large btn-success", :src => "/images/MP.jpg", :href => "/beaches"}Indice de Calidad del Aire
+      %b{:class => "btn btn-large btn-success", :href => "/beaches"}Monitoreo de Playas
+      %br
+      %b{:class => "btn btn-large btn-success"}Convocatorias
+      %br
+      %b{:class => "btn btn-large btn-success"} Contactenos
+      %br
+    %aside
+      
+      %div{:class => "span 4"}   
+        #markdown= markdown(:home)
+%footer
+  / Javascript for SlideShow
+  %script{:type => "text/javascript", :src => "../js/ResponsiveSlides.js"}
+    :javascript
+      $(document).ready(function(){ 
+        $(".rslides").responsiveSlides({
+          pager : false,
+        });
+      });
+  :css
+    body {
+      background:url(../images/backgrounds/bg3.png) no-repeat center top;       
+    } 
+    header {
+      opacity: 0.9;
+    }    

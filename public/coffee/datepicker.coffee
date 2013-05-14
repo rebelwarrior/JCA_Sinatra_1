@@ -1,0 +1,1 @@
+$('div#date').datepicker({numberOfMonths : [1, 0]})

@@ -1,0 +1,18 @@
+-#%body#markdown= markdown(:education)
+%link{:href => "../css/areas.css", :rel => "stylesheet"}
+%body
+  %div{:class => "container"}
+    .row
+      %div{:class => "span2 areas-sidebar hidden-phone"}
+        %div{:class => "contentbar navbar navbar-static", :id => "navbar_for_page", :'data-spy' => "affix", :'data-offset-top' => "250"}
+          %div{:class => "navbar-inner"}
+            .container
+              / %a.brand{:href => "#"}Educacion:
+            %ul{:class => "nav nav-list areas-sidenav affix-top"}
+              %li
+                %a{:href => "#library"}Biblioteca
+              %li
+                %a{:href => "#eduinstitute"}IdEA
+      .span10#markdowncontent{:class => "scrollspy", :'data-offset' => "0", :'data-target' =>"#navbar_for_page", :'data-spy' => "scroll"}= markdown(:'content/education')
+:javascript
+  $('#navbar_for_page').scrollspy();

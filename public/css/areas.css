@@ -1,0 +1,54 @@
+body > .navbar {
+  width: auto;
+}
+body > .navbar .brand {
+  float: right;
+  padding-right: 0;
+  padding-left: 0;
+}
+#navbar_for_areas {
+  top: 0px;
+  max-width: 105px; 
+}
+#navbar_for_page {
+  top: 0px;
+  max-width: 105px; 
+}
+#navbar_for_about {
+  top: 0px;
+  max-width: 165px; 
+  min-width: 155px;
+}
+#navbar_for_news {
+  top: 0px;
+  max-width: 165px;
+  min-width: 155px; 
+  overflow: hide;
+}
+.barraAgencial {
+  background: #141414;
+  /* font-size: 13px; */
+  font-weight: bold;
+  height: 40px;
+  margin: 0;
+/*  body{padding-top:41px !important;}.barraAgencial{background:#141414; 
+  font-size:13px; font-weight:bold; width:100%; position:fixed; top:0; }.barContainer{width:980px; 
+  height:40px; margin:0 auto; }.logos{width:162px; float:left;}.enlaces{float:right; width:500px; 
+  margin:0; padding:0; text-align:right; line-height:42px;}.enlaces li{display:inline-block; 
+  font-family:Arial, Helvetica, sans-serif; padding:0 10px;}.barraAgencial a:link, .barraAgencial a:visited{ color:#FFF; 
+  text-decoration:none;}*/
+}
+
+
+body {
+  background: -webkit-gradient(linear, 0%, 0%, 0%, 100%, from (rgb(146, 224, 181), to(#C2D19B)); 
+  background: -moz-linear-gradient(19%, 75% 90deg, rgb(146, 224, 181), #C2D19B);
+  background: linear-gradient(rgb(146, 224, 181), #C2D19B);
+}
+.topbar {
+  background-color:honeydew;
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  border-radius: 10px;
+/*  max-width: 1100px;*/
+}
