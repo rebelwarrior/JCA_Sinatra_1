@@ -1,3 +1,6 @@
+# Decided to use Exchange's calendar instead on next iteration.
+
+=begin
 require 'google/api_client'
 client = Google::APIClient.new
 plus = client.discovered_api('plus')
@@ -23,3 +26,4 @@ result = client.execute(
 )
 
 puts result.data
+=end

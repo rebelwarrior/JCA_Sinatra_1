@@ -2,15 +2,12 @@
 # encoding: utf-8
 
 require 'sinatra'
-# require 'active_record'
-# require 'sinatra/activerecord'
+# %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 require 'haml'
 require 'rdiscount' #markdown
 require 'i18n' #internationalization (i18n)
 # require 'i18n/backend/fallbacks' #doesn't seem needed.
-
-
-# require './app/models' 
+ 
 require './lib/helper'
 
 # require 'gon-sinatra'
@@ -40,11 +37,11 @@ class JCA_Sinatra < Sinatra::Base
   end
   
 
-###BEFORE ALL##
+###BEFORE ALL###
   before('/:locale/*') do 
     #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).
-    #This prevents requests made to translations that don't exist from pure urls. 
-    I18n.locale  = params[:locale] if %[es en].include?(params[:locale]) 
+    I18n.locale  = params[:locale] if %[es en].include?(params[:locale])
+    #prevents requests from pure urls for translations that don't exist.  
     I18n.locale = params[:locale] if (params[:locale] == 'pirate') and (Date.today.mday == 13 and Date.today.month == 9) 
     request.path_info = '/' + params[:splat][0]
   end

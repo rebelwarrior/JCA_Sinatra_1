@@ -8,7 +8,7 @@ gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
 
 # For Models:
-# gem 'sqlite3'
+# gem 'sqlite3' #gem 'pg'
 # gem 'activerecord'
 # gem 'sinatra-activerecord'
 
