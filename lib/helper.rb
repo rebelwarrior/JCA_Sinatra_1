@@ -1,7 +1,7 @@
 # encoding: utf-8
 module TextHelpers
   def accents_to_html(text)
-    prob_chars = %w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ & ´]
+    prob_chars = %w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ ´]
     html_codes = {
       'á' => "&aacute;",
       'é' => "&eacute;",
@@ -20,8 +20,7 @@ module TextHelpers
       '¿' => "&iquest;",
       '¡' => "&iexcl;",
       '"' => '\"',
-      '´' => '&yacute;',
-      '&' => "&amp;"    
+      '´' => '&yacute;'   
     }      
     result = text.chars.map do |c|  
       if prob_chars.include?(c)
@@ -48,7 +47,7 @@ module TextHelpers
   end
   
   def t(*args)
-    # Just a simple alias
+    # Calls the I18n translation w/ forced ecoding (a not so simple alias)
     # Might want to do some processing here later to do nav.home to nav_home work.
     haml_force_encoding(I18n.t(*args))
   end

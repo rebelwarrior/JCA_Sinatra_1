@@ -1,5 +1,6 @@
 es:
   hi: "&iexcl;Hola!"
+  available_options: "Opciones Disponibles:"
   nav:
     home: "Inicio"
     about_us: "Con&oacute;cenos"
@@ -137,29 +138,29 @@ es:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: alrededor de 1 hora
+        one: alrededor de una hora
         other: alrededor de %{count} horas
       about_x_months:
-        one: alrededor de 1 mes
+        one: alrededor de un mes
         other: alrededor de %{count} meses
       about_x_years:
-        one: "alrededor de 1 año"
+        one: "alrededor de un año"
         other: alrededor de %{count} años
       almost_x_years:
-        one: "casi 1 año"
+        one: "casi un año"
         other: casi %{count} años
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: menos de 1 minuto
+        one: menos de un minuto
         other: menos de %{count} minutos
       less_than_x_seconds:
-        one: menos de 1 segundo
+        one: menos de un segundo
         other: menos de %{count} segundos
       over_x_years:
-        one: "más de 1 año"
+        one: "más de un año"
         other: "más de %{count} años"
       x_days:
-        one: 1 día
+        one: un día
         other: ! '%{count} días'
       x_minutes:
         one: 1 minuto

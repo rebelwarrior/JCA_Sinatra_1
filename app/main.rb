@@ -1,23 +1,16 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-require 'sinatra'
-# %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
-require 'haml'
-require 'rdiscount' #markdown
-require 'i18n' #internationalization (i18n)
+%w[sinatra haml rdiscount i18n ./lib/helper].each do |gem| require gem end
 # require 'i18n/backend/fallbacks' #doesn't seem needed.
- 
-require './lib/helper'
-
-# require 'gon-sinatra'
-require 'sinatra/simple-navigation'
+# require 'sinatra/simple-navigation' #for breadcrumbs
+# %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
 ##Main Sinatra Class##
 class JCA_Sinatra < Sinatra::Base
-  ## Register the Module in the helper file and other helper modules
+  ## Register the helper Module in the helper files.
   # register Gon::Sinatra
-  register Sinatra::SimpleNavigation
+  # register Sinatra::SimpleNavigation
   helpers TextHelpers 
   
   configure do
@@ -33,11 +26,12 @@ class JCA_Sinatra < Sinatra::Base
     I18n.backend.load_translations
   end
   configure :production, :development do
-    # enable :logging
+    enable :logging
   end
   
 
 ###BEFORE ALL###
+  #Sets the correct Language for the page.
   before('/:locale/*') do 
     #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).
     I18n.locale  = params[:locale] if %[es en].include?(params[:locale])
@@ -55,17 +49,14 @@ class JCA_Sinatra < Sinatra::Base
   
     
 ###ROUTING###  
-  get '/', :agent => /iPhone|iPad/ do
-    puts "Hello Sinatra for iPhone or iPad"
+  get '/', :agent => /iPhone|Android|iPad/ do
+    puts "Hello Sinatra #{request.ip}"
     logger.info "iPhone or iPad agent request"
-    redirect :home
+    redirect to('/es/home')
   end
   
   get '/' do
     puts "Hello Sinatra #{request.ip}"
-    # puts "I18n Locale is #{I18n.locale}"
-    # puts Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml').to_s]
-    # redirect to('/home?locale=es')
     redirect to('/es/home')
   end  
 
@@ -75,16 +66,12 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/home' do
     Dir.chdir('public') do
-      #TODO: Press and Home use similar code must DRY
       #Note: the Dir.glob will return nil if not specified correctly.
       @file_list = Dir.glob('images/slideshow/*.*').sort.select do |f| 
         match = f.match(/(.*)\.(png|jpg)/)
         match = match.captures.at(0) unless match.nil?
       end
     end
-    # Dir.chdir('public') do
-    #   @file_list = dir_file_name_match('images/slideshow/*.*', /(.*)\.(png|jpg)/)
-    # end
     haml :home
   end
   
@@ -94,9 +81,7 @@ class JCA_Sinatra < Sinatra::Base
   
   ## Press News ##
   get '/press' do
-    set :haml, :default_encoding => "UTF-8"
-    #Creates an array of file names for submenu 
-    #TODO write an rspec for this
+    # set :haml, :default_encoding => "UTF-8"
     Dir.chdir('public/press') do
       @press_title_list = Dir.glob('*.md').sort.map do |f|
         haml_force_encoding(f.match(/^[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0))
@@ -134,9 +119,9 @@ class JCA_Sinatra < Sinatra::Base
     haml :env_reports
   end
   
-  get '/info' do
-    erb markdown(:'internal_divisions_page'), :layout => "top_menu_layout"
-  end
+  # get '/info' do
+  #   erb markdown(:'internal_divisions_page'), :layout => "top_menu_layout"
+  # end
     
   get '/mobile' do #separate this to a different app (w/ different views folder)
     if (request.user_agent =~ /iPhone|Android|iPad/i) or (settings.environment == :development)
@@ -146,37 +131,39 @@ class JCA_Sinatra < Sinatra::Base
     end
   end
 
-  ## FTP Directory for File ##
-  ## Server routes /pdfs via Rack::Directory.new in ../config.ru
+  ### FTP Directory for File ###
   get '/home/pdfs' do
+    ## Server routes /pdfs via Rack::Directory.new in ../config.ru
     #Mabye create a JS file that calls the html of the rack application and joins it to a body tag?
     redirect :pdfs
   end
 
 
   ## Calendar ##
-  get '/calendar' do
-    # include_gon
-    #https://www.googleapis.com/calendar/v3/users/userID/lists?parameters
-    #get /calendars/calendarId get /users/me/calendarList/calendarId
-    user_key = ENV['GOOGLE_API']
-    user_id = ENV['GOOGLE_ID']
-    parameters = "key=#{user_key}"
-    google_cal_list_resource_path ="https://www.googleapis.com/calendar/v3/users/#{user_id}/calendarList"
-    google_cal_colors_resource_path = "https://www.googleapis.com/calendar/v3/colors"
-    # gon.calendar_list = "#{google_cal_list_resource_path}?#{parameters}"
-    # gon.calendar_colors = "#{google_cal_colors_resource_path}?#{parameters}"
-    haml :calendar
-  end
+  # get '/calendar' do
+  #   # include_gon
+  #   #https://www.googleapis.com/calendar/v3/users/userID/lists?parameters
+  #   #get /calendars/calendarId get /users/me/calendarList/calendarId
+  #   user_key = ENV['GOOGLE_API']
+  #   user_id = ENV['GOOGLE_ID']
+  #   parameters = "key=#{user_key}"
+  #   google_cal_list_resource_path ="https://www.googleapis.com/calendar/v3/users/#{user_id}/calendarList"
+  #   google_cal_colors_resource_path = "https://www.googleapis.com/calendar/v3/colors"
+  #   # gon.calendar_list = "#{google_cal_list_resource_path}?#{parameters}"
+  #   # gon.calendar_colors = "#{google_cal_colors_resource_path}?#{parameters}"
+  #   haml :calendar
+  # end
   
   get '/admin' do
     request.secure? ? nil : not_found #separate this to a different app.
   end
   
   ### Accesibility to Text ###
-  get '/helping/:content' do
-    sanitize(params[:content])
-  end
+  # get '/helping/:content' do
+  #     sanitize(params[:content])
+  #   end
+  
+  ### Accesibility to Text ###
   
   get %r{/([\w]+)\.[txt|md]} do
     content_type :plain
@@ -195,7 +182,7 @@ class JCA_Sinatra < Sinatra::Base
     elsif File.exists?("views/#{path4txt}.md")
       File.read("views/#{path4txt}.md") 
     elsif path4txt =~ /\w/i
-      txt_output = "Opciones Disponibles: \n"
+      txt_output = "Opciones Disponibles: \n" #TODO INTERNATIONALIZE
       Dir.chdir('views') do
         Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
       end
