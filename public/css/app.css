@@ -1,0 +1,51 @@
+/*app.css*/
+body > .navbar {
+  width: auto;
+}
+body > .navbar .brand {
+  float: right;
+  padding-right: 0;
+  padding-left: 0;
+}
+#navbar_for_areas {
+  top: 0px;
+  max-width: 105px; 
+}
+#navbar_for_page {
+  top: 0px;
+  max-width: 105px; 
+}
+#navbar_for_about {
+  top: 0px;
+  max-width: 165px; 
+  min-width: 155px;
+}
+#navbar_for_news {
+  top: 0px;
+  max-width: 165px;
+  min-width: 155px; 
+  overflow: hide;
+}
+.barraAgencial {
+  background: #141414;
+  /* font-size: 13px; */
+  font-weight: bold;
+  height: 40px;
+  margin: 0;
+}
+
+body {
+  background: -webkit-gradient(linear, 0%, 0%, 0%, 100%, from (rgba(0, 183, 74, 0.50), to(#66CC99)); 
+  background: -moz-linear-gradient(19%, 75% 90deg, rgba(0, 183, 74, 0.50), #66CC99);
+  background: linear-gradient(rgba(0, 183, 74, 0.50), #66CC99);
+}
+.topbar {
+  background-color:honeydew;
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  border-radius: 10px;
+/*  max-width: 1100px;*/
+}
+header {
+  opacity: 0.9;
+}

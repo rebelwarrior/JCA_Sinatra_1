@@ -21,6 +21,7 @@ group :development do
   gem 'shotgun'
   gem 'thin'
   gem 'localeapp', require: false 
+  gem 'puma', require: false
 end
 
 group :production do

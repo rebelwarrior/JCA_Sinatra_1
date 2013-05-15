@@ -4,7 +4,7 @@
 ## Load Required Gems ##
 
 %w[sinatra haml rdiscount i18n ./lib/helper].each do |gem| require gem end
-# require 'i18n/backend/fallbacks' #doesn't seem needed.
+require 'i18n/backend/fallbacks' #doesn't seem needed.
 # require 'sinatra/simple-navigation' #for breadcrumbs
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
@@ -14,9 +14,7 @@ class JCA_Sinatra < Sinatra::Base
   # register Gon::Sinatra
   # register Sinatra::SimpleNavigation
   helpers TextHelpers 
-  
-  
-  
+
   
   configure do
     set :views, File.dirname(__FILE__) + '/../views'
@@ -182,10 +180,11 @@ class JCA_Sinatra < Sinatra::Base
   
   not_found do
     #TODO INTERNATIONALIZE
-    @panda_msg = "Error 404: &iexcl;Que no Panda el C&uacute;nico!"
-    @fourOhfour_msg = "Disculpe, no encontramos la p&aacute;gina buscada."
-    @panda_msg + "<br>" + @error_msg
-    # haml :404, :layout => :'layouts/errors'
+    # @panda_msg = "Error 404: &iexcl;Que no Panda el C&uacute;nico!"
+    # @fourOhfour_msg = "Disculpe, no encontramos la p&aacute;gina buscada."
+    # @panda_msg + "<br>" + @fourOhfour_msg
+    haml :'404'  #, :layout => :'layouts/errors'
+    # erb :'404'
   end
   
 end

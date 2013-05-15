@@ -1,25 +1,7 @@
 :css
-  header {
+  /*header {
     opacity: 0.9;
-  }
-  /*Must consolidate .topbar and .barraAgencial!!!*/
-  .topbar {
-    background-color:honeydew;
-    -webkit-border-radius: 10px; 
-    -moz-border-radius: 10px; 
-    border-radius: 10px;
-  }
-  .barraAgencial {
-    background: #141414;
-    font-size: 13px;
-    font-weight: bold;
-    height: 40px;
-  }
-  ul.enlaces {
-    float: right;
-    text-align: right;
-  /*  width: 500px;*/
-  }
+  }*/
   iframe {
     border:solid 1px #777;
   }
@@ -45,7 +27,6 @@
   .row-fluid
     %br
     #googlecalendar{:class => "span4 offset1"}
-      / This iFrame should load on $(document).ready only -- DONE
       / TODO set default link to iFrame to a Page requesting google login for calendar. 
       %iframe{:src => "/css/spinner.source.html", :width => "400", :height => "300", :frameborder => "0", :scrolling => "no"}
     -# The Above needs logic to handle when user is not logged in so a javascript thing.    
@@ -62,21 +43,5 @@
       %div{:class => "span 4"}   
         #markdown= markdown(:'content/home')
 %footer
-  :javascript
-    $(document).ready(function(){
-      $('.carousel').carousel();
-      $('body').css({
-        "background":"url(../images/backgrounds/bg7.png) no-repeat center top",
-        "background-size":"100% 100%"  
-      });
-      setTimeout(function() {
-        $('#googlecalendar').html("<iframe frameborder='0' height='300' scrolling='no' src='https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico' width='400'></iframe>")
-      },3800);
-      setTimeout(function() {
-        $('body').css({
-          "background":"url(../images/backgrounds/bg5.png) no-repeat center top",
-          "background-size":"100% 100%"  
-        })
-      }, 2000)
-    });
+
       

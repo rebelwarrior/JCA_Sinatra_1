@@ -1,5 +1,4 @@
--#%body#markdown= markdown(:field_offices)
-%link{:href => "../css/areas.css", :rel => "stylesheet"}
+-#%link{:href => "../css/areas.css", :rel => "stylesheet"}
 %body
   %div{:class => "container"}
     .row
@@ -20,5 +19,3 @@
               %li
                 %a{:href => "#ponce"}Ponce 
       .span10#markdowncontent{:class => "scrollspy", :'data-offset' => "0", :'data-target' =>"#navbar_for_page", :'data-spy' => "scroll"}= markdown(:'conent/field_offices')
-:javascript
-  //$('#navbar_for_page').scrollspy();
