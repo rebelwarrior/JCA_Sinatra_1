@@ -1,6 +1,8 @@
 es:
   hi: "&iexcl;Hola!"
   available_options: "Opciones Disponibles:"
+  dont_panic: "&iexcl;Que no Panda el C&uacute;nico!"
+  error404: "Error 404: Disculpe, no encontramos la p&aacute;gina buscada."
   nav:
     home: "Inicio"
     about_us: "Con&oacute;cenos"
@@ -33,7 +35,7 @@ es:
     dropdown-press: 
       press: "Comunicaci&oacute;n"
       calendar: "Calendario de Vistas P&uacute;blicas"
-      important_affairs: "Asuntos Importantes"
+      important_issues: "Asuntos Importantes"
       auction_notices: "Avisos de Subastas"
       grievance_reports: "Informe de Querellas"
       env_reports: "Informes Ambientales"

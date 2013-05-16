@@ -180,11 +180,7 @@ class JCA_Sinatra < Sinatra::Base
   
   not_found do
     #TODO INTERNATIONALIZE
-    # @panda_msg = "Error 404: &iexcl;Que no Panda el C&uacute;nico!"
-    # @fourOhfour_msg = "Disculpe, no encontramos la p&aacute;gina buscada."
-    # @panda_msg + "<br>" + @fourOhfour_msg
     haml :'404'  #, :layout => :'layouts/errors'
-    # erb :'404'
   end
   
 end

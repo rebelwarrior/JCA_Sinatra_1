@@ -1,9 +1,10 @@
 -#slideshow
 #myCarousel{:class => "carousel slide", :style => "max-width: 768px; float:right;"}
   %ol{:class => "carousel-indicators"}
-    -@file_list.size.times do |num|
-      -list_class = (num == 0 ? "active" : "")
-      %li{:'data-target' => "#myCarousel", :'data-slide-to' => "#{num}", :class => "#{list_class}"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "0", :class => "active"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "1", :class => ""}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "2"}
+    %li{:'data-target' => "#myCarousel", :'data-slide-to' => "3"}
   /Carousel items 
   %div{:class => "carousel-inner", :style => "width: auto;"}
     -num_images = @file_list.size
