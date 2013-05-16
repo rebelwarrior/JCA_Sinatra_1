@@ -2,9 +2,9 @@
 # encoding: utf-8
 
 ## Load Required Gems ##
-
-%w[sinatra haml rdiscount i18n ./lib/helper].each do |gem| require gem end
-require 'i18n/backend/fallbacks' #doesn't seem needed.
+require 'sinatra'
+%w[haml rdiscount i18n gon-sinatra i18n/backend/fallbacks].each do |gem| require gem end
+require './lib/helper'
 # require 'sinatra/simple-navigation' #for breadcrumbs
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
@@ -137,6 +137,11 @@ class JCA_Sinatra < Sinatra::Base
     #Mabye create a JS file that calls the html of the rack application and joins it to a body tag?
     redirect :pdfs
   end
+  
+  get '/pdf_request/:location' do
+    @location = params[:location]
+    haml :pdfs
+  end
 
   get '/admin' do
     request.secure? ? nil : not_found #separate this to a different app.
@@ -180,7 +185,7 @@ class JCA_Sinatra < Sinatra::Base
   
   not_found do
     #TODO INTERNATIONALIZE
-    haml :'404'  #, :layout => :'layouts/errors'
+    haml :'404', :layout => :errors_layout
   end
   
 end

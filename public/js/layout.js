@@ -14,26 +14,29 @@ pathname = window.location.pathname;
 pathname = pathname.split('/');
 $(document).ready(function() {
   $('button#english').on("click", function() {
-    console.log("clicked");
-    if (pathname[1] === 'es') 
+    if (pathname[1] === 'en') 
     {
+      return console.log(pathname[1]);
+    } else {
       pathname[1] = 'en';
       return window.location.pathname = pathname.join('/');
-    } else {
-      return console.log(pathname[1]);
     }
   });
   $('button#spanish').click(function(){
-    console.log('pulsado');
-    if (pathname[1] === 'en') 
+    if (pathname[1] === 'es') 
     {
+      return console.log(pathname[1]);
+    } else {
       pathname[1] = 'es';
       return window.location.pathname = pathname.join('/');
-    } else {
-      return console.log(pathname[1]);
     }
   });
 });
+// Javascript for pdf iframes
+$(document).ready(function(){
+  $('#pdfs_env_reports').html("<iframe frameborder='1' src='/pdfs/communications/environmental_reports' style='background:white; min-width:600px; min-height:300px'></iframe>")
+});
+
 // Javascript for Home page
 $(document).ready(function() { 
   if (pathname[2] === 'home')

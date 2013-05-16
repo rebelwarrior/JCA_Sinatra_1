@@ -3,7 +3,7 @@
 %html{:lang => "#{@lang}"}
   %head
     =haml :'partials/_head'   
-  -# ###### End of Header ######       
+  -# ###### End of Head ######       
   %body
     -#pr.gov Top Bar
     =haml :'partials/_pr_gov_topbar'  
@@ -14,11 +14,10 @@
     .yielded
       =yield
   -# ###### End of Body #######
-  %footer.footer 
+  %footer.error_page
     -#FOOTER partial here::
     =haml :'partials/_footer_bar' 
   -# ###### End of Footer #######  
 
 
 
-     
