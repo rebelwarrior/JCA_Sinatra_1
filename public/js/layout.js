@@ -55,5 +55,5 @@ $(document).ready(function() {
         "background-size":"100% 100%"  
       })
     }, 2000); 
-  }  
+  };
 });
