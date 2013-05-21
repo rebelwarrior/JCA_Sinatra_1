@@ -3,6 +3,7 @@ es:
   available_options: "Opciones Disponibles:"
   dont_panic: "&iexcl;Que no Panda el C&uacute;nico!"
   error404: "Error 404: Disculpe, no encontramos la p&aacute;gina buscada."
+  sign_in_required: "Tienes que estar registrado en Google para ver el calendario."
   nav:
     home: "Inicio"
     about_us: "Con&oacute;cenos"

@@ -26,9 +26,9 @@
           %br
   .row-fluid
     %br
-    #googlecalendar{:class => "span4 offset1"}
+    #calendar{:class => "span4 offset1"}
       / TODO set default link to iFrame to a Page requesting google login for calendar. 
-      %iframe{:src => "/css/spinner.source.html", :width => "400", :height => "300", :frameborder => "0", :scrolling => "no"}
+      %iframe#googlecalendar{:frameborder => '0', :height => '300', :scrolling => 'no', :width => '400', :src => "/css/spinner.source.html"}
     -# The Above needs logic to handle when user is not logged in so a javascript thing.    
     %div{:class => "span4 offset1"}
       %b{:class => "btn btn-large btn-success", :src => "/images/MP.jpg", :href => "/beaches"}!="#{t 'Home.air_quality_index'}"

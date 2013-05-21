@@ -1,4 +1,8 @@
 pirate:
+  available_options: "Arrrr-vailable Options:"
+  dont_panic: "Shiver me Timbers!"
+  error404: "Error 404: Maybe the page you're looking for is in Davy Jone's Locker."
+  sign_in_required: "You must be signed in to Google to see the Calendar, Matey!"
   nav:
     home: "Yo-ho-ho Talk like a Pirate day!"
     about_us: "Dead men tell no tales!"

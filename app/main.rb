@@ -143,6 +143,10 @@ class JCA_Sinatra < Sinatra::Base
     haml :pdfs
   end
 
+  get '/googleloginrequired' do
+    haml :googlelogin, :layout => false
+  end
+
   get '/admin' do
     request.secure? ? nil : not_found #separate this to a different app.
   end
