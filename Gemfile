@@ -6,6 +6,7 @@ gem 'rdiscount' #or other markdown engine
 gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
+gem 'bundler'
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
