@@ -34,14 +34,21 @@ $(document).ready(function() {
   });
 });
 // Javascript for pdf iframes
+var pdf_year;
 $(document).ready(function(){
-  // if (pathname[2] =~ /pdf/) {
-  //user pathname to route
-  // $("pdf_" + env + "_resources")
-  // $('#pdfs_env_reports').html("<iframe frameborder='1' src='/pdfs/communications/environmental_reports' style='background:white; min-width:600px; min-height:300px'></iframe>")
-  $("#pdfs_env_reports iframe").attr('src', "/pdfs/communications/environmental_reports");
-  $("#pdfs_env_reports iframe").attr('style', "background:white; min-width:600px; min-height:300px");
-  // }
+  if (pathname[2] === 'dias') {
+    if (pathname[3] === "all") {
+       pdf_year = "" 
+    } else { 
+      pdf_year = pathname[3]
+    };
+    $("#pdfs_reports iframe").attr('src', ("/pdfs/anual_reports/" + pdf_year));
+    $("#pdfs_reports iframe").attr('style', "background:white; min-width:600px; min-height:300px");
+  };
+  if (pathname[2] === 'env_reports') {
+    $("#pdfs_env_reports iframe").attr('src', "/pdfs/communications/environmental_reports");
+    $("#pdfs_env_reports iframe").attr('style', "background:white; min-width:600px; min-height:300px");  
+  };
 });
 
 // Javascript for Home page

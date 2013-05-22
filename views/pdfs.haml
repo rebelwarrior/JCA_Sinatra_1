@@ -1,12 +1,9 @@
 %body
-  .container
-    .span2.hidden-phone
-    / .span10#markdowncontent= markdown(:'content/env_reports')
+  -#.container
+  -#  .span2.hidden-phone
+  -#  .span10#markdowncontent= markdown(:'content/env_reports')
   .containter
     .span2.hidden-phone
-    .span10#pdfs_env_reports
-      %iframe{:class => "#{@location}", :src => "/css/spinner.source.html", :frameborder => "1", :scrolling => "no", :style => "width:auto;"}
-:javascript
-  $(document).ready(function(){
-    $(@location).html("<iframe frameborder='1' src="/pdf_request/#{@location}" style='background:white; min-width:600px; min-height:300px'></iframe>")
-  });
+    .span10#pdfs_reports
+      %br
+      %iframe{:src => "/css/spinner.source.html", :frameborder => "1", :scrolling => "no", :style => "width:auto;"}

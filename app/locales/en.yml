@@ -4,6 +4,7 @@ en:
   dont_panic: "Checked with the guide and it said: Don't Panic!!!"
   error404: "Error 404: We seem to not have that page."
   sign_in_required: "You must be signed in to Google to see the Calendar."
+  page_not_found: "Page not found: "
   nav:
     home: Home
     about_us: About us

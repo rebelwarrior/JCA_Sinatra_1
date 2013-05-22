@@ -27,5 +27,6 @@
               %li
                 %a{:href => "#hr"}!="#{t 'About.hr'}"  
       %div{:class => "scrollspy span9", :'data-offset' => "0", :'data-target' =>"#navbar_for_about", :'data-spy' => "scroll"}
-        %div= markdown(:'content/about')
-        %div= markdown(:'content/internal_divisions')
+        -if @lang == @lang
+          %div= markdown(:'content/about')
+          %div= markdown(:'content/internal_divisions')

@@ -1,6 +1,6 @@
 -#404.haml (use for example)
 .container
-  %h1.hero 404 Error
+  %h1.hero 404
   %h2
     !="#{t 'dont_panic'}"
   %h3  
@@ -9,6 +9,8 @@
   %img{:src => "/images/404/panda.gif", :alt => "Panda", :height => "234px", :width => "211px"}
   %img{:src => "/images/404/cunico.png", :alt => "Cunico", :height => "343px", :width => "541px"}
 %br
+%small
+  !="#{t 'page_not_found'}#{@request_url}"
 
 / :javascript
 / $(title).html("404 Error")

@@ -9,8 +9,9 @@
     =haml :'partials/_pr_gov_topbar'  
     %header.container.pagination-centered
       %img#logo{:src => "/images/jca_logo.png", :alt => "Logo de la Junta de Calidad Ambiental", :height => "191px", :width => "967px"}
-    -#NAVBAR partial here::
-    =haml :'partials/_navbar'                        
+    -#NAVBAR partial here:: (navbar_path is for error page which needs absolute paths)
+    -@navbar_path = "/#{@lang}/" #absolute path
+    =haml :'partials/_navbar'                      
     .yielded
       =yield
   -# ###### End of Body #######

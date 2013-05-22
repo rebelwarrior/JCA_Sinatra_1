@@ -4,6 +4,7 @@ es:
   dont_panic: "&iexcl;Que no Panda el C&uacute;nico!"
   error404: "Error 404: Disculpe, no encontramos la p&aacute;gina buscada."
   sign_in_required: "Tienes que estar registrado en Google para ver el calendario."
+  page_not_found: "Página no encontrada: "
   nav:
     home: "Inicio"
     about_us: "Con&oacute;cenos"

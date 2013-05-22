@@ -138,9 +138,15 @@ class JCA_Sinatra < Sinatra::Base
     redirect :pdfs
   end
   
-  get '/pdf_request/:location' do
+  get '/pdf_request?:location' do
     @location = params[:location]
-    haml :pdfs
+    #add model look up
+    redirect :pdfs
+  end
+  
+  get '/dias/:year' do
+    @year = params[:year]
+    haml :pdfs, :layout => :errors_layout
   end
 
   get '/googleloginrequired' do
@@ -189,6 +195,7 @@ class JCA_Sinatra < Sinatra::Base
   
   not_found do
     #TODO INTERNATIONALIZE
+    @request_url = request.url
     haml :'404', :layout => :errors_layout
   end
   
