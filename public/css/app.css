@@ -33,7 +33,7 @@ body > .navbar .brand {
   height: 40px;
   margin: 0;
 }
-
+/* background gradients */
 body {
   background: -webkit-gradient(linear, 0%, 0%, 0%, 100%, from (rgba(0, 183, 74, 0.50), to(#66CC99)); 
   background: -moz-linear-gradient(19%, 75% 90deg, rgba(0, 183, 74, 0.50), #66CC99);
@@ -49,3 +49,5 @@ body {
 header {
   opacity: 0.9;
 }
+/* makes pdf iframes responsive */
+#pdfs_reports iframe, #pdfs_reports object, #pdfs_reports embed { width: 100%; }

@@ -13,7 +13,7 @@ gem 'rack-contrib' #for Rack::Locale
 # gem 'sinatra-activerecord'
 
 #Optional Stuff not implemented yet
-gem 'sinatra-simple-navigation', require: false #for breadcrumbs
+# gem 'sinatra-simple-navigation', require: false #for breadcrumbs
 gem 'gon-sinatra', :require => false
 
 

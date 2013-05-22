@@ -2,8 +2,10 @@
   -#.container
   -#  .span2.hidden-phone
   -#  .span10#markdowncontent= markdown(:'content/env_reports')
-  .containter
+  .container
     .span2.hidden-phone
     .span10#pdfs_reports
       %br
-      %iframe{:src => "/css/spinner.source.html", :frameborder => "1", :scrolling => "no", :style => "width:auto;"}
+      %iframe{:src => "/css/spinner.source.html", :frameborder => "1", :scrolling => "no"} 
+      -#, :style => "width:auto;"}
+  %br

@@ -64,42 +64,42 @@
         %li 
           %a{:href => "#{@navbar_path}calendar"}!="#{t 'nav.dropdown-press.calendar'}"
         %li 
-          %a{:href => "/pdfs/communications/important_affairs"}!="#{t 'nav.dropdown-press.important_issues'}"
+          %a{:href => "#{@navbar_path}communications/important_affairs"}!="#{t 'nav.dropdown-press.important_issues'}"
         %li 
-          %a{:href => "#"}!="#{t 'nav.dropdown-press.auction_notices'}"
+          %a{:href => "#{@navbar_path}communications/auction_notices"}!="#{t 'nav.dropdown-press.auction_notices'}"
         %li 
-          %a{:href => "/pdfs/communications/grievance_reports"}!="#{t 'nav.dropdown-press.grievance_reports'}"
+          %a{:href => "#{@navbar_path}communications/grievance_reports"}!="#{t 'nav.dropdown-press.grievance_reports'}"
         %li 
           /TODO: ADD HAML for this page /pdfs/communications/environmental_reports
           %a{:href => "#{@navbar_path}env_reports"}!="#{t 'nav.dropdown-press.env_reports'}"
         %li 
-          %a{:href => "/pdfs/communications/resolutions"}!="#{t 'nav.dropdown-press.resolutions'}"
+          %a{:href => "#{@navbar_path}communications/resolutions"}!="#{t 'nav.dropdown-press.resolutions'}"
         %li
-          %a{:href => "/pdfs/communications/presentations"}!="#{t 'nav.dropdown-press.presentations'}"
+          %a{:href => "#{@navbar_path}communications/presentations"}!="#{t 'nav.dropdown-press.presentations'}"
     %li{:class => "dropdown bar"} 
       %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
         !="#{t 'nav.permits'}"
         %b.caret
       %ul.dropdown-menu
         %li
-          %a{:href => "/pdf_request/pdfs/permits/general"}!="#{t 'nav.dropdown-permits.general'}"
+          %a{:href => "#{@navbar_path}permits/general"}!="#{t 'nav.dropdown-permits.general'}"
         %li
-          %a{:href => "/pdfs/permits/water"}!="#{t 'nav.dropdown-permits.water'}"
+          %a{:href => "#{@navbar_path}permits/water"}!="#{t 'nav.dropdown-permits.water'}"
         %li
-          %a{:href => "/pdfs/permits/air"}!="#{t 'nav.dropdown-permits.air'}"
+          %a{:href => "#{@navbar_path}permits/air"}!="#{t 'nav.dropdown-permits.air'}"
         %li
-          %a{:href => "/pdfs/permits/land"}!="#{t 'nav.dropdown-permits.land'}"
+          %a{:href => "#{@navbar_path}permits/land"}!="#{t 'nav.dropdown-permits.land'}"
     %li{:class => "dropdown bar"} 
       %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
         !="#{t 'nav.laws_and_regulations'}"
         %b.caret
       %ul.dropdown-menu
         %li
-          %a{:href => "/pdfs/laws_and_regulations/proposed"}!="#{t 'nav.dropdown-laws.proposed'}"
+          %a{:href => "#{@navbar_path}laws_and_regulations/proposed"}!="#{t 'nav.dropdown-laws.proposed'}"
         %li
-          %a{:href => "/pdfs/laws_and_regulations/laws"}!="#{t 'nav.dropdown-laws.laws'}"
+          %a{:href => "#{@navbar_path}laws_and_regulations/laws"}!="#{t 'nav.dropdown-laws.laws'}"
         %li
-          %a{:href => "/pdfs/laws_and_regulations/regulations"}!="#{t 'nav.dropdown-laws.regulations'}"
+          %a{:href => "#{@navbar_path}laws_and_regulations/regulations"}!="#{t 'nav.dropdown-laws.regulations'}"
     %li{:class => "dropdown bar"} 
       %a.dropdown-toggle{:'data-toggle' => "dropdown", :href => "#"}
         !="#{t 'nav.anual_reports'}"

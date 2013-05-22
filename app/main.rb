@@ -5,14 +5,12 @@
 require 'sinatra'
 %w[haml rdiscount i18n gon-sinatra i18n/backend/fallbacks].each do |gem| require gem end
 require './lib/helper'
-# require 'sinatra/simple-navigation' #for breadcrumbs
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
 ##Main Sinatra Class##
 class JCA_Sinatra < Sinatra::Base
   ## Register the helper Module in the helper files.
   # register Gon::Sinatra
-  # register Sinatra::SimpleNavigation
   helpers TextHelpers 
 
   
@@ -123,6 +121,10 @@ class JCA_Sinatra < Sinatra::Base
     haml :env_reports
   end
   
+  get '/calendar' do
+    haml :calendar
+  end
+  
   get '/mobile' do #separate this to a different app (w/ different views folder)
     if (request.user_agent =~ /iPhone|Android|iPad/i) or (settings.environment == :development)
       erb :mobile
@@ -146,6 +148,21 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/dias/:year' do
     @year = params[:year]
+    haml :pdfs, :layout => :errors_layout
+  end
+  
+  get '/permits/:area' do
+    @area = params[:area]
+    haml :pdfs, :layout => :errors_layout
+  end
+
+  get '/laws_and_regulations/:area' do
+    @area = params[:area]
+    haml :pdfs, :layout => :errors_layout
+  end
+  
+  get '/communications/:area' do
+    @area = params[:area]
     haml :pdfs, :layout => :errors_layout
   end
 

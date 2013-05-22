@@ -4,5 +4,7 @@
   -#Javascript for language switching is in layout.js file
   %button#english{:type => "button", :class => "btn btn-mini btn-inverse #{englang}"}English
   %button#spanish{:type => "button", :class => "btn btn-mini btn-inverse #{spalang}"}!="Espa&ntilde;ol"
-%small Menu Abajo #{I18n.l DateTime.now} --> debe tener links: Regresar al tope de la pagina | Acesabilidad | Ayuda | Contactenos
+%small #{I18n.l DateTime.now} --> debe tener links: Regresar al tope de la pagina | Acesabilidad | Ayuda | Contactenos
+/ =render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo;')
+=BootstrapBreadcrumbs.render(:renderer => :breadcrumbs, :join_with => ' &raquo;')
 %br

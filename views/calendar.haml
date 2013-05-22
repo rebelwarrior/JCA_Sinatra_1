@@ -2,8 +2,8 @@
 .container-fluid
   .span10 
     %h1 
-      Calendario de Vistas Publicas
+      !="#{t 'nav.dropdown-press.calendar'}"
       %small 
         %br
-        Tiene que estar conectado a google calendar para poder ver el calendario de vistas publicas.
+        !="#{t 'sign_in_required'}"
     %iframe{:src => "https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTz=0&amp;height=300&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=juntacalidadambientalcalendar%40gmail.com&amp;color=%23125A12&amp;ctz=America%2FPuerto_Rico", :style => " border:solid 1px #777 ", :width => "400", :height => "300", :frameborder => "0", :scrolling => "yes"}
