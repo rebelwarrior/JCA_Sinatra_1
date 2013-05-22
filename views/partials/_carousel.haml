@@ -7,7 +7,7 @@
   /Carousel items 
   %div{:class => "carousel-inner", :style => "width: auto;"}
     -num_images = @file_list.size
-    -@file_list.reverse.each do |file|
+    -@file_list.reverse.take(10).each do |file|
       -item_class = (num_images == @file_list.size ? "active item" : "item")
       -num_images -= 1
       %div{:class => "#{item_class} CarouselImg"}
