@@ -14,7 +14,6 @@ var languages, pathname, _ref,
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 pathname = window.location.pathname;
-
 pathname = pathname.split('/');
 
 languages = ['en', 'es', 'pirate'];
@@ -69,9 +68,6 @@ $(document).ready(function() {
     $('.carousel').carousel();
     //Wrap next line in an ajax request for the image file.
     $('body').addClass('mainpage'); 
-    $('b').click(function() {
-      
-    });
     $(window).load(function() {
        if ($('#googlecalendar').length <= 0) { return; }  // to avoid errors in case the element doesn't exist on the page or removed.
        $('#googlecalendar').attr('src','//www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico');

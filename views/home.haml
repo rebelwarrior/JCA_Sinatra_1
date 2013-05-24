@@ -19,9 +19,9 @@
           =haml :'partials/_carousel'
         /Right Sidebar (logos)
         %div{:class => "span3"}
-          %a{:href => "/airquality"}
+          %a{:href => "/#{@lang}/airquality"}
             %img{:src => "/images/ICA.jpg", :alt => "Indice de Calidad de Aire"}
-          %a{:href => "/beaches"}
+          %a{:href => "/#{@lang}/beaches"}
             %img{:src => "/images/MP.jpg", :alt => "Monitoria de las Playas"}
           %br
   .row-fluid
@@ -31,12 +31,14 @@
       %iframe#googlecalendar{:frameborder => '0', :height => '300', :scrolling => 'no', :width => '400', :src => "/css/spinner.source.html"}loading...
     -# The Above needs logic to handle when user is not logged in so a javascript thing.    
     %div{:class => "span4 offset1"}
-      %b{:class => "btn btn-large btn-success", :src => "/images/MP.jpg", :href => "/beaches"}!="#{t 'Home.air_quality_index'}"
-      %b{:class => "btn btn-large btn-success", :href => "/beaches"}!="#{t 'Home.beach_monitoring'}"
+      -# Buttons
+      %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/airquality'"}!="#{t 'Home.air_quality_index'}"
       %br
-      %b{:class => "btn btn-large btn-success"}!="#{t 'Home.convocations'}"
+      %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/beaches'"}!="#{t 'Home.beach_monitoring'}"
       %br
-      %b{:class => "btn btn-large btn-success"}!="#{t 'Home.contact_us'}"
+      %b{:class => "btn btn-large btn-success", :onclick => "console.log('convocations')"}!="#{t 'Home.convocations'}"
+      %br
+      %b{:class => "btn btn-large btn-success", :onclick => "console.log('contactus')"}!="#{t 'Home.contact_us'}"
       %br
     %aside
       
