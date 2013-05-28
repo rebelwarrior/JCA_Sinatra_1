@@ -8,6 +8,7 @@ $(document).ready(function() {
   $('[data-spy="scroll"]').each(function () {
     var $spy = $(this).scrollspy('refresh')
   }); //Scroll spy
+  $('.carousel').carousel(); //Slideshow
 });
 // Javascript for language switching
 var languages, pathname, _ref,
@@ -51,7 +52,7 @@ $(document).ready(function(){
     } else { 
       pdf_year_or_area = pathname[3]
     };
-    console.log(pdf_year_or_area);
+    // console.log(pdf_year_or_area);
     $("#pdfs_reports").find('iframe').attr('src', ("/pdfs/" + pathname[2] + "/" + pdf_year_or_area));
     $("#pdfs_reports").find('iframe').attr('style', "background:white; min-width:300px; min-height:300px");
   };
@@ -65,7 +66,7 @@ $(document).ready(function(){
 $(document).ready(function() { 
   if (pathname[2] === 'home')
   {
-    $('.carousel').carousel();
+    // $('.carousel').carousel(); //Moved to top
     //Wrap next line in an ajax request for the image file.
     $('body').addClass('mainpage'); 
     $(window).load(function() {
@@ -78,9 +79,6 @@ $(document).ready(function() {
        }
     });
     setTimeout(function() { 
-      // if ($('iframe').contents().text() === 'loading'){
-      //   $('#googlecalendar').attr('src', ('/' + pathname[1] + '/googleloginrequired'));
-      // }
       if ($('iframe').contents().find('.windows8').length === 1) {
         $('#googlecalendar').attr('src', ('/' + pathname[1] + '/googleloginrequired'));
       } else {

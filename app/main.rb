@@ -68,6 +68,7 @@ class JCA_Sinatra < Sinatra::Base
   end
   
   get '/home' do
+    #Target for Refactorin Test`
     Dir.chdir('public') do
       #Note: the Dir.glob will return nil if not specified correctly.
       @file_list = Dir.glob('images/slideshow/*.*').sort.select do |f| 

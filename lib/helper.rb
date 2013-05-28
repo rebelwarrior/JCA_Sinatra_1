@@ -51,8 +51,13 @@ module TextHelpers
     # Might want to do some processing here later to do nav.home to nav_home work.
     haml_force_encoding(I18n.t(*args))
   end
-end
-
-module ImageChecker
+  
+  def slideshow_image_file_names(location='public/images/slideshow')
+     #Note: the Dir.glob will return nil if not specified correctly. 
+     Dir.glob("#{location}/*.{png,jpg}").sort.select do |f|
+       m = f.match(%r #{location}/[0-9]*(\w*)\.* )
+       m = m.captures.at(0) unless match.nil?
+     end
+  end
   
 end
