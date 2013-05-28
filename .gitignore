@@ -1,7 +1,8 @@
 .DS_Store
 /config/deploy.rb
 /public/images/*
-/public/press/*
+/public/press/images/*
+/public/press/*.md
 /public/resources/pdfs/*
 .localeapp
 cert_file
