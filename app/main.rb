@@ -127,8 +127,14 @@ class JCA_Sinatra < Sinatra::Base
     haml :calendar
   end
   
+  get '/contact_us' do
+    @tel_prefix = tel_prefix(request.user_agent)
+    puts request.user_agent
+    haml :contact_us
+  end
+  
   get '/mobile' do #separate this to a different app (w/ different views folder)
-    if (request.user_agent =~ /iPhone|Android|iPad/i) or (settings.environment == :development)
+    if (mobile_user?(request.user_agent)) or (settings.environment == :development)
       erb :mobile
     else
       not_found

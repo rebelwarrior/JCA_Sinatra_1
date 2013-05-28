@@ -60,4 +60,22 @@ module TextHelpers
      end
   end
   
+  def mobile_user?(agent)
+    #idea from: http://keithposehn.net/post/2719977607/detect-mobile-device-with-ruby-for-sinatra-rails
+    mobile_agents_small_list = 'blackberry|nokia|mobi|symbian|android|ipod|kindle|webos|ipad|iphone|mini|mobileexplorer|mobile'
+    if agent.downcase =~ Regexp.new(mobile_agents_small_list)
+      true
+    else
+      false
+    end
+  end
+  
+  def tel_prefix(agent)
+    if mobile_user?(agent)
+      "tel"
+    else
+      "callto"
+    end
+  end
+  
 end

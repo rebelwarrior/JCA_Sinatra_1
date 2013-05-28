@@ -1,100 +1,105 @@
 es:
-  hi: "&iexcl;Hola!"
-  available_options: "Opciones Disponibles:"
-  dont_panic: "&iexcl;Que no Panda el C&uacute;nico!"
-  error404: "Error 404: Disculpe, no encontramos la p&aacute;gina buscada."
-  sign_in_required: "Tienes que estar registrado en Google para ver el calendario."
-  page_not_found: "Página no encontrada: "
-  nav:
-    home: "Inicio"
-    about_us: "Con&oacute;cenos"
-    dropdown-about:
-      about: "&iquest;Que es la JCA?"
-      history: "Historia de la JCA "
-      board: "Junta de Gobierno"
-      legal_office: "Asuntos Legales"
-      management: "Asuntos Gerenciales"
-      budget: "Of. de Presupuesto"
-      sec: "Of. de la Secretar&iacute;a"
-      sysops: "Of. de Inform&aacute;tica"
-      hr: "Recursos Humanos"
-    areas: "&Aacute;reas \"Programaticas\"" 
-    dropdown-areas:
-      water: "Calidad de Agua"
-      land: "Calidad de Terrenos"
-      air: "Calidad de Aire"
-      noise: "Control de Ruidos"
-      env911: "Emergencias Ambientales"
-      sci: "Asesoramiento Cient&iacute;fico"
-      lab: "Laboratorio Ambiental"
-      strategic: "Evaluaci&oacute;n y Planificaci&oacute;n Estrategica"
-    dropdown-education:
-      edu_institute: "Instituto de Educaci&oacute;n Ambiental"
-      library: "Bibiot&eacute;ca"
-    field_offices: "Officinas de Campo Regionales"
-    grievances: "Querellas Ambientales"
-    press_and_news: "Prensa y Noticias"
-    dropdown-press: 
-      press: "Comunicaci&oacute;n"
-      calendar: "Calendario de Vistas P&uacute;blicas"
-      important_issues: "Asuntos Importantes"
-      auction_notices: "Avisos de Subastas"
-      grievance_reports: "Informe de Querellas"
-      env_reports: "Informes Ambientales"
-      resolutions: "Resoluciones"
-      presentations: "Presentaciones"
-    permits: "Permisos y Formularios"
-    dropdown-permits:
-      general: "Permisos Generales"
-      water: "Permisos de Agua"
-      air: "Permisos de Aire"
-      land: "Permisos de Terrenos"
-    laws_and_regulations: "Leyes y Reglamentos"
-    dropdown-laws:
-      proposed: "Enmiendas y Reglamentos Propuestos"
-      laws: "Leyes"
-      regulations: "Reglamentos"
-    anual_reports: "Documentos Anuales"
+  About:
+    about: ! '&iquest;Que es la JCA?'
+    board: Junta de Gobierno
+    budget: Oficina de Presupuesto
+    history: Historia de la JCA
+    hr: Recursos Humanos
+    legal_office: Oficina de Asuntos Legales
+    management: Oficina de Asuntos Gerenciales
+    sec: Oficina de la Secretar&iacute;a
+    sysops: Sistemas
   Areas:
+    air: Aire
     areas: Areas
+    env911: Emrgen. Amb.
+    lab: Lab.
     land: Terrenos
     noise: Ruidos
-    lab: Lab.
+    sci: Assesor. Cient&iacute;fico
     water: Agua
-    sci: "Assesor. Cient&iacute;fico"
-    env911: Emrgen. Amb.
-    air: Aire
-  news: "Not&iacute;cias:"
-  Home:
-    beach_monitoring: "Monitoreo de Playas"
-    air_quality_index: "&Iacute;ndice de Calidad de Aire"
-    contact_us: "Cont&aacute;tanos"
-    convocations: "Convocatorias"
-  About:
-    about: "&iquest;Que es la JCA?"
-    history: "Historia de la JCA"
-    board: "Junta de Gobierno"
-    legal_office: "Oficina de Asuntos Legales"
-    management: "Oficina de Asuntos Gerenciales"
-    budget: "Oficina de Presupuesto"
-    sec: "Oficina de la Secretar&iacute;a"
-    sysops: "Sistemas"
-    hr: "Recursos Humanos"
   BarraGubernamental:
-    online_services: "Servicios en L&iacute;nea"
-    agency_directory: "Directorio de Agencias"
-    municipality_directory: "Directorio de Municipios"  
-
-
+    agency_directory: Directorio de Agencias
+    municipality_directory: Directorio de Municipios
+    online_services: Servicios en L&iacute;nea
+  Home:
+    air_quality_index: ! '&Iacute;ndice de Calidad de Aire'
+    beach_monitoring: Monitoreo de Playas
+    contact_us: Cont&aacute;tanos
+    convocations: Convocatorias
+  activemodel:
+    errors:
+      format: ! '%{attribute} %{message}'
+      messages:
+        accepted: debe ser aceptado
+        blank: no puede estar en blanco
+        confirmation: no coincide con la confirmación
+        empty: no puede estar vacío
+        equal_to: debe ser igual a %{count}
+        even: debe ser par
+        exclusion: está reservado
+        greater_than: debe ser mayor que %{count}
+        greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+        inclusion: no está incluido en la lista
+        invalid: no es válido
+        less_than: debe ser menor que %{count}
+        less_than_or_equal_to: debe ser menor que o igual a %{count}
+        not_a_number: no es un número
+        not_an_integer: debe ser un entero
+        odd: debe ser impar
+        record_invalid: ! 'La validación falló: %{errors}'
+        taken: ya está en uso
+        too_long: es demasiado largo (%{count} caracteres máximo)
+        too_short: es demasiado corto (%{count} caracteres mínimo)
+        wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      template:
+        body: ! 'Se encontraron problemas con los siguientes campos:'
+        header:
+          one: No se pudo guardar este/a %{model} porque se encontró 1 error
+          other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  activerecord:
+    errors:
+      format: ! '%{attribute} %{message}'
+      messages:
+        accepted: debe ser aceptado
+        blank: no puede estar en blanco
+        confirmation: no coincide con la confirmación
+        empty: no puede estar vacío
+        equal_to: debe ser igual a %{count}
+        even: debe ser par
+        exclusion: está reservado
+        greater_than: debe ser mayor que %{count}
+        greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+        inclusion: no está incluido en la lista
+        invalid: no es válido
+        less_than: debe ser menor que %{count}
+        less_than_or_equal_to: debe ser menor que o igual a %{count}
+        not_a_number: no es un número
+        not_an_integer: debe ser un entero
+        odd: debe ser impar
+        record_invalid: ! 'La validación falló: %{errors}'
+        taken: ya está en uso
+        too_long: es demasiado largo (%{count} caracteres máximo)
+        too_short: es demasiado corto (%{count} caracteres mínimo)
+        wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      template:
+        body: ! 'Se encontraron problemas con los siguientes campos:'
+        header:
+          one: No se pudo guardar este/a %{model} porque se encontró 1 error
+          other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  available_options: ! 'Opciones Disponibles:'
+  contact:
+    phone_instructions: ! 'Teléfono de querellas:'
+    title: ! 'Contáctenos:'
   date:
     abbr_day_names:
     - dom
     - lun
     - mar
-    - "mi&eacute;"
+    - mi&eacute;
     - jue
     - vie
-    - "s&aacute;b"
+    - s&aacute;b
     abbr_month_names:
     - 
     - ene
@@ -113,10 +118,10 @@ es:
     - domingo
     - lunes
     - martes
-    - "mi&eacute;rcoles"
+    - mi&eacute;rcoles
     - jueves
     - viernes
-    - "s&aacute;bado"
+    - s&aacute;bado
     formats:
       default: ! '%d/%m/%Y'
       long: ! '%d de %B de %Y'
@@ -148,10 +153,10 @@ es:
         one: alrededor de un mes
         other: alrededor de %{count} meses
       about_x_years:
-        one: "alrededor de un año"
+        one: alrededor de un año
         other: alrededor de %{count} años
       almost_x_years:
-        one: "casi un año"
+        one: casi un año
         other: casi %{count} años
       half_a_minute: medio minuto
       less_than_x_minutes:
@@ -161,8 +166,8 @@ es:
         one: menos de un segundo
         other: menos de %{count} segundos
       over_x_years:
-        one: "más de un año"
-        other: "más de %{count} años"
+        one: más de un año
+        other: más de %{count} años
       x_days:
         one: un día
         other: ! '%{count} días'
@@ -182,23 +187,25 @@ es:
       month: Mes
       second: Segundos
       year: Año
-  errors: &errors
+  dont_panic: ! '&iexcl;Que no Panda el C&uacute;nico!'
+  error404: ! 'Error 404: Disculpe, no encontramos la p&aacute;gina buscada.'
+  errors:
     format: ! '%{attribute} %{message}'
     messages:
       accepted: debe ser aceptado
       blank: no puede estar en blanco
-      confirmation: "no coincide con la confirmación"
-      empty: "no puede estar vacío"
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
       equal_to: debe ser igual a %{count}
       even: debe ser par
-      exclusion: "está reservado"
+      exclusion: está reservado
       greater_than: debe ser mayor que %{count}
       greater_than_or_equal_to: debe ser mayor que o igual a %{count}
       inclusion: no está incluido en la lista
-      invalid: "no es válido"
+      invalid: no es válido
       less_than: debe ser menor que %{count}
       less_than_or_equal_to: debe ser menor que o igual a %{count}
-      not_a_number: "no es un número"
+      not_a_number: no es un número
       not_an_integer: debe ser un entero
       odd: debe ser impar
       record_invalid: ! 'La validación falló: %{errors}'
@@ -211,6 +218,11 @@ es:
       header:
         one: No se pudo guardar este/a %{model} porque se encontró 1 error
         other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  footer_nav:
+    accessibility: accesibilidad
+    contact_us: contáctenos
+    generated: página generada el
+    go_to_top: regresar al tope de la página
   helpers:
     select:
       prompt: Por favor seleccione
@@ -218,6 +230,59 @@ es:
       create: Crear %{model}
       submit: Guardar %{model}
       update: Actualizar %{model}
+  hi: ! '&iexcl;Hola!'
+  nav:
+    about_us: Con&oacute;cenos
+    anual_reports: Documentos Anuales
+    areas: ! '&Aacute;reas "Programaticas"'
+    dropdown-about:
+      about: ! '&iquest;Que es la JCA?'
+      board: Junta de Gobierno
+      budget: Of. de Presupuesto
+      history: ! 'Historia de la JCA '
+      hr: Recursos Humanos
+      legal_office: Asuntos Legales
+      management: Asuntos Gerenciales
+      sec: Of. de la Secretar&iacute;a
+      sysops: Of. de Inform&aacute;tica
+    dropdown-areas:
+      air: Calidad de Aire
+      env911: Emergencias Ambientales
+      lab: Laboratorio Ambiental
+      land: Calidad de Terrenos
+      noise: Control de Ruidos
+      sci: Asesoramiento Cient&iacute;fico
+      strategic: Evaluaci&oacute;n y Planificaci&oacute;n Estrategica
+      water: Calidad de Agua
+    dropdown-education:
+      edu_institute: Instituto de Educaci&oacute;n Ambiental
+      library: Bibiot&eacute;ca
+    dropdown-laws:
+      laws: Leyes
+      proposed: Enmiendas y Reglamentos Propuestos
+      regulations: Reglamentos
+    dropdown-permits:
+      air: Permisos de Aire
+      general: Permisos Generales
+      land: Permisos de Terrenos
+      water: Permisos de Agua
+    dropdown-press:
+      auction_notices: Avisos de Subastas
+      calendar: Calendario de Vistas P&uacute;blicas
+      env_reports: Informes Ambientales
+      grievance_reports: Informe de Querellas
+      important_affairs: Asuntos Importantes
+      important_issues: Asuntos Importantes
+      presentations: Presentaciones
+      press: Comunicaci&oacute;n
+      resolutions: Resoluciones
+    field_offices: Officinas de Campo Regionales
+    grievances: Querellas Ambientales
+    home: Inicio
+    laws_and_regulations: Leyes y Reglamentos
+    permits: Permisos y Formularios
+    press_and_news: Prensa y Noticias
+  news: ! 'Not&iacute;cias:'
   number:
     currency:
       format:
@@ -239,13 +304,11 @@ es:
         format: ! '%n %u'
         units:
           billion: millardo
-          million: "mill&oacute;n"
+          million: mill&oacute;n
           quadrillion: mil billones
           thousand: mil
-          trillion: "bill&oacute;n"
-          unit: ''
+          trillion: bill&oacute;n
       format:
-        delimiter: ''
         precision: 1
         significant: true
         strip_insignificant_zeros: true
@@ -259,12 +322,8 @@ es:
           kb: KB
           mb: MB
           tb: TB
-    percentage:
-      format:
-        delimiter: ''
-    precision:
-      format:
-        delimiter: ''
+  page_not_found: ! 'Página no encontrada: '
+  sign_in_required: Tienes que estar registrado en Google para ver el calendario.
   support:
     array:
       last_word_connector: ! ', y '
@@ -277,10 +336,3 @@ es:
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
     pm: pm
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors

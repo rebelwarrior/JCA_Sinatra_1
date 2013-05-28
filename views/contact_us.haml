@@ -1,5 +1,9 @@
-%h1 Contact Info
+.container
+  %h1 #{t 'contact.title'}
 
-%p
-Telefono de querellas: 
-787-767-8181 ext-3206, ext-3208
+  %p
+  #{t 'contact.phone_instructions' } 
+  %a{:href => "#{@tel_prefix}:+17877678181"}
+    (787) 767-8181
+  ext-3206, ext-3208
+%br

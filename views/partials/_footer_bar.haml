@@ -4,6 +4,9 @@
   -#Javascript for language switching is in layout.js file
   %button#english{:type => "button", :class => "btn btn-mini btn-inverse #{englang}"}English
   %button#spanish{:type => "button", :class => "btn btn-mini btn-inverse #{spalang}"}!="Espa&ntilde;ol"
-%small #{I18n.l DateTime.now} --> debe tener links: 
-#{}Regresar al tope de la pagina | Acesabilidad | Ayuda | Contactenos
+%small{:style => "background: rgba(255, 255, 255, 0.8);"}
+  #{t 'footer_nav.generated'} #{I18n.l DateTime.now}|
+  %a{:href => "#"}!="#{t 'footer_nav.go_to_top'} |"
+  -#%a{:href => "#{@navbar_path}accessibility"}!="#{t 'footer_nav.accessibility'} |"
+  %a{:href => "#{@navbar_path}contact_us"}!="#{t 'footer_nav.contact_us'} |"
 %br

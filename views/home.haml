@@ -38,12 +38,12 @@
       %br
       %b{:class => "btn btn-large btn-success", :onclick => "console.log('convocations')"}!="#{t 'Home.convocations'}"
       %br
-      %b{:class => "btn btn-large btn-success", :onclick => "console.log('contactus')"}!="#{t 'Home.contact_us'}"
+      %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/contact_us'"}!="#{t 'Home.contact_us'}"
       %br
     %aside
       
       %div{:class => "span 4"}   
-        #markdown= markdown(:'content/home')
+        /#markdown{:style => 'background:white'}= markdown(:'content/home')
 %footer
 
       

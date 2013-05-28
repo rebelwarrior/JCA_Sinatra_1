@@ -21,7 +21,6 @@ gem 'gon-sinatra', :require => false
 
 group :development do
   gem 'pry'
-  gem 'ap' #awesome print
   gem 'shotgun'
   gem 'thin'
   gem 'localeapp', require: false 
