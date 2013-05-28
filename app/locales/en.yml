@@ -27,66 +27,6 @@ en:
     beach_monitoring: Beach Monitoring
     contact_us: Contact Us
     convocations: Convocations
-  activemodel:
-    errors:
-      format: ! '%{attribute} %{message}'
-      messages:
-        accepted: debe ser aceptado
-        blank: no puede estar en blanco
-        confirmation: no coincide con la confirmación
-        empty: no puede estar vacío
-        equal_to: debe ser igual a %{count}
-        even: debe ser par
-        exclusion: está reservado
-        greater_than: debe ser mayor que %{count}
-        greater_than_or_equal_to: debe ser mayor que o igual a %{count}
-        inclusion: no está incluido en la lista
-        invalid: no es válido
-        less_than: debe ser menor que %{count}
-        less_than_or_equal_to: debe ser menor que o igual a %{count}
-        not_a_number: no es un número
-        not_an_integer: debe ser un entero
-        odd: debe ser impar
-        record_invalid: ! 'La validación falló: %{errors}'
-        taken: ya está en uso
-        too_long: es demasiado largo (%{count} caracteres máximo)
-        too_short: es demasiado corto (%{count} caracteres mínimo)
-        wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
-      template:
-        body: ! 'Se encontraron problemas con los siguientes campos:'
-        header:
-          one: No se pudo guardar este/a %{model} porque se encontró 1 error
-          other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
-  activerecord:
-    errors:
-      format: ! '%{attribute} %{message}'
-      messages:
-        accepted: debe ser aceptado
-        blank: no puede estar en blanco
-        confirmation: no coincide con la confirmación
-        empty: no puede estar vacío
-        equal_to: debe ser igual a %{count}
-        even: debe ser par
-        exclusion: está reservado
-        greater_than: debe ser mayor que %{count}
-        greater_than_or_equal_to: debe ser mayor que o igual a %{count}
-        inclusion: no está incluido en la lista
-        invalid: no es válido
-        less_than: debe ser menor que %{count}
-        less_than_or_equal_to: debe ser menor que o igual a %{count}
-        not_a_number: no es un número
-        not_an_integer: debe ser un entero
-        odd: debe ser impar
-        record_invalid: ! 'La validación falló: %{errors}'
-        taken: ya está en uso
-        too_long: es demasiado largo (%{count} caracteres máximo)
-        too_short: es demasiado corto (%{count} caracteres mínimo)
-        wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
-      template:
-        body: ! 'Se encontraron problemas con los siguientes campos:'
-        header:
-          one: No se pudo guardar este/a %{model} porque se encontró 1 error
-          other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
   available_options: ! 'Available Options:'
   contact:
     phone_instructions: 
@@ -147,39 +87,39 @@ en:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: about one hour
-        other: alrededor de %{count} horas
+        one: about an hour
+        other: about %{count} hours
       about_x_months:
-        one: alrededor de 1 mes
-        other: alrededor de %{count} meses
+        one: about a month
+        other: about %{count} months
       about_x_years:
-        one: alrededor de 1 año
-        other: alrededor de %{count} años
+        one: about a year
+        other: about %{count} years
       almost_x_years:
-        one: casi 1 año
-        other: casi %{count} años
-      half_a_minute: medio minuto
+        one: almost a year
+        other: almost %{count} years
+      half_a_minute: half a minute
       less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        one: menos de 1 segundo
-        other: menos de %{count} segundos
+        one: less than a second
+        other: less than %{count} seconds
       over_x_years:
-        one: más de 1 año
-        other: más de %{count} años
+        one: over a year
+        other: over %{count} years
       x_days:
-        one: 1 día
-        other: ! '%{count} días'
+        one: one day
+        other: ! '%{count} days'
       x_minutes:
-        one: 1 minuto
-        other: ! '%{count} minutos'
+        one: 1 minute
+        other: ! '%{count} minutes'
       x_months:
-        one: 1 mes
-        other: ! '%{count} meses'
+        one: 1 month
+        other: ! '%{count} months'
       x_seconds:
-        one: 1 segundo
-        other: ! '%{count} segundos'
+        one: 1 second
+        other: ! '%{count} seconds'
     prompts:
       day: day
       hour: hour
@@ -189,35 +129,6 @@ en:
       year: year
   dont_panic: ! 'Checked with the guide and it said: Don''t Panic!!!'
   error404: ! 'Error 404: We seem to not have that page.'
-  errors:
-    format: ! '%{attribute} %{message}'
-    messages:
-      accepted: debe ser aceptado
-      blank: no puede estar en blanco
-      confirmation: no coincide con la confirmación
-      empty: no puede estar vacío
-      equal_to: debe ser igual a %{count}
-      even: debe ser par
-      exclusion: está reservado
-      greater_than: debe ser mayor que %{count}
-      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
-      inclusion: no está incluido en la lista
-      invalid: no es válido
-      less_than: debe ser menor que %{count}
-      less_than_or_equal_to: debe ser menor que o igual a %{count}
-      not_a_number: no es un número
-      not_an_integer: debe ser un entero
-      odd: debe ser impar
-      record_invalid: ! 'La validación falló: %{errors}'
-      taken: ya está en uso
-      too_long: es demasiado largo (%{count} caracteres máximo)
-      too_short: es demasiado corto (%{count} caracteres mínimo)
-      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
-    template:
-      body: ! 'Se encontraron problemas con los siguientes campos:'
-      header:
-        one: No se pudo guardar este/a %{model} porque se encontró 1 error
-        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
   footer_nav:
     accessibility: Accessibililty
     contact_us: Contact Us
@@ -225,12 +136,11 @@ en:
     go_to_top: Top of the Page
   helpers:
     select:
-      prompt: Por favor seleccione
+      prompt: Please select
     submit:
-      create: Crear %{model}
-      submit: Guardar %{model}
-      update: Actualizar %{model}
-  hi: Hi!
+      create: Create %{model}
+      submit: Submit %{model}
+      update: Update %{model}
   nav:
     about_us: About us
     anual_reports: Anual Reports
