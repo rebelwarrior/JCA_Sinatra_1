@@ -7,6 +7,7 @@ gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
 gem 'bundler'
+gem 'fastimage' #for getting image sizes
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
@@ -19,6 +20,8 @@ gem 'gon-sinatra', :require => false
 
 
 group :development do
+  gem 'pry'
+  gem 'ap' #awesome print
   gem 'shotgun'
   gem 'thin'
   gem 'localeapp', require: false 

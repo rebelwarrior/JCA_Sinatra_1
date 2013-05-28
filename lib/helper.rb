@@ -53,3 +53,6 @@ module TextHelpers
   end
 end
 
+module ImageChecker
+  
+end
