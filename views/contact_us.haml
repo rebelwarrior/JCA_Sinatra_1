@@ -3,7 +3,10 @@
 
   %p
   #{t 'contact.phone_instructions' } 
-  %a{:href => "#{@tel_prefix}:+17877678181"}
+  %a{:href => "#{@tel_prefix}:+17877678181;3206#"}
     (787) 767-8181
   ext-3206, ext-3208
 %br
+-@lang['es'] ? target = :'content/contact_regional_offices' : target =:'content/en/contact_regional_offices'
+.container=markdown(target)
+  

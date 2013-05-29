@@ -1,7 +1,7 @@
 :css
-  /*header {
+  header {
     opacity: 0.9;
-  }*/
+  }
   iframe {
     border:solid 1px #777;
   }
@@ -36,7 +36,7 @@
       %br
       %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/beaches'"}!="#{t 'Home.beach_monitoring'}"
       %br
-      %b{:class => "btn btn-large btn-success", :onclick => "console.log('convocations')"}!="#{t 'Home.convocations'}"
+      %b{:class => "btn btn-large btn-success hide", :onclick => "console.log('convocations')"}!="#{t 'Home.convocations'}"
       %br
       %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/contact_us'"}!="#{t 'Home.contact_us'}"
       %br

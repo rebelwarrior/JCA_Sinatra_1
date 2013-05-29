@@ -19,7 +19,6 @@ Aguada, Aguadilla, Añasco, Cabo Rojo, Hormigueros, Las Marías, Maricao, Mayag�
 5. **Regional de Ponce:**  
 Adjuntas, Coamo, Guayanilla, Guánica, Jayuya, Juana Díaz, Orocovis, Peñuelas, Ponce, Santa Isabel, Villalba y Yauco.
 
- 	
 ##[Oficina Regional de Arecibo](id:arecibo)
  
 Dirección Física:  
@@ -30,7 +29,7 @@ Dirección Postal:
 > P.O BOX 143971  
 ARECIBO, PR  00614-3971
 
-Teléfonos: 787-880-0013, 787-880-5140, 787-879-5784  
+Teléfonos: [787-880-0013][2], [787-880-5140][3], [787-879-5784][4]  
 Fax: 787-879-5329  
  	
 ##[Oficina Regional de Humacao](id:humacao)
@@ -44,7 +43,7 @@ Dirección Postal:
 > PO BOX 8568  
 HUMACAO, PR 00792  
 
-Teléfonos: 787-285-2818, 787-285-7997  
+Teléfonos: [787-285-2818][5], [787-285-7997][6]  
 Fax: 787-285-7997  
  	
 ##[Oficina Regional de Guayama](id:guayama)
@@ -61,7 +60,7 @@ Dirección Postal:
 GUAYAMA, P.R. 00784  
 
 Correo Electrónico: [org@jca.pr.gov][1]    
-Teléfonos: 787-864-0103; 866-0200, 787-864-7111  
+Teléfonos: [787-864-0103][7]; [787-866-0200][8], [787-864-7111][9]  
 Fax:  787-866-0572  
 
 ##[Oficina Regional de Mayagüez](id:mayaguez)
@@ -78,7 +77,7 @@ Dirección Postal:
 SUITE 201  
 MAYAGÜEZ, P.R. 00682-1536  
 
-Teléfonos: 787-833-1188, 787-833-1115  
+Teléfonos: [787-833-1188][10], [787-833-1115][11]  
 Fax: 787-833-1198  
  	
 ##[Oficina Regional de Ponce](id:ponce)
@@ -95,8 +94,21 @@ Dirección Postal:
 Suite 404  
 Ponce PR  00716-2018   
 
-Teléfonos: 787-840-4070, 787-840-3141, 787-840-4066  
+Teléfonos: [787-840-4070][12], [787-840-3141][13], [787-840-4066][14]  
 Fax: 787-842-2993  
 
 
-[1]: http://mailto:org@jca.pr.gov
+[1]:http://mailto:org@jca.pr.gov
+[2]:tel:+17878800013
+[3]:tel:+17878805140
+[4]:tel:+17878795784
+[5]:tel:+17872852818
+[6]:tel:+17872857997
+[7]:tel:+17878640103
+[8]:tel:+17878660200
+[9]:tel:+17878647111
+[10]:tel:+17878331188
+[11]:tel:+17878331115
+[12]:tel:+17878404070
+[13]:tel:+17878403141
+[14]:tel:+17878404066

@@ -7,7 +7,8 @@ gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
 gem 'bundler'
-gem 'fastimage' #for getting image sizes
+gem 'fastimage', :require => false #for getting image sizes
+gem 'therubyracer'
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'

@@ -7,7 +7,7 @@ es:
     hr: Recursos Humanos
     legal_office: Oficina de Asuntos Legales
     management: Oficina de Asuntos Gerenciales
-    sec: Oficina de la Secretar&iacute;a
+    sec: Oficina de la Secretaría
     sysops: Sistemas
   Areas:
     air: Aire
@@ -16,7 +16,7 @@ es:
     lab: Lab.
     land: Terrenos
     noise: Ruidos
-    sci: Assesor. Cient&iacute;fico
+    sci: Assesor. Científico
     water: Agua
   BarraGubernamental:
     agency_directory: Directorio de Agencias

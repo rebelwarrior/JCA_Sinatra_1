@@ -82,6 +82,7 @@ class JCA_Sinatra < Sinatra::Base
   ## Press News ##
   get '/press' do
     # set :haml, :default_encoding => "UTF-8"
+    @tel_prefix = tel_prefix(request.user_agent)
     Dir.chdir('public/press') do
       @press_title_list = Dir.glob('*.md').sort.map do |f|
         haml_force_encoding(f.match(/^[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0))
@@ -99,8 +100,8 @@ class JCA_Sinatra < Sinatra::Base
     haml :education
   end
   
-  get '/field_offices' do
-    haml :field_offices
+  get '/regional_field_offices' do
+    haml :regional_field_offices
   end
   
   get '/strategic' do

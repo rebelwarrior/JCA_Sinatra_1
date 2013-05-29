@@ -1,5 +1,6 @@
 .DS_Store
 /config/deploy.rb
+/config/old_deploy.rb
 /public/images/*
 /public/press/images/*
 /public/press/*.md
