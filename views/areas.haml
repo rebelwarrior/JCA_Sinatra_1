@@ -22,5 +22,5 @@
                 %a{:href => "#env911"}!="#{t 'Areas.env911'}"
               %li
                 %a{:href => "#air"}!="#{t 'Areas.air'}"  
-      %div#spyon{:class => "span10", :'data-offset' => "0", :'data-target' =>"#navbar_for_areas", :'data-spy' => "scroll"}= markdown(:'content/areas')
+      %div#spyon{:class => "span10", :'data-offset' => "0", :'data-target' =>"#navbar_for_areas", :'data-spy' => "scroll"}= haml_force_encoding(markdown(:'content/areas'))
  

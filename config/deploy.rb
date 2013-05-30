@@ -52,7 +52,7 @@ namespace :deploy do
   task :start, :roles => :app do
     # run "touch #{current_release}/tmp/restart.txt"
     # run "#{sudo} service nginx #{command}"
-    run "#{sudo} service nginx restart"
+    # run "#{sudo} service nginx restart"
     # run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
  
@@ -63,7 +63,7 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     # run "touch #{current_release}/tmp/restart.txt"
-    run "#{sudo} service nginx restart"
+    # # run "#{sudo} service nginx restart"
     # run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end

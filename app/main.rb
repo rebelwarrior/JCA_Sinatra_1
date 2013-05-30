@@ -24,6 +24,7 @@ class JCA_Sinatra < Sinatra::Base
     #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
     I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
+    Haml::Options.defaults[:encoding] = :utf8
   end
   configure :production, :development do
     enable :logging
@@ -89,7 +90,7 @@ class JCA_Sinatra < Sinatra::Base
       end
       @file_list = Dir.glob('*.md').sort.map{|f| f.match(/(.*)\.md/).captures.at(0) }
     end
-    haml :press, :format => :html5, :default_encoding => "UTF-8" 
+    haml :press  #, :format => :html5, :default_encoding => "UTF-8" 
   end
   
   get '/areas' do
