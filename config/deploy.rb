@@ -23,7 +23,7 @@ set :scm, :git
 set :git_enable_submodules, 1
 default_run_options[:pty] = true  # Must be set for the password prompt
                                   # from git to work
-# set :repository, "git://github.com/rebelwarrior/JCA_Sinatra_1.git"  # Your clone URL
+set :repository, "git://github.com/rebelwarrior/JCA_Sinatra_1.git"  # Your clone URL
 # set :repository, "file://Users/davidacevedo/Code/JCA_1/JCA_Sinatra/"  # Your clone URL
 # set :local_repository, "file://."
 set :branch, "master"
