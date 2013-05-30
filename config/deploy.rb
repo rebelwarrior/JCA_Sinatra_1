@@ -8,9 +8,9 @@
 # set :rvm_ruby_string, '1.9.3'
 # set :rvm_type, :user
 # now use gem 'rvm-capistrano'
-set :default_environment, {
-      'PATH' => "/home/webmaster/.rvm/rubies/ruby-1.9.3-p429/bin/ruby:$PATH"
-    }
+# set :default_environment, {
+#       'PATH' => "/home/webmaster/.rvm/rubies/ruby-1.9.3-p429/bin/ruby:$PATH"
+#     }
 
 set :application, "JCA_Sinatra_1"
 
@@ -50,7 +50,10 @@ role :db, domain, :primary => true
  
 namespace :deploy do
   task :start, :roles => :app do
-    run "touch #{current_release}/tmp/restart.txt"
+    # run "touch #{current_release}/tmp/restart.txt"
+    # run "#{sudo} service nginx #{command}"
+    run "#{sudo} service nginx restart"
+    # run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
  
   task :stop, :roles => :app do
@@ -59,6 +62,8 @@ namespace :deploy do
  
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "touch #{current_release}/tmp/restart.txt"
+    # run "touch #{current_release}/tmp/restart.txt"
+    run "#{sudo} service nginx restart"
+    # run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
