@@ -9,9 +9,9 @@
               / %a.brand{:href => "#"}Educacion:
             %ul{:class => "nav nav-list areas-sidenav affix-top"}
               %li
-                %a{:href => "#library"}Biblioteca
+                %a{:href => "#library"}!="#{t 'Areas.library'}"
               %li
-                %a{:href => "#eduinstitute"}I.d.E.A.
+                %a{:href => "#eduinstitute"}!="#{t 'Areas.idea'}"
       .span10#markdowncontent{:class => "scrollspy", :'data-offset' => "0", :'data-target' =>"#navbar_for_page", :'data-spy' => "scroll"}= haml_force_encoding(markdown(:'content/education'))
 / :javascript
 /   $('#navbar_for_page').scrollspy();

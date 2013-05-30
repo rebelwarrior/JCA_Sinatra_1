@@ -18,6 +18,8 @@ es:
     noise: Ruidos
     sci: Assesor. Científico
     water: Agua
+    library: Biblioteca
+    idea: I.d.E.A.
   BarraGubernamental:
     agency_directory: Directorio de Agencias
     municipality_directory: Directorio de Municipios

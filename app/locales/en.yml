@@ -18,6 +18,8 @@ en:
     noise: Noise Control
     sci: Env. Impact Reports
     water: Water
+    library: Library
+    idea: Edu. Inst.
   BarraGubernamental:
     agency_directory: Gov. Agencies Directory
     municipality_directory: Directory of Municipalities
