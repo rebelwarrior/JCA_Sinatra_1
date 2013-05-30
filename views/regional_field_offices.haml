@@ -18,4 +18,4 @@
                 %a{:href => "#mayaguez"}!="Mayag&uuml;ez"
               %li
                 %a{:href => "#ponce"}Ponce 
-      .span10#markdowncontent{:class => "scrollspy", :'data-offset' => "0", :'data-target' =>"#navbar_for_page", :'data-spy' => "scroll"}= markdown(:'content/regional_field_offices')
+      .span10#markdowncontent{:class => "scrollspy", :'data-offset' => "0", :'data-target' =>"#navbar_for_page", :'data-spy' => "scroll"}= haml_force_encoding(markdown(:'content/regional_field_offices'))

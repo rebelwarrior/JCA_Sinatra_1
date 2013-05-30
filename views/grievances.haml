@@ -1,4 +1,4 @@
 %body
   .container
     .span2.hidden-phone
-    .span10#markdowncontent= markdown(:'content/grievances')
+    .span10#markdowncontent= haml_force_encoding(markdown(:'content/grievances'))

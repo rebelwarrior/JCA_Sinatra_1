@@ -8,5 +8,5 @@
   ext-3206, ext-3208
 %br
 -@lang['es'] ? target = :'content/contact_regional_offices' : target =:'content/en/contact_regional_offices'
-.container=markdown(target)
+.container=haml_force_encoding(markdown(target))
   
