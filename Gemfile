@@ -21,6 +21,8 @@ gem 'gon-sinatra', :require => false
 
 
 group :development do
+  gem 'capistrano-puma', require: false
+  gem 'rvm-capistrano'
   gem 'pry'
   gem 'shotgun'
   gem 'thin'
