@@ -1,5 +1,16 @@
 #!/usr/bin/env puma
 
+root = "#{Dir.getwd}"
+ 
+bind "unix://#{root}/tmp/puma/socket"
+pidfile "#{root}/tmp/puma/pid"
+state_path "#{root}/tmp/puma/state"
+rackup "#{root}/config.ru"
+ 
+threads 4, 8
+ 
+activate_control_app
+
 # The directory to operate out of.
 #
 # The default is the current directory.
