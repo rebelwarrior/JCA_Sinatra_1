@@ -1,4 +1,6 @@
 # config.ru
+require 'rubygems'
+require 'sinatra'
 require 'bundler'
 Bundler.require #loads all required gems.
 
@@ -27,3 +29,4 @@ disable :run, :reload
 #Runs the Sinatra App
 require './app/main.rb'
   run JCA_Sinatra
+  

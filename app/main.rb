@@ -228,3 +228,7 @@ class JCA_Sinatra < Sinatra::Base
   end
   
 end
+
+if __FILE__ == $0
+  JCA_Sinatra.run!
+end
