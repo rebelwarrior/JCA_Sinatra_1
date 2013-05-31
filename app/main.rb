@@ -18,6 +18,7 @@ class JCA_Sinatra < Sinatra::Base
   configure do
     set :views, File.dirname(__FILE__) + '/../views'
     mime_type :plain, 'text/plain'
+    set :server, :puma 
     
     #Internationalization (I18n) with Fallbacks & loads YAML files
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)

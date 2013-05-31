@@ -19,6 +19,11 @@ use Rack::Deflect, :log => $stdout, :request_threshold => 20, :interval => 2, :b
 
 #TODO: add puma specific code
 
+#Passenger specific code
+set :environment, ENV['RACK_ENV'].to_sym
+disable :run, :reload
+
+
 #Runs the Sinatra App
 require './app/main.rb'
   run JCA_Sinatra
