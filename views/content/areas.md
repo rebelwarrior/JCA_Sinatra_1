@@ -1,5 +1,6 @@
 ---  
-#[Área de Control de Contaminación de Terreno ](id:land)
+
+#Área de Control de Contaminación de Terreno {#land}
 [menú principal][0] 
  
 El Área de Control de Contaminación de Terrenos (ACCT) es el brazo operacional de la JCA con la responsabilidad de planificar, desarrollar y ver que se cumpla con la política pública relacionada con el manejo de los desperdicios sólidos en Puerto Rico.  Además, desarrolla proyectos y programas, realiza estudios e investigaciones encaminados al entendimiento de los nuevos métodos para el manejo de los desperdicios sólidos y ofrece asesoramiento técnico y recomendaciones a la comunidad en general sobre los reglamentos y procedimientos que administra.  
@@ -10,8 +11,9 @@ E-mail: [mariarodriguez@jca.gobierno.pr][1]
 
 Tel. (787) 767-8124, (787) 767-8181 ext. 3576
 
----  
-#[Área Control de Ruidos](id:noise)
+---
+  
+#Área Control de Ruidos {#noise}
 [menú principal][0]
 
 En el Estado Libre Asociado de Puerto Rico, la Junta de Calidad Ambiental (JCA) es la principal institución del País responsable de dar cumplimiento a la Política Pública para el control del ruido ambiental. Además, nuestra Agencia participa en el desarrollo de nuevas políticas y la evaluación de su efectividad.  
@@ -119,7 +121,8 @@ Los resultados de los estudios preliminares que hemos completado están disponib
 ![grafica de comparación de niveles de sonido][i6]
 
 
----  
+---
+  
 #[Laboratorio Ambiental](id:lab)
 [menú principal][0]
  
@@ -142,7 +145,8 @@ El LIAPR también sirve como unidad de apoyo científico al Departamento de Recu
 Provee los análisis de laboratorio correspondientes al Área de Recursos de Agua y Minerales y al Área de Recursos Vivientes del Departamento de Recursos Naturales y Ambientales, para las determinaciones científicas.  Además, le ofrece el asesoramiento y apoyo necesario, al igual que para la JCA, en toda situación que pueda tener impacto en los recursos naturales y que requiera de conocimientos científicos especializados.
 
 ---
-#[Área Calidad de Agua](id:water)
+
+#Área Calidad de Agua {#water}
 [menú principal][0]
  
 El Área de Calidad de Agua es una de las áreas principales que componen la estructura organizativa operacional de la JCA.  Entre sus funciones está vigilar, proteger, mejorar y mantener la calidad de los cuerpos de agua, con el fin de que se logre la propagación y preservación de especies deseables. Esto permitirá que los mismos sean aptos para uso doméstico, recreativo, agrícola e industrial.
@@ -253,7 +257,8 @@ Para más información pueden comunicarse con:
   Email: [javierverardi@jca.pr.gov][6]
 
 ---
-#[ÁREA DE ASESORAMIENTO CIENTÍFICO](id:sci)
+
+#ÁREA DE ASESORAMIENTO CIENTÍFICO {#sci}
 [menú principal][0]
 
 Evalúa, comenta y emite recomendaciones a los documentos ambientales referidos por la Oficina de Gerencia de Permisos o por cualquier otra agencia proponente.  También evalúa y determina el cumplimiento con Ley 416, Ley sobre Política Pública Ambiental, para aquellas acciones radicadas amparadas en la Regla 120 del Reglamento de Evaluación y Trámite de Documentos Ambientales de la Junta de Calidad Ambiental.
@@ -412,7 +417,8 @@ Actualmente los incentivos económicos son otorgados por la EPA-Región II. Para
 
 
 ---  
-#[Área Calidad de Aire](id:air)
+
+#Área Calidad de Aire {#air}
 [menú principal][0]
  
 El propósito primordial del Área de Calidad de Aire es ejercer controles dirigidos a mantener condiciones aceptables en la atmósfera, de modo que no se perjudique la salud humana y el bienestar de la comunidad.

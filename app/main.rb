@@ -3,7 +3,7 @@
 
 ## Load Required Gems ##
 require 'sinatra'
-%w[haml rdiscount i18n gon-sinatra i18n/backend/fallbacks].each do |gem| require gem end
+%w[haml kramdown i18n gon-sinatra i18n/backend/fallbacks].each do |gem| require gem end
 require './lib/helper'
 # require './lib/sinatra_helper'
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end

@@ -1,4 +1,4 @@
-#[¿Qué es la JCA?](id:about)
+#¿Qué es la JCA? {#about}
 [menú principal][0]
  
 Como instrumentalidad del gobierno, la Junta es un organismo normativo, coordinador, regulador y planificador con facultades cuasi-judiciales y cuasi-legislativas.
@@ -14,7 +14,7 @@ Esta sección ofrece una ilustración que muestra la organización o estructura 
  
 Nuestros objetivos están encaminados a investigar e identificar las condiciones y tendencias del ambiente de nuestra isla y hacer recomendaciones específicas al Gobernador, sobre la protección del ambiente y el desarrollo sostenible.
  	
-##[Base Legal](id:legal)
+##Base Legal {#legal}
 [menú principal][0]
  
 A tenor con la Ley # 416 de 22 de septiembre de 2004, conocida como Ley sobre Política Pública Ambiental, la Junta de Calidad Ambiental, en lo sucesivo "JCA", tiene la función principal de proteger y conservar el medio ambiente,  utilizando sabia y juiciosamente los recursos necesarios para impedir e eliminar daños que puedan afectarlo, manteniendo un balance entre el desarrollo económico y el ambiente. Para lograr dicho objetivo,  la JCA ha promulgado reglamentos con el propósito primordial de establecer las normas que minimicen los daños al ambiente y que establezcan los controles para las actividades que produzcan contaminación. Bajo el Artículo 16 de la Ley # 416, antes citada, cualquier incumplimiento a estos reglamentos constituye una violación y estará sujeto a las penalidades establecidas en la Ley, hasta $25,000.00 ($50,000.00 en contumacia) por cada infracción, entendiéndose que cada día que subsista la infracción se considerará como una violación por separado. Además, la JCA podrá,  en caso de infringir algunas de las reglas y reglamentos aplicables, suspender, enmendar o revocar cualquier permiso, certificación, aprobación u otra autorización emitida.
@@ -23,7 +23,7 @@ Esta ley deroga y sustituye la Ley Núm. 9 de 18 de junio de 1970, según enmend
 [Ley Sobre Politica Pública Ambiental.pdf][ley_politica_publica_link]
 
 
-#[Historia de la JCA](id:history)
+#Historia de la JCA {#history}
 [menú principal][0]
  
 Para la década de los 60 comenzó a surgir una preocupación sobre el desarrollo y su efecto en los recursos naturales y el ambiente de Puerto Rico. Ante esta preocupación, la Cámara de Representantes creó una Comisión Especial para estudiar lo relacionado con la conservación de los recursos naturales y el ornato. El resultado de estos estudios propició la creación de una Secretaría Auxiliar de Recursos Naturales, adscrita al Departamento de Obras Públicas. 
@@ -41,7 +41,7 @@ Por 30 años, la Junta de Calidad Ambiental ha logrado establecer la política p
   
 Hoy, la Junta de Calidad Ambiental continúa trabajando para proteger la calidad del ambiente, mediante el estudio del impacto de las actividades humanas sobre la naturaleza, y el control efectivo de la contaminación del agua, del aire, de los terrenos y la contaminación por ruido, para así propiciar una mejor calidad de vida a toda la ciudadanía.
 
-#[Junta de Gobierno](id:board)
+#Junta de Gobierno {#board}
 [menú principal][0]
  
 La Junta de Gobierno de la JCA es el organismo directivo de la agencia. A tenor con el Artículo 7 de la  Ley sobre Política Pública Ambiental, la Junta de Gobierno la componen tres (3) miembros asociados y un miembro alterno que son nombrados por el Gobernador de Puerto Rico, con el consejo y consentimiento del Senado. El nombramiento de cada miembro asociado  y alterno es por un término de cuatro (4) años. De estos miembros, uno es designado por el Gobernador, como el Presidente de la agencia. El Presidente, así como los otros miembros asociados y el miembro alterno de la Junta de Gobierno deberán, como resultado de su adiestramiento y experiencia, ser personas de reconocida capacidad en la protección y conservación del ambiente y no deberán tener conflictos de interés con la ejecución de sus cargos.

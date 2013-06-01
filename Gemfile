@@ -1,14 +1,16 @@
 #Gemfile
 source 'https://rubygems.org'
+# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
+ruby "2.0.0"
 gem 'rack'
 gem 'sinatra' 
-gem 'rdiscount' 
+gem 'kramdown'
 gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
 gem 'bundler'
 gem 'fastimage', :require => false #for getting image sizes
-gem 'therubyracer'
+# gem 'therubyracer'
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
@@ -25,7 +27,8 @@ group :development do
   gem 'rvm-capistrano'
   gem 'pry'
   gem 'shotgun'
-  gem 'thin'
+  # gem 'thin'
+    gem 'puma', '~> 2.0'
   gem 'localeapp', require: false 
 end
 
