@@ -8,24 +8,25 @@ require './lib/helper'
 # require './lib/sinatra_helper'
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
-##Main Sinatra Class##
+### Main Sinatra Class ###
 class JCA_Sinatra < Sinatra::Base
   ## Register the helper Module in the helper files.
   # register Gon::Sinatra
   helpers TextHelpers 
 
-  
+### Configuration Block ###
   configure do
     set :views, File.dirname(__FILE__) + '/../views'
     mime_type :plain, 'text/plain'
     set :server, :puma 
     
-    #Internationalization (I18n) with Fallbacks & loads YAML files
+    ## Internationalization (I18n) 
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
     #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
     I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
-    Haml::Options.defaults[:encoding] = :utf8
+    # Haml::Options.defaults[:encoding] = :utf8
+    set :haml, :default_encoding => "UTF-8"
   end
   configure :production, :development do
     enable :logging
@@ -50,6 +51,8 @@ class JCA_Sinatra < Sinatra::Base
     @file_list = []
     pr_gov_top_bar_height = 40
     @sidebar_offset_num = 250 + pr_gov_top_bar_height
+    #Refactor Content Folder
+    @md_content_location = ''
   end
   
     
@@ -83,7 +86,6 @@ class JCA_Sinatra < Sinatra::Base
 
   ## Press News ##
   get '/press' do
-    # set :haml, :default_encoding => "UTF-8"
     @tel_prefix = tel_prefix(request.user_agent)
     Dir.chdir('public/press') do
       @press_title_list = Dir.glob('*.md').sort.map do |f|
@@ -132,7 +134,7 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/contact_us' do
     @tel_prefix = tel_prefix(request.user_agent)
-    puts request.user_agent
+    # puts request.user_agent
     haml :contact_us
   end
   
@@ -147,7 +149,7 @@ class JCA_Sinatra < Sinatra::Base
   ### FTP Directory for File ###
   get '/home/pdfs' do
     ## Server routes /pdfs via Rack::Directory.new in ../config.ru
-    #Mabye create a JS file that calls the html of the rack application and joins it to a body tag?
+    #Mabye create a JS file that calls the html of the rack application and joins it to a body tag? --DONE
     redirect :pdfs
   end
   
@@ -193,28 +195,8 @@ class JCA_Sinatra < Sinatra::Base
     logger.info params[:captures] #log requests
     path4txt = sanitize(params[:captures].join('')) unless params[:captures].nil?
     path2mds= 'views/content'
-    if path4txt == "press"
-      #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
-      txt_output = File.read("views/content/press.md") + "\n====================\n"
-      Dir.chdir('public/press') do
-        Dir.glob('*.md').each do |file|
-          txt_output << "\s" + file.to_s + "\n\n"
-          txt_output << File.read(file)
-          txt_output << "\n====================\n"
-        end
-      end
-      txt_output
-    elsif File.exists?("views/content/#{path4txt}.md")
-      File.read("views/content/#{path4txt}.md") 
-    elsif path4txt =~ /\w/i
-      txt_output = "#{I18n.t('available_options')} \n"
-      Dir.chdir('views/content') do
-        Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
-      end
-      txt_output
-    else
-      not_found
-    end
+    #Refactor below: (bug introduced)
+    render_plain_text(path4txt)
   end
   ####
   
@@ -232,3 +214,5 @@ end
 if __FILE__ == $0
   JCA_Sinatra.run!
 end
+
+__END__

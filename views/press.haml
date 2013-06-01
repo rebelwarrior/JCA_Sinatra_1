@@ -1,9 +1,19 @@
 -# coding: UTF-8
--#%link{:href => "../css/areas.css", :rel => "stylesheet"}
+-(@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
 %body{:height => "100%"}
   .container
     .span2.hidden-phone
-    %section.span10=haml_force_encoding(markdown(:'content/press'))
+    %section.span10
+      =haml_force_encoding(markdown(:"content/#{lang}/press"))
+      tel.
+      -if @tel_prefix['callto']
+        %a{:href => "#{@tel_prefix}:+17877678181"}
+          (787)-767-8181 
+      -else  
+        %a{:href => "#{@tel_prefix}:+17877678181;6135"}
+          (787)-767-8181 
+      ext. 6135  
+        
   .container
     .row
       .span3.hidden-phone

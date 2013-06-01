@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 gem 'rack'
 gem 'sinatra' 
-gem 'rdiscount' #or other markdown engine
+gem 'rdiscount' 
 gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale
@@ -27,11 +27,10 @@ group :development do
   gem 'shotgun'
   gem 'thin'
   gem 'localeapp', require: false 
-  gem 'puma', require: false
 end
 
 group :production do
-  gem 'puma'
+  gem 'puma', '~> 2.0'
 end
 
 group :test do

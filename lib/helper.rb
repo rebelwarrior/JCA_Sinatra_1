@@ -78,4 +78,37 @@ module TextHelpers
     end
   end
   
+  def render_plain_text(path4txt)
+    #bug present! doesn't render all available options
+    # Also Abstract directory reading to a class variable
+    (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
+    if path4txt == "press"
+      #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
+      txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"
+      Dir.chdir('public/press') do
+        Dir.glob('*.md').each do |file|
+          txt_output << "\s" + file.to_s + "\n\n"
+          txt_output << File.read(file)
+          txt_output << "\n====================\n"
+        end
+      end
+      txt_output
+    elsif File.exists?("views/content/#{path4txt}.md")
+      File.read("views/content/#{path4txt}.md") 
+    elsif File.exists?("views/content/#{lang}/#{path4txt}.md")
+      File.read("views/content/#{lang}/#{path4txt}.md")  
+    elsif path4txt =~ /\w/i
+      txt_output = "#{I18n.t('available_options')} \n"
+      Dir.chdir('views/content') do
+        Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
+        txt_output << "======"
+        # Dir.glob("#{lang}/*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
+      end
+      txt_output
+    else
+      not_found
+    end
+  end
+  
+  
 end

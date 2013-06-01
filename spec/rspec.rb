@@ -20,7 +20,9 @@ describe "JCA Sinatra Application" do
   it "does somethin"
   
   describe "accesibility option" do
-    it "delivers a text document when asked for a .txt extention"
+    it "delivers a text document when asked for a .txt extention" do
+      
+    end
     
     it "displays a list of available files if a bad request is made w/ a .txt extention"
     
