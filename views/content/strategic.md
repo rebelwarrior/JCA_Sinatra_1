@@ -1,4 +1,4 @@
-#[Evaluación y Planificación Estratégica](id:strategic)
+#Evaluación y Planificación Estratégica {#strategic}
  
 El Área de Evaluación y Planificación Estratégica de la Junta de Calidad Ambiental tiene como gestión principal fijar objetivos ambientales, analizar alternativas posibles y plantear la forma de alcanzar los objetivos en un plazo predeterminado de manera que se puedan transformar basados en las estrategias de los planes que conduzcan a un ambiente mejor.
 

@@ -1,4 +1,4 @@
-#[Querellas Ambientales](id:grievances)
+#Querellas Ambientales {#grievances}
  
 Incidentes y Problemas Ambientales
 

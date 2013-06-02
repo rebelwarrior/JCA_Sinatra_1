@@ -1,4 +1,4 @@
-#[Oficina de Asuntos Legales](id:legal_office)
+#Oficina de Asuntos Legales {#legal_office}
 [menú principal][0]
  
 Es la oficina encargada de hacer que se cumpla con la Ley Núm. 416 y los reglamentos promulgados a su amparo.  Su responsabilidad administrativa es amplia y entre sus funciones principales se encuentran las siguientes:
@@ -40,13 +40,13 @@ Es la oficina encargada de hacer que se cumpla con la Ley Núm. 416 y los reglam
 - Proveer los servicios de la biblioteca legal al personal de la JCA en la búsqueda o en la orientación de leyes, casos judiciales y de otra información jurídica.
 
 
-#[Oficina de Servicios Generales](id:management)
+#Oficina de Servicios Generales {#management}
 [menú principal][0]
  
 Esta oficina se crea debido al gran número de tareas asignadas a la agencia por la Ley de Política Pública Ambiental. Su propósito principal  es poder desarrollar e implantar los mecanismos administrativos apropiados que garanticen la utilización óptima de los recursos establecidos por ley.
 
 
-#[Oficina de Presupuesto, Finanzas y Recursos Externos](id:budget)
+#Oficina de Presupuesto, Finanzas y Recursos Externos {#budget}
 [menú principal][0]
  
 La oficina de Presupuesto, Finanzas y Recursos Externos tiene la responsabilidad de establecer controles adecuados en el manejo y uso de fondos estatales y federales.
@@ -58,7 +58,7 @@ La División de Presupuesto administra y controla el presupuesto de la agencia. 
 La División de Recursos Externos vigila los procedimientos administrativos de cumplimiento de todas las propuestas federales. Provee asistencia a los programas en la preparación y manejo de las propuestas.
 
 
-#[Oficina de la Secretaría](id:sec)
+#Oficina de la Secretaría {#sec}
 [menú principal][0]
  
 La función de la oficina es brindar el apoyo administrativo necesario para que la Junta de Gobierno lleve a cabo sus funciones asignadas por ley. Como tal, tiene la responsabilidad de coordinar, dar seguimiento y realizar todas las actividades relacionadas con los asuntos de la Junta de Gobierno, la Oficina de Asuntos Legales y la División de Vistas Públicas.
@@ -66,13 +66,13 @@ La función de la oficina es brindar el apoyo administrativo necesario para que 
 En Secretaría se radican y tramitan todos los asuntos que el Presidente, Miembros Asociados, otros funcionarios de la Junta, Comunidad Regulada o cualquier otra parte interesada, soliciten, que sean considerados por la Junta de Gobierno.  La oficina tiene, entre sus actividades principales, la preparación de todos los casos y/o asuntos a incluirse en las agendas de las reuniones que la Junta de Gobierno celebre; la asistencia a las reuniones que la Junta de Gobierno convoque; la preparación de los documentos “post” reunión de Junta, esto incluye la preparación de la Minuta, Memorandos de Acción, Resoluciones de acuerdo a lo resuelto en cada caso, la notificación y certificación de las Resoluciones y otros documentos oficiales de la Junta de Gobierno, el envío a Finanzas para la gestión de cobro de las resoluciones con multa y/o costes impuestos por la Junta, la custodia de los récords y documentos vitales de la agencia, la radicación de los documentos legales, la preparación del calendario y coordinación de las vistas públicas en y fuera de la agencia, así como la coordinación entre la ciudadanía y las diferentes oficinas de la Junta, para el examen u obtención de los documentos públicos en poder de la JCA.
 
 
-#[Oficina de Sistemas de Información](id:sysops)
+#Oficina de Sistemas de Información {#sysops}
 [menú principal][0]
  
 Se encarga de la administración de la Oficina de informática. Supervisa al personal técnico y no-técnico de la agencia, dirigiendo todos los esfuerzos en lograr la integración de la tecnología y su implantación. Además, maneja todos las aplicaciones necesarias para apoyar el proceso de transacciones diarias de la agencia.
 
 
-#[Oficina de Recursos Humanos](id:hr)
+#Oficina de Recursos Humanos {#hr}
 [menú principal][0]
  
 El Área de Recursos Humanos tendrá entre otras, pero no limitadas a, las siguientes funciones todos los asuntos de cualquier forma o manera relacionados con el reclutamiento del personal que labore en la Junta de Calidad Ambiental , todo asunto relacionado con transacciones de personal de la Junta, la administración de las leyes y reglamentos laborales en vigor, la administración de los planes de clasificación y retribución, la implantación de aquellas Ordenes Administrativas y Reglamentos Internos relacionados al personal y los recursos humanos de la Junta de Calidad Ambiental y la implantación de la política pública de la Junta  en el área de recursos humanos.

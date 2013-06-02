@@ -123,7 +123,7 @@ Los resultados de los estudios preliminares que hemos completado están disponib
 
 ---
   
-#[Laboratorio Ambiental](id:lab)
+#Laboratorio Ambiental {#lab}
 [menú principal][0]
  
 El Laboratorio de Investigaciones Ambientales de Puerto Rico (LIAPR)se creó en 1999 mediante la transferencia del Laboratorio Ambiental del Departamento de Recursos Naturales y Ambientales al de la JCA.  El propósito de la trasferencia es que se cumpla con la política pública dirigida a la preservación del ambiente, según lo estipula la Ley 416 de 22 de septiembre de 2004, conocida como Ley sobre Política Pública Ambiental.  Esta Ley reconoce la importancia de restaurar y mantener la calidad del medio ambiente y crear y mantener las condiciones bajo las cuales el ser humano y la naturaleza puedan existir en armonía productiva.
@@ -280,7 +280,8 @@ Es el efecto sustancial de una acción propuesta sobre uno o varios elementos de
 La Junta de Calidad Ambiental (JCA) podrá hacer una evaluación de los impactos ambientales de una acción, cuando dicha acción no esté sujeta a la Ley Núm. 161 (Ley para la Reforma del Proceso de Permisos de Puerto Rico) y que la misma sea la expedición o modificación de un permiso bajo la jurisdicción única de la JCA.  Dicha evaluación y las condiciones necesarias que se le impongan para lograr la protección del ambiente y de los recursos naturales, formará parte de la expedición o modificación del permiso o autorización que emita la JCA.
 
 ---
-#[Área Respuesta a Emergencias Ambientales](id:env911)
+
+#Área Respuesta a Emergencias Ambientales {#env911}
 [menú principal][0]
 
 Según se define en la Ley # 81 de 2 de julio de 1987, una emergencia ambiental es cualquier descarga o amenaza de descarga, escape accidental o intencional no autorizado, filtración, bombeo,  inyección, vertido, emisión, vaciado o disposición de unas sustancias o desperdicio peligroso, en o sobre el  terreno, al agua o al ambiente, que ocasione un riesgo o amenaza de riesgo a la salud pública, al bienestar o al ambiente.

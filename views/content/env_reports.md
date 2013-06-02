@@ -1,4 +1,4 @@
-#Informes Ambientales
+#Informes Ambientales {#dia}
  
 El Informe Ambiental es un instrumento preparado por la Junta de Calidad Ambiental (JCA) con el propósito de evaluar y dar a conocer el estado o condición del ambiente en Puerto Rico.  Este documento, el cual tiene su base legal en la Ley Núm. 416 del 22 de septiembre de 2004 (Ley de Política Pública Ambiental), ha ido evolucionando cada año en busca de ser más objetivo, preciso y confiable en la evaluación de la condición del ambiente, y en facilitar su lectura e interpretación por parte de todos los sectores de la sociedad.
 

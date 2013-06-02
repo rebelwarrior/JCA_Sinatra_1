@@ -17,6 +17,7 @@ class JCA_Sinatra < Sinatra::Base
 ### Configuration Block ###
   configure do
     set :views, File.dirname(__FILE__) + '/../views'
+    set :public, File.dirname(__FILE__) + '/../public'
     mime_type :plain, 'text/plain'
     set :server, :puma 
     

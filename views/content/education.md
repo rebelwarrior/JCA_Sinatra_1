@@ -1,4 +1,4 @@
-#[Biblioteca](id:library)
+#Biblioteca {#library}
 [menú principal][0]
  
 La biblioteca de la JCA brinda información especializada en el campo ambiental, con énfasis en la contaminación y conservación del medio ambiente en Puerto Rico.  Contamos con un catálogo computadorizado y personal capacitado, lo cual le facilita al usuario el acceso rápido a la información.  ¡Será un placer servirle!
@@ -63,7 +63,7 @@ contaminación de agua es relativo y está íntimamente relacionado con el uso p
 - [40 Boletín de Vieques (septiembre-octubre 09).pdf][pdf9]
 - [41 Boletín de Vieques (noviembre-diciembre 09).pdf][pdf10]
 
-#[Instituto de Educación Ambiental](id:eduinstitute)
+#Instituto de Educación Ambiental {#eduinstitute}
 [menú principal][0]
  
 El Instituto De Educación Ambiental (IDEA) se crea conforme a la disposición  del Artículo 9, Sección b (2) de la Ley Núm.416 del 22 de septiembre de 2004, según enmendada Ley de Política Pública Ambiental del Estado Libre Asociado de Puerto Rico. El propósito de su creación es promover proyectos educativos ambiéntales que moldean nuevos modelos de capacitación para la implantación y creación de programas interrelacionados, haciendo referencia a eventos existentes entre la sociedad y la base eco-sistémica de sustentación, viendo lo ambiental como un problema inherente a las actividades culturales, sociales, municipales y organizacionales. Este Instituto es responsable de garantizar que la capacitación desarrolle líderes comprometidos con el aprendizaje a lo largo de su trayectoria profesional, desde una perspectiva ecológica, responsables de la construcción de redes de solidaridad para la protección y conservación ambiental.

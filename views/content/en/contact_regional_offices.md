@@ -1,10 +1,12 @@
 ##[Regional Office of Arecibo](id:arecibo)
  
-Physical Address:    
+Physical Address:  
+  
 > AVENIDA SAN PATRICIO #44 Carr. 2 Km. 80.6  
 ARECIBO, PR 00614
 
 Postal Address:  
+
 > P.O BOX 143971  
 ARECIBO, PR  00614-3971
 
@@ -14,11 +16,13 @@ Fax: 787-879-5329
 ##[Regional Office of Humacao](id:humacao)
  
 Physical Address:  
+
 > AVE.BOULEVARD DEL RÍO  
 RAMAL #3 DESVÍO SUR  
 HUMACAO, P.R. 00791  
   
 Postal Address: 
+
 > PO BOX 8568  
 HUMACAO, PR 00792  
 
@@ -27,12 +31,14 @@ Fax: 787-285-7997
  	
 ##[Regional Office of Guayama](id:guayama)
  
-Physical Address:   
+Physical Address:
+   
 >CARRTERA #3 KM 134.3  
 BO. ALGARROBOS  
 GUAYAMA, P.R. 00784  
 
 Postal Address:  
+
 >2000 AVE. LOS VETERANOS  
 GUAYAMA, P.R. 00784  
 
