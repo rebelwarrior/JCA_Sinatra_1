@@ -32,5 +32,5 @@ disable :run, :reload
 
 #Runs the Sinatra App
 require './app/main.rb'
-  run JCA_Sinatra.new
+  run JCA_Sinatra
   
