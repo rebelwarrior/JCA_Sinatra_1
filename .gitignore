@@ -1,5 +1,5 @@
 .DS_Store
-/public/resources/pdfs/*
+/public/resources/pdfs/*.pdf
 .localeapp
 cert_file
 db.sqlite3
