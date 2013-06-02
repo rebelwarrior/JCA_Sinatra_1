@@ -7,10 +7,10 @@ gem 'sinatra'
 gem 'kramdown'
 gem 'haml'
 gem 'i18n'
-gem 'rack-contrib' #for Rack::Locale
+gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
 gem 'fastimage', :require => false #for getting image sizes
-# gem 'therubyracer'
+# gem 'therubyracer' #for coffee-script
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
