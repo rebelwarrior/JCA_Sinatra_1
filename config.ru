@@ -10,10 +10,8 @@ Bundler.require #loads all required gems.
 use Rack::ETag
 
 #Display a directory including a directory listing for ftp like file serving.
-use Rack::Directory
 map '/pdfs' do
-  # run Rack::Directory.new(File.expand_path("../public/resources/pdfs", __FILE__))
-  run Rack::Directory.new('./public')
+  run Rack::Directory.new(File.expand_path("../public/resources/pdfs", __FILE__))
 end
 #from: http://lifeascode.com/2013/01/24/the-best-way-to-serve-static-files-from-sinatra/
 #also see: https://github.com/rmanalan/heroku-directory-index/blob/master/config.ru
