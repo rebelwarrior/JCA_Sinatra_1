@@ -2,9 +2,9 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 ruby "2.0.0"
-gem 'rack'
+gem 'rack', '~> 1.5'
 gem 'sinatra' 
-gem 'kramdown' 
+gem 'kramdown' # for markdown
 gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.
@@ -19,7 +19,7 @@ gem 'fastimage', :require => false #for getting image sizes
 
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
-gem 'gon-sinatra', :require => false
+# gem 'gon-sinatra', :require => false
 
 
 group :development do
@@ -39,7 +39,7 @@ end
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rack'
+  gem 'rack', '~> 1.5'
   gem 'rack-test'
 end
 

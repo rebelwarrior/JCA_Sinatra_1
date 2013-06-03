@@ -2,13 +2,16 @@
 require 'rubygems'
 require 'sinatra'
 require 'bundler'
-require 'rack/contrib/'
+require 'rack/contrib'
 
 Bundler.require #loads all required gems.
 
+#Allows web caching
+use Rack::ETag
+
 #Display a directory including a directory listing for ftp like file serving.
-# use Rack::ETag
-map "/pdfs" do
+use Rack::Directory
+map '/pdfs' do
   run Rack::Directory.new(File.expand_path("../public/resources/pdfs", __FILE__))
 end
 #from: http://lifeascode.com/2013/01/24/the-best-way-to-serve-static-files-from-sinatra/

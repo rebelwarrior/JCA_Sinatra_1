@@ -3,7 +3,7 @@
 
 ## Load Required Gems ##
 require 'sinatra'
-%w[haml kramdown i18n gon-sinatra i18n/backend/fallbacks].each do |gem| require gem end
+%w[haml kramdown i18n i18n/backend/fallbacks].each do |gem| require gem end
 require './lib/helper'
 # require './lib/sinatra_helper'
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
@@ -212,8 +212,8 @@ class JCA_Sinatra < Sinatra::Base
   
 end
 
-if __FILE__ == $0
-  JCA_Sinatra.run!
-end
+# if __FILE__ == $0
+#   JCA_Sinatra.run!
+# end
 
 __END__
