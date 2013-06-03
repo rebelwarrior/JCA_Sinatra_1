@@ -42,8 +42,8 @@ $(document).ready(function() {
     }
   });
 });
+
 // Javascript for pdf iframes
-// var pdf_year_or_area;
 $(document).ready(function(){
   var pdf_year_or_area;
   if (pathname[2] === 'dias' || 'permits') {
@@ -85,11 +85,5 @@ $(document).ready(function() {
         console.log("If access to iframe blocked, Calendar likely loaded.");
       }
     },5000);
-    // setTimeout(function() {
-    //   $('body').css({
-    //     "background":"url(../images/backgrounds/bg5.png) no-repeat center top",
-    //     "background-size":"100% 100%"  
-    //   })
-    // }, 2000); 
   };
 });
