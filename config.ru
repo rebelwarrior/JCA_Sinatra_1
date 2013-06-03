@@ -7,7 +7,7 @@ require 'rack/contrib'
 Bundler.require #loads all required gems.
 
 #Allows web caching
-use Rack::ETag
+# use Rack::ETag
 
 #Display a directory including a directory listing for ftp like file serving.
 map '/pdfs' do
