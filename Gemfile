@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 gem 'rack'
 gem 'sinatra' 
-gem 'kramdown'
+gem 'kramdown' 
 gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.

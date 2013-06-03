@@ -2,12 +2,12 @@
 require 'rubygems'
 require 'sinatra'
 require 'bundler'
-require 'rack/contrib'
+require 'rack/contrib/'
 
 Bundler.require #loads all required gems.
 
 #Display a directory including a directory listing for ftp like file serving.
-use Rack::ETag
+# use Rack::ETag
 map "/pdfs" do
   run Rack::Directory.new(File.expand_path("../public/resources/pdfs", __FILE__))
 end
