@@ -4,6 +4,10 @@ require 'rack/test'
 
 set :environment, :test
 
+RSpec.configure do |conf|
+  conf.include Rack::Test::Methods
+end
+
 describe "JCA Sinatra Application" do
   include Rack::Test::Methods
   
@@ -16,12 +20,8 @@ describe "JCA Sinatra Application" do
     
   end
   
-  
-  it "does somethin"
-  
   describe "accesibility option" do
-    it "delivers a text document when asked for a .txt extention" do
-      
+    it "delivers a text document when asked for a .txt extention" do 
     end
     
     it "displays a list of available files if a bad request is made w/ a .txt extention"
@@ -31,7 +31,3 @@ describe "JCA Sinatra Application" do
   
 end
 
-
-RSpec.configure do |conf|
-  conf.include Rack::Test::Methods
-end

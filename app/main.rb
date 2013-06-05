@@ -10,7 +10,8 @@ require './lib/helper'
 
 ### Main Sinatra Class ###
 class JCA_Sinatra < Sinatra::Base
-  ## Register the helper Module in the helper files.
+  
+## Register the helper Module in the helper files.
   # register Gon::Sinatra
   helpers TextHelpers 
 

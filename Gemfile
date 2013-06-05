@@ -10,7 +10,6 @@ gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
 gem 'fastimage', :require => false #for getting image sizes
-# gem 'therubyracer' #for coffee-script
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
@@ -19,16 +18,15 @@ gem 'fastimage', :require => false #for getting image sizes
 
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
-# gem 'gon-sinatra', :require => false
-
+# gem 'gon-sinatra', :require => false #for gon (moves @variables to javascrip)
+# gem 'therubyracer' #for coffee-script
 
 group :development do
   gem 'capistrano-puma', require: false
   gem 'rvm-capistrano'
   gem 'pry'
   gem 'shotgun'
-  # gem 'thin'
-    gem 'puma', '~> 2.0'
+  gem 'puma', '~> 2.0'
   gem 'localeapp', require: false 
 end
 
