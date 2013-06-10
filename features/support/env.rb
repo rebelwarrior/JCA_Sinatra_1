@@ -7,9 +7,12 @@ require File.join(File.dirname(__FILE__), '..', '..', 'app/main.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'capybara-webkit'
 
 Capybara.app = JCA_Sinatra
-# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
+
+# Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
 
 class JCA_SinatraWorld
   include Capybara::DSL

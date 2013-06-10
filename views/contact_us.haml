@@ -2,6 +2,7 @@
   %h1 #{t 'contact.title'}
 
   %p
+  -#{@lang}
   #{t 'contact.phone_instructions' } 
   -if @tel_prefix['callto']
     %a{:href => "#{@tel_prefix}:+17877678181"}

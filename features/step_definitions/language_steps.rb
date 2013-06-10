@@ -1,7 +1,7 @@
 # require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 Given(/^My current language is Spanish\.$/) do
   # pending # express the regexp above with the code you wish you had
-  @lang = 'es'
+  I18n.locale = 'es'
 end
 
 Given(/^I am at "(.*?)"$/) do |page_name|
@@ -18,7 +18,18 @@ Then(/^The page redraws in English$/) do
 end
 
 Then(/^sets the @lang variable to "(.*?)"$/) do |language_set|
-  expect(@lang).to eq(language_set)
+  # I suspect this can't be checked easily since the @lang variable is internal not part of the render
+  #expect(@lang).to eq(language_set)
+  #Use Capybara DSL to check this:
+  # page.has_xpath?('.//html[@lang="#{language_set}"]')
+  #Checking this via the html lang attribute which is set to @lang since I can't reach @lang
+  html_lang = page.find('html')[:lang]
+  # puts html_lang
+  expect(html_lang).to eq(language_set)
+end
+
+Then(/^The html lang attribute is not "(.*?)"$/) do |language_set|
+  page.has_no_xpath?('.//html[@lang="#{language_set}"]')
 end
 
 Given(/^My browser is set Any Language\.$/) do
@@ -27,7 +38,7 @@ Given(/^My browser is set Any Language\.$/) do
 end
 
 Then(/^It defaults to Spanish$/) do
-  puts "@lang is #{@lang}"
+  #checks path
   current_path = URI.parse(current_url).path
   expect(current_path.split('/')[1]).to eq('es')
 end

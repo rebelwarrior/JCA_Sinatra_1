@@ -8,10 +8,11 @@ Scenario: Switch to English Language
   When I follow "contáctenos" within ".footer"
   And I press "English" within ".footer"
   Then The page redraws in English 
-  And sets the @lang variable to "en"
   And I should see "Online Services" within "#prTopBanner"
+  And sets the @lang variable to "en"
+  And The html lang attribute is not "es"
   
-Scenario: Defaults to Spanish
+Scenario: Root Defaults to Spanish
   Given My browser is set Any Language.
   When I got to "root"
   Then It defaults to Spanish

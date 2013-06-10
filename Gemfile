@@ -39,10 +39,11 @@ group :test do
   gem 'capybara'
   gem 'rack', '~> 1.5'
   gem 'rack-test'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
 end
 
 group :development, :test do
   gem 'cucumber'
   gem 'cucumber-sinatra'
-  gem 'selenium-webdriver'
 end
