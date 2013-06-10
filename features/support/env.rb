@@ -8,14 +8,15 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = JCA_1
+Capybara.app = JCA_Sinatra
+# Capybara.javascript_driver = :webkit
 
-class JCA_1World
+class JCA_SinatraWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
 end
 
 World do
-  JCA_1World.new
+  JCA_SinatraWorld.new
 end

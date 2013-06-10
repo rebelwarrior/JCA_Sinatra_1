@@ -63,7 +63,9 @@ module TextHelpers
   def mobile_user?(agent)
     #idea from: http://keithposehn.net/post/2719977607/detect-mobile-device-with-ruby-for-sinatra-rails
     mobile_agents_small_list = 'blackberry|nokia|mobi|symbian|android|ipod|kindle|webos|ipad|iphone|mini|mobileexplorer|mobile'
-    if agent.downcase =~ Regexp.new(mobile_agents_small_list)
+    if agent.nil? #nil error found by cucumber test (downcase won't work for nil...)
+      false
+    elsif agent.downcase =~ Regexp.new(mobile_agents_small_list)
       true
     else
       false

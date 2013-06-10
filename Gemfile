@@ -44,4 +44,5 @@ end
 group :development, :test do
   gem 'cucumber'
   gem 'cucumber-sinatra'
+  gem 'selenium-webdriver'
 end
