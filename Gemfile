@@ -41,6 +41,7 @@ group :test do
   gem 'rack-test'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
+  gem 'rmagick'
 end
 
 group :development, :test do

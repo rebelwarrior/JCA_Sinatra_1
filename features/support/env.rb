@@ -8,9 +8,12 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 require 'capybara-webkit'
+# require 'rack/test'
+# require 'rmagick'
 
 Capybara.app = JCA_Sinatra
 Capybara.javascript_driver = :webkit
+# Capybara.javascript_driver = :webkit_debug
 
 # Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
 
@@ -18,6 +21,12 @@ class JCA_SinatraWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
+  #Below to give me "get"
+  # include Rack::Test::Methods
+  # def app
+  #   Rack::Directory.new('./public/resources/pdfs')
+  # end
+  
 end
 
 World do

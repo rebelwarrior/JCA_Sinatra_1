@@ -18,6 +18,10 @@ module NavigationHelpers
       '/es/home'
     when /contact_us/
       'contact_us'
+    when /news/
+      '/es/press'
+    when /dias_all/
+      '/es/dias/all'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

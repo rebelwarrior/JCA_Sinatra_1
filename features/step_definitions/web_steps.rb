@@ -18,10 +18,14 @@ World(WithinHelpers)
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
+  #TODO: Add pull request to cucumber sinatra for:
+  #assert_equal 200, page.status_code if minitest
+  expect(page.status_code).to eq(200)
 end
 
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
+  # expect(page.status_code).to eq(200)
 end
 
 When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
@@ -216,4 +220,9 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+#create a pull request for bottom feature:
+When(/^I refresh \(reload\) the page\.$/) do
+  visit current_path
 end

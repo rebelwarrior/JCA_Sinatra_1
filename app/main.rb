@@ -60,13 +60,13 @@ class JCA_Sinatra < Sinatra::Base
     
 ###ROUTING###  
   get '/', :agent => /iPhone|Android|iPad/ do
-    puts "Hello Sinatra #{request.ip}"
+    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']}" unless ENV['RACK_ENV'] == 'test'
     logger.info "iPhone or iPad agent request"
     redirect to('/es/home')
   end
   
   get '/' do
-    puts "Hello Sinatra #{request.ip}"
+    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']}" unless ENV['RACK_ENV'] == 'test'
     redirect to('/es/home')
   end  
 

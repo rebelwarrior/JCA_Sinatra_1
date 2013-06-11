@@ -73,7 +73,9 @@ module TextHelpers
   end
   
   def tel_prefix(agent)
-    if mobile_user?(agent)
+    if agent.nil?
+      "tel"
+    elsif mobile_user?(agent)
       "tel"
     else
       "callto"
