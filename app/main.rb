@@ -27,6 +27,7 @@ class JCA_Sinatra < Sinatra::Base
     #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
     I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
+    
     # Haml::Options.defaults[:encoding] = :utf8
     set :haml, :default_encoding => "UTF-8"
   end
@@ -148,7 +149,7 @@ class JCA_Sinatra < Sinatra::Base
     end
   end
 
-  ### FTP Directory for File ###
+### FTP Directory for File ###
   get '/home/pdfs' do
     ## Server routes /pdfs via Rack::Directory.new in ../config.ru
     #Mabye create a JS file that calls the html of the rack application and joins it to a body tag? --DONE
@@ -195,10 +196,11 @@ class JCA_Sinatra < Sinatra::Base
   get %r{/([\w]+)\.[txt|md]} do
     content_type :plain
     logger.info params[:captures] #log requests
-    path4txt = sanitize(params[:captures].join('')) unless params[:captures].nil?
-    path2mds= 'views/content'
-    #Refactor below: (bug introduced)
-    render_plain_text(path4txt)
+    request_for_txt_path = sanitize(params[:captures].join('')) unless params[:captures].nil?
+    path_to_mds= 'views/content'
+    plaintext = render_plain_text_and_status_code(request_for_txt_path, path_to_mds)
+    status(plaintext[1].to_i)
+    plaintext[0]
   end
   ####
   

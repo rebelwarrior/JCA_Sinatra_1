@@ -22,6 +22,8 @@ module NavigationHelpers
       '/es/press'
     when /dias_all/
       '/es/dias/all'
+    when /es\/help.txt/
+      '/es/help.txt'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -223,6 +223,6 @@ Then /^show me the page$/ do
 end
 
 #create a pull request for bottom feature:
-When(/^I refresh \(reload\) the page\.$/) do
+When(/^I refresh the page\.$/) do
   visit current_path
 end

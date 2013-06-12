@@ -39,7 +39,7 @@ module TextHelpers
   end
   
   def sanitize(txt)
-    txt = txt.split('').select{ |c| c =~ /[a-z]|[0-9]/i }.join('')
+    txt = txt.split('').select{ |c| c =~ /[a-z]|[0-9]|_/i }.join('')
   end
   
   def dir_listing(path)
@@ -82,35 +82,35 @@ module TextHelpers
     end
   end
   
-  def render_plain_text(path4txt)
-    #bug present! doesn't render all available options
+  def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
     # Also Abstract directory reading to a class variable
     (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
-    if path4txt == "press"
-      #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
-      txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"
-      Dir.chdir('public/press') do
-        Dir.glob('*.md').each do |file|
+    #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
+    Dir.chdir(File.expand_path("#{settings.root}/../")) do
+      if path4txt == "press"
+        txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"
+        Dir.glob('public/press/*.md').each do |file|
           txt_output << "\s" + file.to_s + "\n\n"
           txt_output << File.read(file)
           txt_output << "\n====================\n"
         end
+        [txt_output, 200]
+      elsif File.exists?("views/content/#{path4txt}.md")
+        [File.read("views/content/#{path4txt}.md"), 200] 
+      elsif File.exists?("views/content/#{lang}/#{path4txt}.md")
+        [File.read("views/content/#{lang}/#{path4txt}.md"), 200]  
+      elsif path4txt =~ /\w/i
+        txt_output = "#{I18n.t('available_options')} \n"
+        Dir.chdir('views/content') do
+          Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
+          txt_output << " &. press.md\n"
+          txt_output << "======\n"
+          txt_output << File.expand_path("#{settings.root}/../")
+        end
+        [txt_output, 202]
+      else
+        [not_found, 404]
       end
-      txt_output
-    elsif File.exists?("views/content/#{path4txt}.md")
-      File.read("views/content/#{path4txt}.md") 
-    elsif File.exists?("views/content/#{lang}/#{path4txt}.md")
-      File.read("views/content/#{lang}/#{path4txt}.md")  
-    elsif path4txt =~ /\w/i
-      txt_output = "#{I18n.t('available_options')} \n"
-      Dir.chdir('views/content') do
-        Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
-        txt_output << "======"
-        # Dir.glob("#{lang}/*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
-      end
-      txt_output
-    else
-      not_found
     end
   end
   
