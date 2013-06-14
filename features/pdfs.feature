@@ -1,8 +1,7 @@
 Feature: Displays PDFS
   As pdfs are added to folder you can access them properly. (Eventually add db integration.)
 
-@javascript
-Scenario: Add a new folder (year) to Env. Reports (Dias) page.
+Scenario: Add a new folder year to Env. Reports Dias page.
   Given I visit rack page for "dias_all"
   And I should not see "1999party" 
   # And show me the page

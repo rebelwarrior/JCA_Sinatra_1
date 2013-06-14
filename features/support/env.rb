@@ -8,6 +8,8 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 require 'capybara-webkit'
+# require 'rack'
+
 # require 'rack/test'
 # require 'rmagick'
 
@@ -21,14 +23,32 @@ class JCA_SinatraWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
+  # Rack::Builder.new do
+  #   eval File.read('config.ru')
+  # end
   #Below to give me "get"
   # include Rack::Test::Methods
   # def app
   #   Rack::Directory.new('./public/resources/pdfs')
+  # end
+  # ActionDispatch::IntegrationTest.app = Rack::Builder.new do
+  #   instance_eval File.read(Rails.root.join('config.ru'))
+  # end
+  # Rack::Builder.new do
+  #   use Rack::Directory
+  #   map '/pdfs/' do
+  #     run Rack::Directory.new('./public/resources/pdfs')
+  #   end
   # end
   
 end
 
 World do
   JCA_SinatraWorld.new
+  Rack::Builder.new do
+    use Rack::Directory
+    map '/pdfs/' do
+      run Rack::Directory.new('./public/resources/pdfs')
+    end
+  end
 end

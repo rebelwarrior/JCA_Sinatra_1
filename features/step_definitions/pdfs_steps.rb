@@ -22,4 +22,5 @@ Given(/^I visit rack page for "(.*?)"$/) do |arg1|
   visit path_to(arg1)
   expect(page.status_code).to eq(200)
   sleep 0.5
+  puts page.body
 end

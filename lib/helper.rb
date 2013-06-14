@@ -85,7 +85,7 @@ module TextHelpers
   def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
     # Also Abstract directory reading to a class variable
     (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
-    #Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
+    #DONE Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
     Dir.chdir(File.expand_path("#{settings.root}/../")) do
       if path4txt == "press"
         txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"

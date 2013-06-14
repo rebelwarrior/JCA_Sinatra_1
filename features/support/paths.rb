@@ -21,9 +21,14 @@ module NavigationHelpers
     when /news/
       '/es/press'
     when /dias_all/
-      '/es/dias/all'
+      # '/es/dias/all'
+      '/pdfs/dias'
     when /es\/help.txt/
       '/es/help.txt'
+    when /es\/press.txt/
+      '/es/press.txt'
+    when /(\w+|\S*)\.txt/
+      "/es/#{$1}.txt"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

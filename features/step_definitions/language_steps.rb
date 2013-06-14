@@ -13,10 +13,7 @@ end
 
 Then(/^sets the @lang variable to "(.*?)"$/) do |language_set|
   # I suspect this can't be checked easily since the @lang variable is internal not part of the render
-  #expect(@lang).to eq(language_set)
-  #Use Capybara DSL to check this:
-  # page.has_xpath?('.//html[@lang="#{language_set}"]')
-  #Checking this via the html lang attribute which is set to @lang since I can't reach @lang
+  # Checking this via the html lang attribute which is set to @lang since I can't reach @lang
   html_lang = page.find('html')[:lang]
   expect(html_lang).to eq(language_set)
 end

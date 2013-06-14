@@ -199,7 +199,7 @@ class JCA_Sinatra < Sinatra::Base
     request_for_txt_path = sanitize(params[:captures].join('')) unless params[:captures].nil?
     path_to_mds= 'views/content'
     plaintext = render_plain_text_and_status_code(request_for_txt_path, path_to_mds)
-    status(plaintext[1].to_i)
+    status plaintext[1].to_i
     plaintext[0]
   end
   ####
