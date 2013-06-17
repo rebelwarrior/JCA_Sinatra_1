@@ -60,6 +60,10 @@ Other folders of interest:
 - *public* => This is the public folder in the website all JavaScript CSS and images are here.
 - *app/locales* => This is where the translations are. 
 
+##Testing:
+
+Testing is done in Cucumber with Capybara and Rspec. Please refer to this [file][1] for more information.
+
 
 ##Internationalization:
 
@@ -68,5 +72,7 @@ This website works in Spanish and English. The translation files are located in 
 ##License:
 The code of the website (and the code's documentation) is licensed on MIT's Open Source license. 
 The images, content, text, translations and all other non-code content is copyrighted material by the Environmental Quality board of Puerto Rico (JCA) and David Acevedo.
+
+[1]: /TestingReadMe.md
 
 (c) 2013 JCA, David Acevedo.

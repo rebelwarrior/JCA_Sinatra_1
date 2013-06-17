@@ -23,6 +23,7 @@ class JCA_SinatraWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
+  # include Rack::Test::Methods
   # Rack::Builder.new do
   #   eval File.read('config.ru')
   # end

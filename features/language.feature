@@ -17,7 +17,7 @@ Scenario: Spanish links work
 @javascript
 Scenario: Switch to English Language
   Given I am on "es/home"
-  And I should see "Directorio de Agencias" within "#prTopBanner"
+  And I should see "Servicios en Línea" within "#prTopBanner"
   When I press "English" within ".footer"
   Then The page redraws in English 
   And I should see "Online Services" within "#prTopBanner"
