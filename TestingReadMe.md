@@ -59,7 +59,7 @@ To generate these files you do:
 ##Capybara
 Capybara is a DSL for interacting with a web application. It's the successor of a previous tool called 'WebRat' (hence the name, a capybara is a large cute rodent).
 
-![image of a capybara from wikipedia][2]{id:testing}
+![image of a capybara from wikipedia][2]
 
 Capybara allows you to run your Sinatra application in two ways: 
 
