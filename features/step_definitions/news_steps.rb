@@ -3,7 +3,7 @@ When(/^I add a new \.md file to the news folder$/) do
   FileUtils.touch('public/press/17777_SteveJobsIsDead.md')
 end
 
-When(/^I add a new image to go along with the file in the news\/image folder$/) do
+When(/^I add a new image to the file in the news\/image folder$/) do
   FileUtils.touch('public/press/img/SteveJobs.png')
   # require 'rmagick'
   # canvas = Magick::Image.new(200, 200,
@@ -31,21 +31,25 @@ end
 When(/^I remove the files\.$/) do
   md_file = 'public/press/17777_SteveJobsIsDead.md'
   img_file = 'public/press/img/SteveJobs.png'
+  text = ""
   [md_file, img_file].each do |file|
     if File.exists?(file)
-      print "   removing: #{file}  \n"
+      text << "** removing: #{file}\n"
       FileUtils.rm(file) #if File.exists?(file)
     end
   end
+  puts "#{text}"
 end
 
 After do
   md_file = 'public/press/17777_SteveJobsIsDead.md'
   img_file = 'public/press/img/SteveJobs.png'
+  text =""
   [md_file, img_file].each do |file|
     if File.exists?(file)
-      print "   removing: #{file}  \n"
+      text << "** removing: #{file}\n"
       FileUtils.rm(file) #if File.exists?(file)
     end
   end
+  puts "#{text}"
 end

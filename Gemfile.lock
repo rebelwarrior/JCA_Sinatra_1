@@ -71,6 +71,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rake (10.0.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rmagick (2.13.2)
@@ -127,6 +128,7 @@ DEPENDENCIES
   rack (~> 1.5)
   rack-contrib
   rack-test
+  rake
   rmagick
   rspec
   rvm-capistrano

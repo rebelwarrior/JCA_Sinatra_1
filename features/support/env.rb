@@ -8,12 +8,14 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 require 'capybara-webkit'
-# require 'rack'
+require 'rack'
 
 # require 'rack/test'
 # require 'rmagick'
 
-Capybara.app = JCA_Sinatra
+# Capybara.app = JCA_Sinatra
+Capybara.app = eval "Rack::Builder.new {( " + File.read(File.dirname(__FILE__) + '/../../config.ru') + "\n )}"
+
 Capybara.javascript_driver = :webkit
 # Capybara.javascript_driver = :webkit_debug
 

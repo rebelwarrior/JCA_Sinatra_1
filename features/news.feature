@@ -3,9 +3,9 @@ Feature: Populates News page
   
 Scenario: A new .md file is added to the news folder.
   Given I am on "news"
-  And I should see "Gerente de Comunicaciones y Educación Ambiental" within ".yielded"
+  And I should see "Educación Ambiental" within ".yielded"
   When I add a new .md file to the news folder
-  And I add a new image to go along with the file in the news/image folder
+  And I add a new image to the file in the news/image folder
   And I refresh (reload) the page.
   Then I should see "Header 4 Steve" within "#SteveJobsIsDead"
   And It should render on the page with images.

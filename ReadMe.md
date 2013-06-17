@@ -62,8 +62,12 @@ Other folders of interest:
 
 ##Testing:
 
-Testing is done in Cucumber with Capybara and Rspec. Please refer to this [file][1] for more information.
+Testing is done in Cucumber with Capybara and Rspec. 
+To run tests:
 
+    bundle exec rake features
+
+Please refer to this [file][1] for more information.
 
 ##Internationalization:
 

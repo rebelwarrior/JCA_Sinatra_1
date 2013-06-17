@@ -47,4 +47,5 @@ end
 group :development, :test do
   gem 'cucumber'
   gem 'cucumber-sinatra'
+  gem 'rake'
 end

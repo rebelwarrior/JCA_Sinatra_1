@@ -5,7 +5,8 @@ Scenario: Add a new folder year to Env. Reports Dias page.
   Given I visit rack page for "dias_all"
   And I should not see "1999party" 
   # And show me the page
-  And I should see "Parent Directory" within ".yielded"
+  And I should see "Parent Directory"
   When I add a new directory (new year) to the dias directory
+  And I visit rack page for "dias_all"
   Then I should see "1999party" 
   And Then remove such directory.
