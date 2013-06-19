@@ -123,6 +123,10 @@ The second one, introspection, forces you to think about code that is **testable
 
 This setup above works very well for Sinatra based apps, but not for Rack Middleware. I'm still figuring how to effectively do cucumber tests for that.
 
+**Update:** I figure out how to do it. Open the `env.rb` file and change this line `Capybara.app = MyAppClassName ` to this long as thing below.
+
+    Capybara.app = eval "Rack::Builder.new {( " + File.read(File.dirname(__FILE__) + '/../../config.ru') + "\n )}"
+
 -- David
 
 [1]: http://upload.wikimedia.org/wikipedia/commons/c/c8/Cucumber_picture.jpg
