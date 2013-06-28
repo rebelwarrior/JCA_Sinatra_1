@@ -12,6 +12,10 @@
       (787) 767-8181
     ext-3206, ext-3208
 %br
--@lang['es'] ? target = :'content/es/contact_regional_offices' : target =:'content/en/contact_regional_offices'
-.container=haml_force_encoding(markdown(target))
+-@lang['es'] ? target1 = :'content/es/contact' : target1 =:'content/en/contact'
+-@lang['es'] ? target2 = :'content/es/contact_regional_offices' : target2 =:'content/en/contact_regional_offices'
+.container=haml_force_encoding(markdown(target1))
+.container=haml_force_encoding(markdown(target2))
   
+  
+

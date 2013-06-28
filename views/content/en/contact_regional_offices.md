@@ -1,4 +1,4 @@
-##[Regional Office of Arecibo](id:arecibo)
+##Regional Office of Arecibo {#arecibo}
  
 Physical Address:  
   
@@ -13,7 +13,7 @@ ARECIBO, PR  00614-3971
 Telephones: [787-880-0013][2], [787-880-5140][3], [787-879-5784][4]  
 Fax: 787-879-5329  
  	
-##[Regional Office of Humacao](id:humacao)
+##Regional Office of Humacao {#humacao}
  
 Physical Address:  
 
@@ -29,7 +29,7 @@ HUMACAO, PR 00792
 Telephones: [787-285-2818][5], [787-285-7997][6]  
 Fax: 787-285-7997  
  	
-##[Regional Office of Guayama](id:guayama)
+##Regional Office of Guayama {#guayama}
  
 Physical Address:
    
@@ -46,7 +46,7 @@ Email: [org@jca.pr.gov][1]
 Telephones:  [787-864-0103][7]; [787-866-0200][8], [787-864-7111][9]  
 Fax:  787-866-0572  
 
-##[Regional Office of Mayagüez](id:mayaguez)
+##Regional Office of Mayagüez {#mayaguez}
  
 Physical Address:  
 
@@ -63,7 +63,7 @@ MAYAGÜEZ, P.R. 00682-1536
 Telephones: [787-833-1188][10], [787-833-1115][11]  
 Fax: 787-833-1198  
  	
-##[Regional Office of Ponce](id:ponce)
+##Regional Office of Ponce {#ponce}
  
 Physical Address:  
 
