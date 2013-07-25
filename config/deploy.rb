@@ -4,8 +4,8 @@ set :repository,  "git@github.com:rebelwarrior/JCA_Sinatra_1.git"
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-# role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-# role :app, "your app-server here"                          # This may be the same as your `Web` server
+role :web, "default"                          # Your HTTP server, Apache/etc
+role :app, "default"                          # This may be the same as your `Web` server
 # role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
 # role :db,  "your slave db-server here"
 
@@ -31,8 +31,8 @@ set :deploy_to, "/home/apps/#{application}"
 #setting the server to local host for vagrant box
 set :user, "vagrant"
 set :port, 2222
-server "10.3.50.89", :app, :web, :db, :primary => true
-# server "10.0.2.15", :app, :web, :db, :primary => true
+# server "10.3.50.89", :app, :web, :db, :primary => true
+server "10.0.2.15", :app, :web, :db, :primary => true
 set :ssh_options, {:forward_agent => true, keys:
   ['~/.vagrant.d/insecure_private_key'] }
 set :default_run_optins, {:pty => true}  

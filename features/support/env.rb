@@ -13,37 +13,31 @@ require 'rack'
 # require 'rack/test'
 # require 'rmagick'
 
+
 # Capybara.app = JCA_Sinatra
 Capybara.app = eval "Rack::Builder.new {( " + File.read(File.dirname(__FILE__) + '/../../config.ru') + "\n )}"
+# Line above allows all the middleware to be loaded to capybara.
 
 Capybara.javascript_driver = :webkit
-# Capybara.javascript_driver = :webkit_debug
 
-# Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
+class WarningSuppressor
+  class << self
+    def write(message)
+      puts(message) unless message =~ /QFont::setPixelSize: Pixel size <= 0/
+      0
+    end
+  end
+end
+
+
+Capybara.register_driver :webkit do |app|
+  Capybara::Webkit::Driver.new(app, stderr: WarningSuppressor)
+end
 
 class JCA_SinatraWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
-  # include Rack::Test::Methods
-  # Rack::Builder.new do
-  #   eval File.read('config.ru')
-  # end
-  #Below to give me "get"
-  # include Rack::Test::Methods
-  # def app
-  #   Rack::Directory.new('./public/resources/pdfs')
-  # end
-  # ActionDispatch::IntegrationTest.app = Rack::Builder.new do
-  #   instance_eval File.read(Rails.root.join('config.ru'))
-  # end
-  # Rack::Builder.new do
-  #   use Rack::Directory
-  #   map '/pdfs/' do
-  #     run Rack::Directory.new('./public/resources/pdfs')
-  #   end
-  # end
-  
 end
 
 World do
