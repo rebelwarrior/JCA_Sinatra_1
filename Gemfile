@@ -11,9 +11,12 @@ gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
 
 # For Models:
+#platforms :ruby do
 # gem 'sqlite3' #gem 'pg'
 # gem 'activerecord'
 # gem 'sinatra-activerecord'
+# end
+# gem 'jdbc-sqlite3', :platforms => :jruby
 
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
@@ -26,7 +29,10 @@ group :development do
   gem 'pry'
   gem 'shotgun'
   gem 'puma', '~> 2.0'
-  gem 'localeapp', require: false 
+  gem 'localeapp', require: false
+  platforms :jruby do
+    gem 'warbler'  
+  end 
 end
 
 group :production do

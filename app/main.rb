@@ -25,7 +25,7 @@ class JCA_Sinatra < Sinatra::Base
     ## Internationalization (I18n) 
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
     #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
-    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
     
     # Haml::Options.defaults[:encoding] = :utf8
