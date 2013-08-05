@@ -1,7 +1,7 @@
 #Gemfile
 source 'https://rubygems.org'
-# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby "2.0.0"
+#ruby=jruby-1.7.4
+# ruby "2.0.0"
 gem 'rack', '~> 1.5'
 gem 'sinatra' 
 gem 'kramdown' # for markdown
@@ -9,7 +9,6 @@ gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
-gem 'fastimage', :require => false #for getting image sizes
 
 # For Models:
 # gem 'sqlite3' #gem 'pg'
@@ -20,9 +19,9 @@ gem 'fastimage', :require => false #for getting image sizes
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
 # gem 'gon-sinatra', :require => false #for gon (moves @variables to javascrip)
 # gem 'therubyracer' #for coffee-script
+# gem 'fastimage', :require => false #for getting image sizes
 
 group :development do
-  gem 'capistrano-puma', require: false
   gem 'rvm-capistrano'
   gem 'pry'
   gem 'shotgun'
@@ -41,7 +40,6 @@ group :test do
   gem 'rack-test'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
-  gem 'rmagick'
 end
 
 group :development, :test do
