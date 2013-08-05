@@ -34,9 +34,9 @@ class JCA_Sinatra < Sinatra::Base
   configure :production, :development do
     enable :logging
   end
-  configure :production do
-    set :server, :puma
-  end
+  # configure :production do
+  #   set :server, :puma
+  # end
   
 
 ###BEFORE ALL###
@@ -61,13 +61,13 @@ class JCA_Sinatra < Sinatra::Base
     
 ###ROUTING###  
   get '/', :agent => /iPhone|Android|iPad/ do
-    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']}" unless ENV['RACK_ENV'] == 'test'
+    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
     logger.info "iPhone or iPad agent request"
     redirect to('/es/home')
   end
   
   get '/' do
-    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']}" unless ENV['RACK_ENV'] == 'test'
+    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
     redirect to('/es/home')
   end  
 
