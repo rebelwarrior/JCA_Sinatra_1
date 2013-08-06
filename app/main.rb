@@ -17,8 +17,8 @@ class JCA_Sinatra < Sinatra::Base
 
 ### Configuration Block ###
   configure do
-    set :views, File.dirname(__FILE__) + '/../views'
-    set :public_dir, File.dirname(__FILE__) + '/../public'
+    set :views, File.expand_path(File.dirname(__FILE__) + '/../views')
+    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public')
     mime_type :plain, 'text/plain'
     set :server, :puma 
     
@@ -55,7 +55,7 @@ class JCA_Sinatra < Sinatra::Base
     pr_gov_top_bar_height = 40
     @sidebar_offset_num = 250 + pr_gov_top_bar_height
     #Refactor Content Folder
-    @md_content_location = ''
+    # @md_content_location = '' #Where is this used?
   end
   
     
@@ -68,6 +68,7 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/' do
     puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
+    puts settings.public_dir
     redirect to('/es/home')
   end  
 
@@ -76,26 +77,31 @@ class JCA_Sinatra < Sinatra::Base
   end
   
   get '/home' do
-    #Target for Refactorin Test`
-    Dir.chdir('public') do
+    #Refactored! :: Not pretty but it works. Needs further refactoring + test.
       #Note: the Dir.glob will return nil if not specified correctly.
-      @file_list = Dir.glob('images/slideshow/*.*').sort.select do |f| 
-        match = f.match(/(.*)\.(png|jpg)/)
-        match = match.captures.at(0) unless match.nil?
-      end
+    slideshow_images_path = settings.public_dir + '/images/slideshow/*.*'
+    @file_list = Dir.glob(slideshow_images_path).sort.select do |f| 
+      match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
+    end.map do |f|
+      match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
+      match = "#{match.captures.at(0)}.#{match.captures.at(1)}" unless match.nil?
     end
     haml :home
   end
 
   ## Press News ##
   get '/press' do
+    puts "$$$$$$$$$"
+    press_dir = settings.public_dir + "/press"
+    @press_title_list = []
     @tel_prefix = tel_prefix(request.user_agent)
-    Dir.chdir('public/press') do
-      @press_title_list = Dir.glob('*.md').sort.map do |f|
-        haml_force_encoding(f.match(/^[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0))
-      end
-      @file_list = Dir.glob('*.md').sort.map{|f| f.match(/(.*)\.md/).captures.at(0) }
+    @press_title_list = Dir.glob(press_dir + '/*.md').sort.map do |f|
+      haml_force_encoding(f.match(/^#{press_dir}\/[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0))
     end
+    @file_list = Dir.glob(press_dir + '/*.md').sort.map{|f| f.match(/^#{press_dir}\/(.*)\.md/).captures.at(0) }
+    # This needs to be refactored!! ::TODO the markdown command in view feeds of the location of the views command !
+    @press_path_relative_to_views = "../public/press/"
+    # The press feeds *must* be stored in a db then.
     haml :press  #, :format => :html5, :default_encoding => "UTF-8" 
   end
   

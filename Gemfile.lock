@@ -144,6 +144,8 @@ DEPENDENCIES
   i18n
   kramdown
   localeapp
+  net-scp
+  net-ssh
   pry
   puma (~> 2.0)
   rack (~> 1.5)

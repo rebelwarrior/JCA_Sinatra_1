@@ -30,9 +30,14 @@ group :development do
   gem 'shotgun'
   gem 'puma', '~> 2.0'
   gem 'localeapp', require: false
+end
+
+group :deploy do
   platforms :jruby do
-    gem 'warbler'  
-  end 
+    gem 'warbler' 
+    gem 'net-ssh', :require => "net/ssh"
+    gem 'net-scp', :require => "net/scp" 
+  end
 end
 
 group :production do
