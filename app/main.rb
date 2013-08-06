@@ -91,7 +91,6 @@ class JCA_Sinatra < Sinatra::Base
 
   ## Press News ##
   get '/press' do
-    puts "$$$$$$$$$"
     press_dir = settings.public_dir + "/press"
     @press_title_list = []
     @tel_prefix = tel_prefix(request.user_agent)
