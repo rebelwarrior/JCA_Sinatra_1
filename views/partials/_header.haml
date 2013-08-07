@@ -3,9 +3,9 @@
 %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 -#
 -### CSS
-%link{:href => "/bootstrap/css/bootstrap.css", :rel => "stylesheet", :media => "screen"}
-%link{:href => "/bootstrap/css/bootstrap-responsive.css", :rel => "stylesheet", :media => "screen"}
-%link{:href => "/stylesheets/app.css", :rel => "stylesheet"}
+%link{:href => "../bootstrap/css/bootstrap.css", :rel => "stylesheet", :media => "screen"}
+%link{:href => "../bootstrap/css/bootstrap-responsive.css", :rel => "stylesheet", :media => "screen"}
+%link{:href => "../stylesheets/app.css", :rel => "stylesheet"}
 -#
 -###  JAVASCRIPT
 -#%script{:src => "/javascripts/jquery/jquery-1.9.1.min.js", :type => "text/javascript"}
@@ -15,9 +15,9 @@
 -# Javascript lo load local JQuery if CDN is unavailable (keep in-line)
 :javascript
   window.$ || document.write('<script src="/javascripts/jquery/jquery-1.9.1.min.js" type="text/javascript"><\/script>')
-%script{:src => "/bootstrap/js/bootstrap.js", :type => "text/javascript"}
+%script{:src => "../bootstrap/js/bootstrap.js", :type => "text/javascript"}
 /[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]
-%script{:src => "/javascripts/app.js", :type => "text/javascript"}
+%script{:src => "../javascripts/app.js", :type => "text/javascript"}
 -#
 -# #### Favicons and touch icons #######
 / %link{:rel => "shortcut icon", :href => "favicon.png"}

@@ -11,7 +11,7 @@
       -item_class = (num_images == @file_list.size ? "active item" : "item")
       -num_images -= 1
       %div{:class => "#{item_class} CarouselImg"}
-        %img{:src => "/images/slideshow/#{file}", :alt => "image number #{num_images + 1} of the Slideshow"}
+        %img{:src => "../images/slideshow/#{file}", :alt => "image number #{num_images + 1} of the Slideshow"}
   /Carousel nav 
   %a{:class => "carousel-control left", :href => "#myCarousel", :'data-slide' => "prev"}!="&lsaquo;"
   %a{:class => "carousel-control right", :href => "#myCarousel", :'data-slide' => "next"}!="&rsaquo;"

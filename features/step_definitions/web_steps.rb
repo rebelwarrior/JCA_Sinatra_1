@@ -17,7 +17,7 @@ end
 World(WithinHelpers)
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
-  visit path_to(page_name)
+  visit path_to(page_name) #JRUBy Something produces nil here
   #TODO: Add pull request to cucumber sinatra for:
   #assert_equal 200, page.status_code if minitest
   expect(page.status_code).to eq(200)

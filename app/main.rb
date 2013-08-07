@@ -18,7 +18,9 @@ class JCA_Sinatra < Sinatra::Base
 ### Configuration Block ###
   configure do
     set :views, File.expand_path(File.dirname(__FILE__) + '/../views')
-    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public')
+    warble = false
+    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
+    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../../public') if warble
     mime_type :plain, 'text/plain'
     set :server, :puma 
     

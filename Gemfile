@@ -37,6 +37,7 @@ group :deploy do
     gem 'warbler' 
     gem 'net-ssh', :require => "net/ssh"
     gem 'net-scp', :require => "net/scp" 
+    gem 'torquebox-remote-deployer'
   end
 end
 
