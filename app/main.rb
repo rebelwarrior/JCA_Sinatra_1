@@ -73,7 +73,12 @@ class JCA_Sinatra < Sinatra::Base
     puts settings.public_dir
     redirect to('/es/home')
   end  
+  
+  # Preprocessing:
+  # refactor to take *.js and [:params] in symbol
+  get('/javascripts/coffeescripts/app.js'){ coffee :app}
 
+  ## Routes:
   get '/about' do
     haml :about
   end
@@ -220,10 +225,7 @@ class JCA_Sinatra < Sinatra::Base
     haml :'404', :layout => :errors_layout
   end
   
+  run! if __FILE__ == $0
 end
-
-# if __FILE__ == $0
-#   JCA_Sinatra.run!
-# end
 
 __END__

@@ -10,6 +10,7 @@ $(document).ready(function() {
   }); //Scroll spy
   $('.carousel').carousel(); //Slideshow
 });
+
 // Javascript for language switching
 var languages, pathname, _ref,
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };

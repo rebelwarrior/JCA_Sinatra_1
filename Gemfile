@@ -9,14 +9,17 @@ gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
+gem 'coffee-script'
 
 # For Models:
-#platforms :ruby do
-# gem 'sqlite3' #gem 'pg'
+# gem 'sqlite3', :platforms => :ruby
 # gem 'activerecord'
 # gem 'sinatra-activerecord'
+#
+# platforms :jruby do
+# gem 'jdbc-sqlite3'
+# gem 'activerecord-jdbc-adapter'
 # end
-# gem 'jdbc-sqlite3', :platforms => :jruby
 
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
