@@ -21,8 +21,8 @@ class JCA_Sinatra < Sinatra::Base
     warble = false
     set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
     set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../../public') if warble
+        # USE PUBLICDIR so I can reach the public direcory from views!!! REFACTOR
     mime_type :plain, 'text/plain'
-    
     set :server, :puma 
     
     ## Internationalization (I18n) 
