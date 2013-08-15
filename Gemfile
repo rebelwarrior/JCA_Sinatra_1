@@ -31,9 +31,9 @@ gem 'gon-sinatra', :require => false #for gon (moves @variables to javascrip)
 # gem 'fastimage', :require => false #for getting image sizes
 
 group :development do
-  gem 'rvm-capistrano'
-  gem 'pry'
-  gem 'shotgun'
+  gem 'rvm-capistrano', require: false
+  gem 'pry', require: false
+  gem 'shotgun', require: false
   gem 'puma', '~> 2.0'
   gem 'localeapp', require: false
 end
