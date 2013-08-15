@@ -6,8 +6,8 @@
   %h3  
     !="#{t 'error404'}"
 %div.container
-  %img{:src => "/images/404/panda.gif", :alt => "Panda", :height => "234px", :width => "211px"}
-  %img{:src => "/images/404/cunico.png", :alt => "Cunico", :height => "343px", :width => "541px"}
+  %img{:src => "#{url '/images/404/panda.gif'}", :alt => "Panda", :height => "234px", :width => "211px"}
+  %img{:src => "#{url '/images/404/cunico.png'}", :alt => "Cunico", :height => "343px", :width => "541px"}
 %br
 %small
   !="#{t 'page_not_found'}#{@request_url}"
