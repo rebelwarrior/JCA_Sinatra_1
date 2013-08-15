@@ -9,7 +9,10 @@ gem 'haml'
 gem 'i18n'
 gem 'rack-contrib' #for Rack::Locale, etc.
 gem 'bundler'
+
 gem 'coffee-script'
+gem 'therubyracer', :platforms => :ruby
+gem 'therubyrhino', :platforms => :jruby
 
 # For Models:
 # gem 'sqlite3', :platforms => :ruby
@@ -23,7 +26,7 @@ gem 'coffee-script'
 
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
-# gem 'gon-sinatra', :require => false #for gon (moves @variables to javascrip)
+gem 'gon-sinatra', :require => false #for gon (moves @variables to javascrip)
 # gem 'therubyracer' #for coffee-script
 # gem 'fastimage', :require => false #for getting image sizes
 

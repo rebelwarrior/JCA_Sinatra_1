@@ -43,6 +43,8 @@ GEM
     gherkin (2.12.0-java)
       multi_json (~> 1.3)
     gli (2.6.1)
+    gon-sinatra (0.1.0)
+      sinatra
     haml (4.0.3)
       tilt
     highline (1.6.19)
@@ -128,6 +130,9 @@ GEM
       diff-lcs (>= 1.1.2)
       extlib (>= 0.9.5)
       highline (>= 1.4.0)
+    therubyrhino (2.0.2)
+      therubyrhino_jar (>= 1.7.3)
+    therubyrhino_jar (1.7.4)
     tilt (1.4.1)
     torquebox-rake-support (2.3.2)
       rake (>= 0.8.7)
@@ -158,6 +163,7 @@ DEPENDENCIES
   coffee-script
   cucumber
   cucumber-sinatra
+  gon-sinatra
   haml
   i18n
   kramdown
@@ -175,5 +181,7 @@ DEPENDENCIES
   selenium-webdriver
   shotgun
   sinatra
+  therubyracer
+  therubyrhino
   torquebox-remote-deployer
   warbler
