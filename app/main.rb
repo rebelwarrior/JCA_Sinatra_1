@@ -22,6 +22,7 @@ class JCA_Sinatra < Sinatra::Base
     set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
     set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../../public') if warble
     mime_type :plain, 'text/plain'
+    
     set :server, :puma 
     
     ## Internationalization (I18n) 
@@ -36,12 +37,10 @@ class JCA_Sinatra < Sinatra::Base
   configure :production, :development do
     enable :logging
   end
-  # configure :production do
-  #   set :server, :puma
-  # end
   
 
 ###BEFORE ALL###
+
   #Sets the correct Language for the page.
   before('/:locale/*') do 
     #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).

@@ -1,4 +1,9 @@
 # encoding: utf-8
+module Tomcat
+  
+end
+
+
 module TextHelpers
   def accents_to_html(text)
     prob_chars = %w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ ´]
