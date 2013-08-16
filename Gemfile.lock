@@ -56,6 +56,7 @@ GEM
     json (1.8.0)
     json (1.8.0-java)
     kramdown (1.0.2)
+    libv8 (3.11.8.17)
     localeapp (0.6.10)
       gli
       i18n
@@ -99,6 +100,7 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.1.0)
+    ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.13.0)
@@ -130,6 +132,9 @@ GEM
       diff-lcs (>= 1.1.2)
       extlib (>= 0.9.5)
       highline (>= 1.4.0)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     therubyrhino (2.0.2)
       therubyrhino_jar (>= 1.7.3)
     therubyrhino_jar (1.7.4)

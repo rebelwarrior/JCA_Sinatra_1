@@ -3,7 +3,7 @@
 
 ## Load Required Gems ##
 require 'sinatra'
-%w[haml kramdown i18n i18n/backend/fallbacks coffee-script gon-sinatra].each do |gem| require gem end
+%w[haml kramdown i18n i18n/backend/fallbacks coffee-script].each do |gem| require gem end
 require './lib/helper'
 # require './lib/sinatra_helper'
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
@@ -12,7 +12,7 @@ require './lib/helper'
 class JCA_Sinatra < Sinatra::Base
   
 ## Register the helper Module in the helper files.
-  register Gon::Sinatra
+  # register Gon::Sinatra
   helpers TextHelpers 
   # helpers TomcatHelpers
 
@@ -42,8 +42,14 @@ class JCA_Sinatra < Sinatra::Base
 
 ###BEFORE ALL###
   tomcat = false # if the module is included then tomcat will be a method
+  # gon.push({
+  #   :prefix => '',
+  #   :prefix_number => 0
+  # })
   if tomcat
     before('/:tomcat_prefix/*') do
+      # gon.prefix = params[:tomcat_prefix]
+      # gon.prefix_number = 1
       request.path_info = '/' + params[:splat][0]
     end
   end
@@ -55,10 +61,10 @@ class JCA_Sinatra < Sinatra::Base
     #prevents requests from pure urls for translations that don't exist.  
     I18n.locale = params[:locale] if (params[:locale] == 'pirate') and (Date.today.mday == 13 and Date.today.month == 9) 
     request.path_info = '/' + params[:splat][0]
-    puts '##############'
-    puts request.path_info #####
-    puts params[:splat] ##### Use these for a warble prefix?
-    puts '##############'
+    # puts '##############'
+    # puts request.path_info #####
+    # puts params[:splat] ##### Use these for a warble prefix?
+    # puts '##############'
   end
   
   before do

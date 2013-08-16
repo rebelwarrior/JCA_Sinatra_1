@@ -1,3 +1,5 @@
+var prefix_num;
+
 // Javascript for activating Bootsrap
 $(document).ready(function() { 
   $('.dropdown-toggle').dropdown(); //DropdownMenu
