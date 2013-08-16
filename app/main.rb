@@ -14,7 +14,7 @@ class JCA_Sinatra < Sinatra::Base
 ## Register the helper Module in the helper files.
   # register Gon::Sinatra
   helpers TextHelpers 
-  # helpers TomcatHelpers
+  helpers TomcatHelpers
 
 ### Configuration Block ###
   configure do
@@ -31,8 +31,6 @@ class JCA_Sinatra < Sinatra::Base
     #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
     I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
-    
-    # Haml::Options.defaults[:encoding] = :utf8
     set :haml, :default_encoding => "UTF-8"
   end
   configure :production, :development do
@@ -41,17 +39,13 @@ class JCA_Sinatra < Sinatra::Base
   
 
 ###BEFORE ALL###
-  tomcat = false # if the module is included then tomcat will be a method
+  tomcat = false # if the module is included then tomcat will be a method?
   if tomcat
+    puts '############### YAH TOMCAT'
     before('/:tomcat_prefix/*') do
-      # gon.prefix = params[:tomcat_prefix]
-      # gon.prefix_number = 1
       request.path_info = '/' + params[:splat][0]
     end
   end
-  # Preprocessing:
-  # refactor to take *.js and [:params] in symbol
-  get('/javascripts/app.js'){ coffee :app }
   
   #Sets the correct Language for the page.
   before('/:locale/*') do 
@@ -79,13 +73,21 @@ class JCA_Sinatra < Sinatra::Base
   get '/', :agent => /iPhone|Android|iPad/ do
     puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
     logger.info "iPhone or iPad agent request"
-    redirect to('/es/home')
+    if tomcat
+      redirect to("/#{params[:tomcat_prefix]}/es/home")
+    else
+      redirect to('/es/home')
+    end
   end
   
   get '/' do
     puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
     puts settings.public_dir
-    redirect to('/es/home')
+    if tomcat
+      redirect to("/#{params[:tomcat_prefix]}/es/home")
+    else
+      redirect to('/es/home')
+    end
   end  
 
   ## Routes:
