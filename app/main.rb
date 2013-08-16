@@ -14,6 +14,7 @@ class JCA_Sinatra < Sinatra::Base
 ## Register the helper Module in the helper files.
   register Gon::Sinatra
   helpers TextHelpers 
+  # helpers TomcatHelpers
 
 ### Configuration Block ###
   configure do
@@ -40,6 +41,12 @@ class JCA_Sinatra < Sinatra::Base
   
 
 ###BEFORE ALL###
+  tomcat = false # if the module is included then tomcat will be a method
+  if tomcat
+    before('/:tomcat_prefix/*') do
+      request.path_info = '/' + params[:splat][0]
+    end
+  end
 
   #Sets the correct Language for the page.
   before('/:locale/*') do 
@@ -48,8 +55,10 @@ class JCA_Sinatra < Sinatra::Base
     #prevents requests from pure urls for translations that don't exist.  
     I18n.locale = params[:locale] if (params[:locale] == 'pirate') and (Date.today.mday == 13 and Date.today.month == 9) 
     request.path_info = '/' + params[:splat][0]
+    puts '##############'
     puts request.path_info #####
     puts params[:splat] ##### Use these for a warble prefix?
+    puts '##############'
   end
   
   before do

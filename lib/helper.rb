@@ -1,6 +1,8 @@
 # encoding: utf-8
 module Tomcat
-  
+  def tomcat
+    true
+  end
 end
 
 
