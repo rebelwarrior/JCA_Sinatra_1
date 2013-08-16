@@ -3,6 +3,11 @@ module Tomcat
   def tomcat
     true
   end
+  def prefix_for_tomcat
+    #Refactor to drive off Warble config file in config/warble.rb
+    "jca"
+  end
+  
 end
 
 

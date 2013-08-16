@@ -42,10 +42,6 @@ class JCA_Sinatra < Sinatra::Base
 
 ###BEFORE ALL###
   tomcat = false # if the module is included then tomcat will be a method
-  # gon.push({
-  #   :prefix => '',
-  #   :prefix_number => 0
-  # })
   if tomcat
     before('/:tomcat_prefix/*') do
       # gon.prefix = params[:tomcat_prefix]
@@ -53,7 +49,10 @@ class JCA_Sinatra < Sinatra::Base
       request.path_info = '/' + params[:splat][0]
     end
   end
-
+  # Preprocessing:
+  # refactor to take *.js and [:params] in symbol
+  get('/javascripts/app.js'){ coffee :app }
+  
   #Sets the correct Language for the page.
   before('/:locale/*') do 
     #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).
@@ -61,10 +60,7 @@ class JCA_Sinatra < Sinatra::Base
     #prevents requests from pure urls for translations that don't exist.  
     I18n.locale = params[:locale] if (params[:locale] == 'pirate') and (Date.today.mday == 13 and Date.today.month == 9) 
     request.path_info = '/' + params[:splat][0]
-    # puts '##############'
-    # puts request.path_info #####
-    # puts params[:splat] ##### Use these for a warble prefix?
-    # puts '##############'
+
   end
   
   before do
@@ -72,6 +68,8 @@ class JCA_Sinatra < Sinatra::Base
     @file_list = []
     pr_gov_top_bar_height = 40
     @sidebar_offset_num = 250 + pr_gov_top_bar_height
+    @tomcat_prefix = ''
+    @tomcat_prefix = prefix_for_tomcat() if tomcat
     #Refactor Content Folder
     # @md_content_location = '' #Where is this used?
   end
@@ -89,10 +87,6 @@ class JCA_Sinatra < Sinatra::Base
     puts settings.public_dir
     redirect to('/es/home')
   end  
-  
-  # Preprocessing:
-  # refactor to take *.js and [:params] in symbol
-  get('/javascripts/coffeescripts/app.js'){ coffee :app}
 
   ## Routes:
   get '/about' do

@@ -1,8 +1,10 @@
-### 
-Javascript for activating Bootsrap
-###
-prefix_num = gon.prefix_num || 0
-prefix_num = 0 if prefix_num is undefined
+###  Javascript for activating Bootsrap  ###
+if gonPrefix isnt ''
+  prefix_num = 1
+  prefix = "/#{gonPrefix}"
+else
+  prefix_num = 0
+  prefix = ''
  
 $(document).ready ->
   $(".dropdown-toggle").dropdown() #DropdownMenu
@@ -15,14 +17,12 @@ $(document).ready ->
   $(".carousel").carousel() #Slideshow
   $("body").addClass("mainpage") if pathname[prefix_num + 2] is "home" #adds css rule for bg image
   
-###  
-Javascript for language switching
-###
+###  Javascript for language switching  ###
 pathname = window.location.pathname
 pathname = pathname.split('/')
 languages = ['en', 'es', 'pirate']
 unless pathname[prefix_num + 1] in languages
-  window.location.pathname = "/es#{pathname.join('/')}"
+  window.location.pathname = "#{prefix}/es#{pathname.join('/')}"
   
   
 $(document).ready ->
@@ -40,8 +40,7 @@ $(document).ready ->
       pathname[prefix_num + 1] = "es"
       window.location.pathname = pathname.join("/")
       
-      
-# Javascript for pdf iframes
+###  Javascript for pdf iframes  ###
 $(document).ready ->
   if pathname[prefix_num + 2] is "dias" or "permits"
     if pathname[prefix_num + 3] is "all"
@@ -49,30 +48,37 @@ $(document).ready ->
     else
       pdf_year_or_area = pathname[prefix_num + 3]
     # console.log(pdf_year_or_area);
-    $("#pdfs_reports").find("iframe").attr "src", ("/pdfs/" + pathname[prefix_num + 2] + "/" + pdf_year_or_area)
+    $("#pdfs_reports").find("iframe").attr "src", ("#{prefix}/pdfs/" + pathname[prefix_num + 2] + "/" + pdf_year_or_area)
     $("#pdfs_reports").find("iframe").attr "style", "background:white; min-width:300px; min-height:300px"
   if pathname[prefix_num + 2] is "env_reports"
-    $("#pdfs_reports").find("iframe").attr "src", "/pdfs/communications/environmental_reports"
+    $("#pdfs_reports").find("iframe").attr "src", "#{prefix}/pdfs/communications/environmental_reports"
     $("#pdfs_reports").find("iframe").attr "style", "background:white; min-width:300px; min-height:300px"
-    
-# Javascript for Calendar
+
+###  Javascript for Calendar  ###
 $(document).ready ->
   if pathname[prefix_num + 2] is "home"
-    cbSuccess = false
     $(window).load ->
       return if $('#googlecalendar').length <= 0
-      $.ajax(
-        url:"//www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico"
-        type: 'get'
-        error: -> console.log('fail ajax')
-        success: -> cbSuccess = true 
-        )
       $("#googlecalendar").attr "src", "//www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico"
-    setTimeout (-> 
-      if not cbSuccess
-        $("#googlecalendar").attr "src", ("/" + pathname[prefix_num + 1] + "/googleloginrequired") 
-      ), 2000
-      
+    
+    
+    # $('#googlecalendar').attr 'src', "https://www.google.com/calendar/embed?title=Calendario+de+Vistas+Publicas"
+    
+    # cbSuccess = false
+    $(window).load ->
+      return if $('#googlecalendar').length <= 0
+    #   $.ajax(
+    #     url: "//www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico"
+    #     type: 'get'
+    #     error: -> console.log('fail ajax')
+    #     success: -> cbSuccess = true 
+    #     )
+    #   $("#googlecalendar").attr "src", "//www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;height=300&amp;amp;wkst=2&amp;amp;bgcolor=%23ffffff&amp;amp;src=juntacalidadambientalcalendar%40gmail.com&amp;amp;color=%23125A12&amp;amp;ctz=America%2FPuerto_Rico"
+    # setTimeout (-> 
+    #   if not cbSuccess
+    #     $("#googlecalendar").attr "src", ("/" + pathname[prefix_num + 1] + "/googleloginrequired") 
+    #   ), 2000
+    #   
     # $('.carousel').carousel(); //Moved to top
     #Wrap next line in an ajax request for the bg image file.
     # Moved to top $("body").addClass "mainpage" #adds css rule for bg image
@@ -94,4 +100,3 @@ $(document).ready ->
     #   catch error
     #     console.log error
     # ), 5000
-
