@@ -49,6 +49,7 @@ class JCA_Sinatra < Sinatra::Base
   
   #Sets the correct Language for the page.
   before('/:locale/*') do 
+    #you might be able to do that w/out a url locale but w/ a paramenter
     #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).
     I18n.locale  = params[:locale] if %[es en].include?(params[:locale])
     #prevents requests from pure urls for translations that don't exist.  
@@ -66,6 +67,7 @@ class JCA_Sinatra < Sinatra::Base
     @tomcat_prefix = prefix_for_tomcat() if tomcat
     #Refactor Content Folder
     # @md_content_location = '' #Where is this used?
+    
   end
   
     
