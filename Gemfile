@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 #ruby=jruby-1.7.10
 # ruby "2.0.0"
-gem 'rack', '~> 1.5'
+gem 'rack'
 gem 'sinatra' 
 gem 'kramdown' # for markdown
 gem 'haml'
@@ -21,6 +21,9 @@ gem 'activerecord-jdbc-adapter', :platforms => :jruby
 # gem 'activerecord'
 # gem 'sinatra-activerecord'
 
+#Server
+gem 'puma'
+
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
 gem 'gon-sinatra', :require => false #for gon (moves @variables to javascript)
@@ -30,7 +33,6 @@ group :development do
   gem 'rvm-capistrano', require: false
   gem 'pry',            require: false
   gem 'shotgun',        require: false
-  gem 'puma'
   gem 'localeapp',      require: false
 end
 
@@ -44,13 +46,11 @@ group :deploy do
 end
 
 group :production do
-  gem 'puma'
 end
 
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rack'#, '~> 1.5'
   gem 'rack-test'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
