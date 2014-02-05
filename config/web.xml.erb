@@ -2,7 +2,8 @@
   "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-  <display-name>Website JCA</display-name>
+<display-name>Junta Calidad Ambiental Website #<%=Time.now.to_i%></display-name>
+
 
   <context-param>
     <param-name>public.root</param-name>
@@ -10,18 +11,13 @@
   </context-param>
 
   <context-param>
-    <param-name>jruby.max.runtimes</param-name>
-    <param-value>1</param-value>
+    <param-name>rack.env</param-name>
+    <param-value>development</param-value>
   </context-param>
 
   <context-param>
     <param-name>jruby.compat.version</param-name>
     <param-value>2.0</param-value>
-  </context-param>
-
-  <context-param>
-    <param-name>jruby.min.runtimes</param-name>
-    <param-value>1</param-value>
   </context-param>
 
 
@@ -35,9 +31,8 @@
   </filter-mapping>
 
   <listener>
-    <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
+    <listener-class>org.jruby.rack.RackServletContextListener</listener-class>
   </listener>
 
 
 </web-app>
-

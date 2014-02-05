@@ -1,0 +1,5 @@
+#Dump all views and conf files into a padrino build see if it works
+
+#Refactor to usable content
+
+#use mongoid for quick CMS

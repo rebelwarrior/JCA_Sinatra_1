@@ -5,7 +5,6 @@
 require 'sinatra'
 %w[haml kramdown i18n i18n/backend/fallbacks coffee-script].each do |gem| require gem end
 require './lib/helper'
-# require './lib/sinatra_helper'
 # %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
 
 ### Main Sinatra Class ###
@@ -18,17 +17,19 @@ class JCA_Sinatra < Sinatra::Base
 
 ### Configuration Block ###
   configure do
-    set :views, File.expand_path(File.dirname(__FILE__) + '/../views')
-    warble = false
-    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
-    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../../public') if warble
-        # USE PUBLICDIR so I can reach the public direcory from views!!! REFACTOR
     mime_type :plain, 'text/plain'
-    set :server, :puma 
+    set :server, :puma
+    #Folders
+        warble = true
+    set :views, File.expand_path(File.dirname(__FILE__) + '/../views')
+    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
+    set :public_dir, File.expand_path(File.dirname(__FILE__)) if warble
+        # USE PUBLICDIR so I can reach the public direcory from views!!! REFACTOR 
     
     ## Internationalization (I18n) 
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-    #Locales folder in Sinatra can't easily be changed w/ '/../' so it must be in app (via settings.root).
+    #Locales folder in Sinatra can't easily be changed w/ '/../' 
+    # so it must be in app (via settings.root).
     I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
     I18n.backend.load_translations
     set :haml, :default_encoding => "UTF-8"
