@@ -1,19 +1,4 @@
 # encoding: utf-8
-module TomcatHelpers
-  def tomcat
-    true
-  end
-  def prefix_for_tomcat
-    #Refactor to drive off Warble config file in config/warble.rb
-    "jca"
-  end
-  def warlble
-    true
-  end
-  
-end
-
-
 module TextHelpers
   def accents_to_html(text)
     prob_chars = %w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ ´]
@@ -58,21 +43,13 @@ module TextHelpers
   end
   
   def dir_listing(path)
-    Dir.glob(path.to_s).sort
+    Dir.entries(path.to_s).sort
   end
   
   def t(*args)
     # Calls the I18n translation w/ forced ecoding (a not so simple alias)
     # Might want to do some processing here later to do nav.home to nav_home work.
     haml_force_encoding(I18n.t(*args))
-  end
-  
-  def slideshow_image_file_names(location='public/images/slideshow')
-     #Note: the Dir.glob will return nil if not specified correctly. 
-     Dir.glob("#{location}/*.{png,jpg}").sort.select do |f|
-       m = f.match(%r #{location}/[0-9]*(\w*)\.* )
-       m = m.captures.at(0) unless match.nil?
-     end
   end
   
   def mobile_user?(agent)
@@ -97,37 +74,37 @@ module TextHelpers
     end
   end
   
-  def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
-    # Also Abstract directory reading to a class variable
-    (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
-    #DONE Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
-    Dir.chdir(File.expand_path("#{settings.root}/../")) do
-      if path4txt == "press"
-        txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"
-        Dir.glob('public/press/*.md').each do |file|
-          txt_output << "\s" + file.to_s + "\n\n"
-          txt_output << File.read(file)
-          txt_output << "\n====================\n"
-        end
-        [txt_output, 200]
-      elsif File.exists?("views/content/#{path4txt}.md")
-        [File.read("views/content/#{path4txt}.md"), 200] 
-      elsif File.exists?("views/content/#{lang}/#{path4txt}.md")
-        [File.read("views/content/#{lang}/#{path4txt}.md"), 200]  
-      elsif path4txt =~ /\w/i
-        txt_output = "#{I18n.t('available_options')} \n"
-        Dir.chdir('views/content') do
-          Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
-          txt_output << " &. press.md\n"
-          txt_output << "======\n"
-          txt_output << File.expand_path("#{settings.root}/../")
-        end
-        [txt_output, 202]
-      else
-        [not_found, 404]
-      end
-    end
-  end
+  # def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
+#     # Also Abstract directory reading to a class variable
+#     (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
+#     #DONE Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
+#     Dir.chdir(File.expand_path("#{settings.root}/../")) do
+#       if path4txt == "press"
+#         txt_output = File.read("views/content/#{lang}/press.md") + "\n====================\n"
+#         Dir.glob('public/press/*.md').each do |file|
+#           txt_output << "\s" + file.to_s + "\n\n"
+#           txt_output << File.read(file)
+#           txt_output << "\n====================\n"
+#         end
+#         [txt_output, 200]
+#       elsif File.exists?("views/content/#{path4txt}.md")
+#         [File.read("views/content/#{path4txt}.md"), 200] 
+#       elsif File.exists?("views/content/#{lang}/#{path4txt}.md")
+#         [File.read("views/content/#{lang}/#{path4txt}.md"), 200]  
+#       elsif path4txt =~ /\w/i
+#         txt_output = "#{I18n.t('available_options')} \n"
+#         Dir.chdir('views/content') do
+#           Dir.glob("*.md").each_with_index { |v, i| txt_output << " #{(i + 1)}. #{v}\n"}
+#           txt_output << " &. press.md\n"
+#           txt_output << "======\n"
+#           txt_output << File.expand_path("#{settings.root}/../")
+#         end
+#         [txt_output, 202]
+#       else
+#         [not_found, 404]
+#       end
+#     end
+  # end
   
   
 end

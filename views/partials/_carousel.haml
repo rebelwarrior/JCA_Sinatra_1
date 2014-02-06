@@ -1,17 +1,20 @@
 -#slideshow
 #myCarousel{:class => "carousel slide", :style => "max-width: 768px; float:right;"}
+  /Carousel idicators
   %ol{:class => "carousel-indicators"}
-    -@file_list.take(7).size.times do |num|
+    -max_items = @max_slideshow_items.to_i
+    -@file_list.take(max_items).size.times do |num|
       -list_class = (num == 0 ? "active" : "")
       %li{:'data-target' => "#myCarousel", :'data-slide-to' => "#{num}", :class => "#{list_class}"}
   /Carousel items 
   %div{:class => "carousel-inner", :style => "width: auto;"}
-    -num_images = @file_list.size
-    -@file_list.reverse.take(10).each do |file|
+    -num_images = @file_list.take(max_items).size
+    -@file_list.reverse.take(max_items).each do |file|
       -item_class = (num_images == @file_list.size ? "active item" : "item")
       -num_images -= 1
+      -img_source = url "/images/slideshow/#{file}"
       %div{:class => "#{item_class} CarouselImg"}
-        %img{:src => "#{url "./images/slideshow/#{file}"}", :alt => "image number #{num_images + 1} of the Slideshow"}
+        %img{:src => "#{img_source}", :alt => "image # #{num_images + 1} of the Slideshow"}
   /Carousel nav 
   %a{:class => "carousel-control left", :href => "#myCarousel", :'data-slide' => "prev"}!="&lsaquo;"
   %a{:class => "carousel-control right", :href => "#myCarousel", :'data-slide' => "next"}!="&rsaquo;"

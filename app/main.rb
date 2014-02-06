@@ -2,97 +2,67 @@
 # encoding: utf-8
 
 ## Load Required Gems ##
-require 'sinatra'
-%w[haml kramdown i18n i18n/backend/fallbacks coffee-script].each do |gem| require gem end
-require './lib/helper'
-# %w['active_record''sinatra/activerecord' './app/models'].each do |gem| require gem end
+# require 'sinatra'
+%w[sinatra haml kramdown i18n i18n/backend/fallbacks 
+  coffee-script ./lib/helper].each {|gem| require gem}
 
 ### Main Sinatra Class ###
 class JCA_Sinatra < Sinatra::Base
   
-## Register the helper Module in the helper files.
-  # register Gon::Sinatra
   helpers TextHelpers 
-  helpers TomcatHelpers
 
 ### Configuration Block ###
   configure do
     mime_type :plain, 'text/plain'
     set :server, :puma
-    #Folders
-        warble = true
-    set :views, File.expand_path(File.dirname(__FILE__) + '/../views')
-    set :public_dir, File.expand_path(File.dirname(__FILE__) + '/../public') unless warble
-    set :public_dir, File.expand_path(File.dirname(__FILE__)) if warble
-        # USE PUBLICDIR so I can reach the public direcory from views!!! REFACTOR 
-    
-    ## Internationalization (I18n) 
-    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-    #Locales folder in Sinatra can't easily be changed w/ '/../' 
-    # so it must be in app (via settings.root).
-    I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
-    I18n.backend.load_translations
     set :haml, :default_encoding => "UTF-8"
+    #Folders
+    puts "============#{settings.inspect}==============================="
+    set :views, File.expand_path(settings.root + '/../views')
+    #settins.root in tomcat is /webapps/<>/WEB-INF/app
+  
+    ## Internationalization (I18n) 
+      I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+      I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
+      I18n.backend.load_translations
   end
   configure :production, :development do
     enable :logging
   end
+  configure :development do
+    set :public_dir , File.join(settings.root + '/../public')
+  end
+  configure :production do
+    puts "8888888======PRODUCTION======8888888"
+    set :public_dir , File.join(settings.root + '/../../') 
+  end
   
 
 ###BEFORE ALL###
-  tomcat = false # if the module is included then tomcat will be a method?
-  if tomcat
-    puts '############### YAH TOMCAT'
-    before('/:tomcat_prefix/*') do
-      request.path_info = '/' + params[:splat][0]
-    end
-  end
-  
   #Sets the correct Language for the page.
   before('/:locale/*') do 
-    #you might be able to do that w/out a url locale but w/ a paramenter
-    #Locale set from URL if available else drives from browser default (loaded via Rack Middleware in config.ru).
     I18n.locale  = params[:locale] if %[es en].include?(params[:locale])
-    #prevents requests from pure urls for translations that don't exist.  
-    I18n.locale = params[:locale] if (params[:locale] == 'pirate') and (Date.today.mday == 13 and Date.today.month == 9) 
+    #prevents requests from pure urls for translations that don't exist.   
     request.path_info = '/' + params[:splat][0]
-
   end
   
   before do
-    @lang = I18n.locale
-    @file_list = []
+    @lang = I18n.locale     
+    ### PR_GOV_BAR settings ###
     pr_gov_top_bar_height = 40
     @sidebar_offset_num = 250 + pr_gov_top_bar_height
-    @tomcat_prefix = ''
-    @tomcat_prefix = prefix_for_tomcat() if tomcat
-    #Refactor Content Folder
-    # @md_content_location = '' #Where is this used?
-    
   end
   
     
 ###ROUTING###  
-  get '/', :agent => /iPhone|Android|iPad/ do
-    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
-    logger.info "iPhone or iPad agent request"
-    if tomcat
-      redirect to("/#{params[:tomcat_prefix]}/es/home")
-    else
-      redirect to('/es/home')
-    end
-  end
-  
   get '/' do
-    puts "Hello Sinatra #{request.ip} on #{ENV['RACK_ENV']} at dir: #{Dir.pwd}" unless ENV['RACK_ENV'] == 'test'
-    puts settings.public_dir
-    if tomcat
-      redirect to("/#{params[:tomcat_prefix]}/es/home")
-    else
-      redirect to('/es/home')
+    unless ENV['RACK_ENV'] == 'test'
+      puts "Hello Sinatra #{request.ip} on env:#{ENV['RACK_ENV']} at dir: #{Dir.pwd}" 
+      puts settings.public_dir
     end
+    redirect to('/es/home')
   end  
-
+  
   ## Routes:
   get '/about' do
     haml :about
@@ -101,13 +71,17 @@ class JCA_Sinatra < Sinatra::Base
   get '/home' do
     #Refactored! :: Not pretty but it works. Needs further refactoring + test.
       #Note: the Dir.glob will return nil if not specified correctly.
-    slideshow_images_path = settings.public_dir + '/images/slideshow/*.*'
-    @file_list = Dir.glob(slideshow_images_path).sort.select do |f| 
-      match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
-    end.map do |f|
-      match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
-      match = "#{match.captures.at(0)}.#{match.captures.at(1)}" unless match.nil?
-    end
+    #Create file_list for slideshow
+    # slideshow_images_path = settings.public_dir + '/images/slideshow/*.*'
+    # @file_list = Dir.glob(slideshow_images_path).sort.select do |f| 
+    #     match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
+    #   end.map do |f|
+    #     match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
+    #     match = "#{match.captures.at(0)}.#{match.captures.at(1)}" unless match.nil?
+    # end
+    @max_slideshow_items = 7
+    @slideshow_dir = settings.public_dir + "/images/slideshow"
+    @file_list = Dir.entries(@slideshow_dir).sort.select {|f| f.match(/.*\.(png|jpg)/)}
     haml :home
   end
 
@@ -168,18 +142,18 @@ class JCA_Sinatra < Sinatra::Base
     haml :contact_us
   end
   
-  get '/mobile' do #separate this to a different app (w/ different views folder)
-    if (mobile_user?(request.user_agent)) or (settings.environment == :development)
-      erb :mobile
-    else
-      not_found
-    end
-  end
+  #### Just find a way to change layouts based on agent. 
+  # get '/mobile' do #separate this to a different app (w/ different views folder)
+  #   if (mobile_user?(request.user_agent)) or (settings.environment == :development)
+  #     erb :mobile
+  #   else
+  #     not_found
+  #   end
+  # end
 
 ### FTP Directory for File ###
   get '/home/pdfs' do
     ## Server routes /pdfs via Rack::Directory.new in ../config.ru
-    #Mabye create a JS file that calls the html of the rack application and joins it to a body tag? --DONE
     redirect :pdfs
   end
   
@@ -191,30 +165,31 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/dias/:year' do
     @year = params[:year]
-    haml :pdfs, :layout => :errors_layout
+    # haml :pdfs, :layout => :errors_layout
+    redirect :pdfs
   end
   
   get '/permits/:area' do
     @area = params[:area]
-    haml :pdfs, :layout => :errors_layout
+    # haml :pdfs, :layout => :errors_layout
+    redirect :pdfs
   end
 
   get '/laws_and_regulations/:area' do
     @area = params[:area]
-    haml :pdfs, :layout => :errors_layout
+    # haml :pdfs, :layout => :errors_layout
+    redirect :pdfs
   end
   
   get '/communications/:area' do
     @area = params[:area]
-    haml :pdfs, :layout => :errors_layout
+    # haml :pdfs, :layout => :errors_layout
+    redirect :pdfs
   end
 
   get '/googleloginrequired' do
+    @lang
     haml :googlelogin, :layout => false
-  end
-
-  get '/admin' do
-    request.secure? ? nil : not_found #separate this to a different app.
   end
   
   

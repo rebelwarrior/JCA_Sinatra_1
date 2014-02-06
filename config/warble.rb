@@ -7,6 +7,11 @@ Warbler::Config.new do |config|
   # config.webxml.jruby.compat.version = "2.0"
   config.dirs << 'views'
   config.dirs << 'resources'
+  require 'socket'
+  config.webxml.ENV_OUTPUT = File.expand_path('../../servers', __FILE__)
+  config.webxml.ENV_HOST   = Socket.gethostname
+  config.webxml.jruby.rack.ignore.env = true
+  config.webxml.jruby.compat.version = "2.0"
   # Features: additional options controlling how the jar is built.
   # Currently the following features are supported:
   # - gemjar: package the gem repository in a jar file in WEB-INF/lib
@@ -164,3 +169,21 @@ Warbler::Config.new do |config|
   # JNDI data source name
   # config.webxml.jndi = 'jdbc/rails'
 end
+
+=begin
+# Warbler web application assembly configuration file
+Warbler::Config.new do |config|
+  config.features += ['executable']
+  config.includes = FileList["appengine-web.xml", "datastore-indexes.xml"]
+
+  if ENV['JRUBY_RACK_SRC']
+    config.java_libs.delete_if {|f| f =~ /jruby-rack[^\/]+\.jar/}
+    config.java_libs += FileList["../../target/jruby-rack*.jar"]
+  end
+  config.dirs += ['views']
+  require 'socket'
+  config.webxml.ENV_OUTPUT = File.expand_path('../../servers', __FILE__)
+  config.webxml.ENV_HOST   = Socket.gethostname
+  config.webxml.jruby.rack.ignore.env = true
+end
+=end

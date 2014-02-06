@@ -7,17 +7,12 @@
   %body
     -#pr.gov Top Bar
     =haml :'partials/_pr_gov_topbar'
+    %div{:style => "background-color: black; text-align: center;"}
+      -#NAVBAR partial here:: (navbar_path is for error page which needs absolute paths)
+      -@navbar_path = "/#{@lang}/" #absolute path # REFACTOR TO USE url method
+      %a{:href => "#{@navbar_path}home"}!="#{t 'nav.home'}"
     .yielded.centered
       =yield  
-    %header.container.pagination-centered  
-    -#NAVBAR partial here:: (navbar_path is for error page which needs absolute paths)
-    -@navbar_path = "/#{@lang}/" #absolute path # REFACTOR TO USE url method
-    =haml :'partials/_navbar'                      
-  -# ###### End of Body #######
-  %footer.error_page
-    -#FOOTER partial here::
-    =haml :'partials/_footer_bar' 
-  -# ###### End of Footer #######  
 
 
 
