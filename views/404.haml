@@ -1,16 +1,13 @@
 -#404.haml (use for example)
 .container{:style => "background-color: bisque;"}
-  %h1.hero Error 404
-  %h2
-    !="#{t 'dont_panic'}"
   %h3  
     !="#{t 'error404'}"
 %div.container
-  %img{:src => "#{url '/images/404/panda.gif'}", :alt => "Panda", :height => "234px", :width => "211px"}
-  %img{:src => "#{url '/images/404/cunico.png'}", :alt => "Cunico", :height => "257px", :width => "406px"}
+  %img{:src => "#{url '/images/404/flickr_iskir_cc.jpg'}", :alt => "Baby Crying"}
 %br
 %small
   !="#{t 'page_not_found'}#{@request_url}"
+  (foto/photo © Iskir@Flickr -- © Oscar Castañón Barragán)
 
 :javascript
   document.title = "404"

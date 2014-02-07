@@ -4,7 +4,7 @@
 ## Load Required Gems ##
 # require 'sinatra'
 %w[sinatra haml kramdown i18n i18n/backend/fallbacks 
-  coffee-script ./lib/helper].each {|gem| require gem}
+  coffee-script ./lib/helper mongoid].each {|gem| require gem}
 
 ### Main Sinatra Class ###
 class JCA_Sinatra < Sinatra::Base
@@ -28,8 +28,9 @@ class JCA_Sinatra < Sinatra::Base
   end
   configure :production, :development do
     enable :logging
+    Mongoid.load!(File.expand_path(settings.root + "/../config/mongoid.yml"))  
   end
-  configure :development do
+  configure :development, :test do
     set :public_dir , File.join(settings.root + '/../public')
   end
   configure :production do
@@ -69,16 +70,6 @@ class JCA_Sinatra < Sinatra::Base
   end
   
   get '/home' do
-    #Refactored! :: Not pretty but it works. Needs further refactoring + test.
-      #Note: the Dir.glob will return nil if not specified correctly.
-    #Create file_list for slideshow
-    # slideshow_images_path = settings.public_dir + '/images/slideshow/*.*'
-    # @file_list = Dir.glob(slideshow_images_path).sort.select do |f| 
-    #     match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
-    #   end.map do |f|
-    #     match = f.match(/#{settings.public_dir}\/images\/slideshow\/(.*)\.(png|jpg)/)
-    #     match = "#{match.captures.at(0)}.#{match.captures.at(1)}" unless match.nil?
-    # end
     @max_slideshow_items = 7
     @slideshow_dir = settings.public_dir + "/images/slideshow"
     @file_list = Dir.entries(@slideshow_dir).sort.select {|f| f.match(/.*\.(png|jpg)/)}
@@ -142,14 +133,6 @@ class JCA_Sinatra < Sinatra::Base
     haml :contact_us
   end
   
-  #### Just find a way to change layouts based on agent. 
-  # get '/mobile' do #separate this to a different app (w/ different views folder)
-  #   if (mobile_user?(request.user_agent)) or (settings.environment == :development)
-  #     erb :mobile
-  #   else
-  #     not_found
-  #   end
-  # end
 
 ### FTP Directory for File ###
   get '/home/pdfs' do
@@ -198,9 +181,9 @@ class JCA_Sinatra < Sinatra::Base
   get %r{/([\w]+)\.[txt|md]} do
     content_type :plain
     logger.info params[:captures] #log requests
-    request_for_txt_path = sanitize(params[:captures].join('')) unless params[:captures].nil?
-    path_to_mds= 'views/content'
-    plaintext = render_plain_text_and_status_code(request_for_txt_path, path_to_mds)
+    req_for_txtpath = sanitize(params[:captures].join('')) unless params[:captures].nil?
+    path_to_mds= settings.views + '/content'
+    plaintext = render_plain_text_and_status_code(req_for_txtpath, path_to_mds)
     status plaintext[1].to_i
     plaintext[0]
   end

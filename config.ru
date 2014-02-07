@@ -11,8 +11,9 @@ Bundler.require #loads all required gems.
 
 
 #Display a directory including a directory listing for ftp like file serving.
+#  <link rel='stylesheet' href="/stylesheets/app.css">
+# Rack::Directory::DIR_PAGE = #"html stuff here + %s is content."
 
-# Rack::Directory::DIR_PAGE = "html stuff here + %s is content."
 map '/pdfs/' do
   # run Rack::Directory.new('./public/resources/pdfs')
   puts File.dirname(__FILE__) + ":RACK:"

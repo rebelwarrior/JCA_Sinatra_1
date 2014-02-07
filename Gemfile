@@ -27,6 +27,9 @@ gem 'jdbc-sqlite3',              :platforms => :jruby
 #Server
 gem 'puma'
 
+#Model
+gem 'mongoid'
+
 #Optional Stuff not implemented yet
 # gem 'sinatra-simple-navigation', require: false #for breadcrumbs
 gem 'gon-sinatra', :require => false #for gon (moves @variables to javascript)
