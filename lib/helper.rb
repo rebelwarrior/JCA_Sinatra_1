@@ -1,4 +1,17 @@
 # encoding: utf-8
+
+module MyCalendar  #Controller #< ApplicationController
+  def index
+    @calendar = ::EventCal::Calendar.new(Date.today)
+  end
+
+  def show
+    date = Date.parse("#{params[:year]}-#{params[:month]}-#{params[:date]}")
+    @calendar = ::EventCal::Calendar.new(date)
+  end
+end
+
+
 module TextHelpers
   def accents_to_html(text)
     prob_chars = %w[á é í ó ú Á É Í Ó Ú ü Ü ñ Ñ ¿ ¡ ´]

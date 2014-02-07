@@ -29,7 +29,11 @@
     / #calendar{:class => "span4 offset1"}
     /   / TODO set default link to iFrame to a Page requesting google login for calendar. 
     /   %iframe#googlecalendar{:frameborder => '0', :height => '300', :scrolling => 'no', :width => '400', :src => "/googleloginrequired"}loading...
-    -# The Above needs logic to handle when user is not logged in so a javascript thing.    
+    -# The Above needs logic to handle when user is not logged in so a javascript thing. 
+    / .calendar_view
+    /   = render_monthly(@calendar)
+    /   = render_event_details(@calendar.events) # if you need event details view
+       
     %div{:class => "span4 offset1"}
       -# Buttons
       %b{:class => "btn btn-large btn-success", :onclick => "window.location.pathname = '/#{@lang}/airquality'"}!="#{t 'Home.air_quality_index'}"

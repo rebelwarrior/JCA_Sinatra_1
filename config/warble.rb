@@ -10,8 +10,10 @@ Warbler::Config.new do |config|
   require 'socket'
   config.webxml.ENV_OUTPUT = File.expand_path('../../servers', __FILE__)
   config.webxml.ENV_HOST   = Socket.gethostname
-  config.webxml.jruby.rack.ignore.env = true
+  config.webxml.rack.env   = 'production'
+  config.webxml.jruby.rack.ignore.env = false
   config.webxml.jruby.compat.version = "2.0"
+  # config.webxml.rack.env = ENV['RACK_ENV']
   # Features: additional options controlling how the jar is built.
   # Currently the following features are supported:
   # - gemjar: package the gem repository in a jar file in WEB-INF/lib

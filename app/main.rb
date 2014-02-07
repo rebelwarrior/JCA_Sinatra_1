@@ -70,8 +70,9 @@ class JCA_Sinatra < Sinatra::Base
   end
   
   get '/home' do
+    # @calendar = MyCalendar::EventCal::Calendar.new(Date.today)
     @max_slideshow_items = 7
-    @slideshow_dir = settings.public_dir + "/images/slideshow"
+    @slideshow_dir = File.expand_path(settings.public_dir + "/images/slideshow")
     @file_list = Dir.entries(@slideshow_dir).sort.select {|f| f.match(/.*\.(png|jpg)/)}
     haml :home
   end
