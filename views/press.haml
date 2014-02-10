@@ -28,8 +28,8 @@
       %section.span9#spyon{:'data-spy' => "scroll", :'data-offset' => "0"}
         -acc = @press_title_list.size
         -# This needs to be refactored!! ::TODO the markdown command feeds of the location of the views command !
-        -@file_list.reverse.each do |file|
-          %article{:id => "#{sanitize(@press_title_list.at(acc - 1))}"}= haml_force_encoding(markdown(:"#{@press_path_relative_to_views}#{file}")) #Relative to Views folder
+        -@press_file_list.reverse.each do |file|
+          %article{:id => "#{sanitize(@press_title_list.at(acc - 1))}"}= haml_force_encoding(markdown(:"#{@press_path_relative_to_views}/#{file}")) #Relative to Views folder
           -acc -= 1
           %hr
       / 

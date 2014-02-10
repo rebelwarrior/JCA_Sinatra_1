@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module MyCalendar  #Controller #< ApplicationController
+module MyCalendarHelpers  #Controller #< ApplicationController
   def index
     @calendar = ::EventCal::Calendar.new(Date.today)
   end
@@ -11,6 +11,50 @@ module MyCalendar  #Controller #< ApplicationController
   end
 end
 
+module PDFsDirectionHelpers
+  def pdf_year(year)
+    if year.to_s =~ /\A\d{4}\z/
+      result = year 
+    else 
+      result = ''
+    end
+  end
+  
+  def area_helper(area)
+    %w[air land water general].include?(area) ? area : ''
+  end
+end
+
+module PressHelpers
+  def press_file_lists(public_dir= settings.public_dir)
+    press_dir = File.expand_path(public_dir + "/press")
+    file_list = Dir.entries(press_dir).sort.select {|f| f.match(/(.*)\.md/)}
+    unless file_list.empty?
+      # begin
+        press_title_list = file_list.map do |f|
+          haml_force_encoding f.match(/^[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0)
+        end
+        press_file_list = file_list.map {|f| f.match(/(.*)\.md/).captures.at(0)}
+        [press_title_list, press_file_list]
+      # rescue NoMethodError
+      #   raise
+      # end
+    else 
+      [[],[]]
+    end
+  end
+  
+  def press_file_relative_to_views()
+    if settings.development? 
+      "/.." + "/public"+ '/press'
+    elsif settings.production?
+      "/.." + "/.." + '/press'
+    else 
+      "/.." + "/public"+ '/press'
+    end
+  end
+  
+end
 
 module TextHelpers
   def accents_to_html(text)
@@ -87,7 +131,25 @@ module TextHelpers
     end
   end
   
-  # def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
+  def lang_array(array)
+    require 'date'
+    array << 'pirate' if Date.today.to_s.match(/\d{4}-09-14/)
+    array
+  end
+  
+end
+  ### Accesibility to Text ###
+  
+  # get %r{/([\w]+)\.[txt|md]} do #in Main.app
+  #   content_type :plain
+  #   logger.info params[:captures] #log requests
+  #   req_for_txtpath = sanitize(params[:captures].join('')) unless params[:captures].nil?
+  #   path_to_mds= settings.views + '/content'
+  #   plaintext = render_plain_text_and_status_code(req_for_txtpath, path_to_mds)
+  #   status plaintext[1].to_i
+  #   plaintext[0]
+  # end  
+#   def render_plain_text_and_status_code(path4txt, path_to_md="views/content/")
 #     # Also Abstract directory reading to a class variable
 #     (@lang['en'] or @lang['es']) ? lang = @lang : lang = 'es'
 #     #DONE Possibly add some hardening wrapping this is a Dir.chdir(settings.root + /../)
@@ -119,5 +181,3 @@ module TextHelpers
 #     end
   # end
   
-  
-end

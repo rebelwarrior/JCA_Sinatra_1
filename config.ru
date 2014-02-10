@@ -26,16 +26,16 @@ table { width:100%%; }
 .mtime { width:15em; }
 body { background: linear-gradient(rgba(0, 183, 74, 0.25), #66CC99); }
   </style>
-  <link href='favicon.png' rel='shortcut icon'>
+  <link href='/favicon.png' rel='shortcut icon'>
 </head><body>
 <h1>%s</h1>
 <hr />
 <table>
   <tr>
 <th class='name'>Nombre</th>
-<th class='size'>Tamaño</th>
+<th class='size'>Tama&ntilde;o</th>
 <th class='type'>Tipo</th>
-<th class='mtime'>Ultima Actualización</th>
+<th class='mtime'>Ultima Actualizaci&oacute;n</th>
   </tr>
 %s
 </table>

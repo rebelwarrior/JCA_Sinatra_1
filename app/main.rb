@@ -2,29 +2,29 @@
 # encoding: utf-8
 
 ## Load Required Gems ##
-# require 'sinatra'
 %w[sinatra haml kramdown i18n i18n/backend/fallbacks 
-  coffee-script ./lib/helper mongoid].each {|gem| require gem}
+   coffee-script ./lib/helper mongoid date].each {|gem| require gem}
 
 ### Main Sinatra Class ###
 class JCA_Sinatra < Sinatra::Base
   
   helpers TextHelpers 
+  helpers PDFsDirectionHelpers
+  helpers PressHelpers
 
 ### Configuration Block ###
   configure do
     mime_type :plain, 'text/plain'
     set :server, :puma
     set :haml, :default_encoding => "UTF-8"
-    #Folders
-    puts "============#{settings.inspect}==============================="
-    set :views, File.expand_path(settings.root + '/../views')
     #settins.root in tomcat is /webapps/<>/WEB-INF/app
+    set :views, File.expand_path(settings.root + '/../views')
   
     ## Internationalization (I18n) 
       I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
       I18n.load_path = I18n.load_path + Dir[File.join(settings.root, 'locales', '*.yml')]
       I18n.backend.load_translations
+    ## Internationalization (I18n) 
   end
   configure :production, :development do
     enable :logging
@@ -34,7 +34,6 @@ class JCA_Sinatra < Sinatra::Base
     set :public_dir , File.join(settings.root + '/../public')
   end
   configure :production do
-    puts "8888888======PRODUCTION======8888888"
     set :public_dir , File.join(settings.root + '/../../') 
   end
   
@@ -42,7 +41,7 @@ class JCA_Sinatra < Sinatra::Base
 ###BEFORE ALL###
   #Sets the correct Language for the page.
   before('/:locale/*') do 
-    I18n.locale  = params[:locale] if %[es en].include?(params[:locale])
+    I18n.locale  = params[:locale] if lang_array(%[es en]).include?(params[:locale])
     #prevents requests from pure urls for translations that don't exist.   
     request.path_info = '/' + params[:splat][0]
   end
@@ -79,16 +78,10 @@ class JCA_Sinatra < Sinatra::Base
 
   ## Press News ##
   get '/press' do
-    press_dir = settings.public_dir + "/press"
-    @press_title_list = []
     @tel_prefix = tel_prefix(request.user_agent)
-    @press_title_list = Dir.glob(press_dir + '/*.md').sort.map do |f|
-      haml_force_encoding(f.match(/^#{press_dir}\/[[:digit:]]*_*([[[:word:]]|[-|[[:blank:]]]]+)\.md/).captures.at(0))
-    end
-    @file_list = Dir.glob(press_dir + '/*.md').sort.map{|f| f.match(/^#{press_dir}\/(.*)\.md/).captures.at(0) }
-    # This needs to be refactored!! ::TODO the markdown command in view feeds of the location of the views command !
-    @press_path_relative_to_views = "../public/press/"
-    # The press feeds *must* be stored in a db then.
+    @press_title_list, @press_file_list = press_file_lists(settings.public_dir)
+    @press_path_relative_to_views = press_file_relative_to_views()
+    # TODO: The press feeds *must* be stored in a db then.
     haml :press  #, :format => :html5, :default_encoding => "UTF-8" 
   end
   
@@ -130,7 +123,6 @@ class JCA_Sinatra < Sinatra::Base
   
   get '/contact_us' do
     @tel_prefix = tel_prefix(request.user_agent)
-    # puts request.user_agent
     haml :contact_us
   end
   
@@ -141,34 +133,30 @@ class JCA_Sinatra < Sinatra::Base
     redirect :pdfs
   end
   
-  get '/pdf_request?:location' do
-    @location = params[:location]
-    #add model look up
-    redirect :pdfs
-  end
+  # get '/pdf_request?:location' do
+  #   @location = params[:location]
+  #   #add model look up
+  #   redirect :pdfs
+  # end
   
   get '/dias/:year' do
     @year = params[:year]
-    # haml :pdfs, :layout => :errors_layout
-    redirect :pdfs
+    redirect "pdfs/dias/#{pdf_year @year}"
   end
   
   get '/permits/:area' do
     @area = params[:area]
-    # haml :pdfs, :layout => :errors_layout
-    redirect :pdfs
+    redirect "pdfs/permits/#{area_helper @area}"
   end
 
   get '/laws_and_regulations/:area' do
     @area = params[:area]
-    # haml :pdfs, :layout => :errors_layout
-    redirect :pdfs
+    redirect "pdfs/laws_and_regulations/#{@area}"
   end
   
   get '/communications/:area' do
     @area = params[:area]
-    # haml :pdfs, :layout => :errors_layout
-    redirect :pdfs
+    redirect "pdfs/communications/#{@area}"
   end
 
   get '/googleloginrequired' do
@@ -176,25 +164,12 @@ class JCA_Sinatra < Sinatra::Base
     haml :googlelogin, :layout => false
   end
   
-  
-  ### Accesibility to Text ###
-  
-  get %r{/([\w]+)\.[txt|md]} do
-    content_type :plain
-    logger.info params[:captures] #log requests
-    req_for_txtpath = sanitize(params[:captures].join('')) unless params[:captures].nil?
-    path_to_mds= settings.views + '/content'
-    plaintext = render_plain_text_and_status_code(req_for_txtpath, path_to_mds)
-    status plaintext[1].to_i
-    plaintext[0]
-  end
   ####
   
   
   #### Error 404 ###
   
   not_found do
-    #TODO INTERNATIONALIZE
     @request_url = request.url
     haml :'404', :layout => :errors_layout
   end

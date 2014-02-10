@@ -7,3 +7,25 @@
         %br
         !="#{t 'sign_in_required'}"
     %iframe{:src => "https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTz=0&amp;height=300&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=juntacalidadambientalcalendar%40gmail.com&amp;color=%23125A12&amp;ctz=America%2FPuerto_Rico", :style => " border:solid 1px #777 ", :width => "400", :height => "300", :frameborder => "0", :scrolling => "yes"}
+
+.container-fluid
+  .calendar
+%link{:href => "#{url '/stylesheets/fullcalendar.css'}", :rel => "stylesheet"}
+%script{:src => "#{url '/javascripts/fullcalendar/gcal.js'}", :type => "text/javascript"}
+%script{:src => "#{url '/javascripts/fullcalendar/fullcalendar.min.js'}", :type => "text/javascript"}
+:javascript 
+  $(document).ready(function() {
+
+      // page is now ready, initialize the calendar...
+
+      $('#calendar').fullCalendar({
+          events: {
+              url: 'http://www.google.com/your_feed_url/',
+              className: 'gcal-event',           // an option!
+              currentTimezone: 'America/Puerto_Rico' // an option!
+              // editable: false //default
+          }
+      })
+
+  });
+/
