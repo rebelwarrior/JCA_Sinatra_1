@@ -1,4 +1,25 @@
+%link{:href => "//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css", :rel => "stylesheet"}
+%script{:src => "//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js", :type => "text/javascript"}
 %body
+  .container
+    #map
   .container
     .span2.hidden-phone
     .span10#markdowncontent.centered= haml_force_encoding(markdown(:'content/beaches'))
+
+:css
+  #map {
+    height: 180px;
+  }
+  
+:javascript
+  var api_key = 'ff12e0f7a5f14182b6e75a183fa9a368'
+  // var map = L.map('map').setView([51.505, -0.09], 13);
+  var map = L.map('map').setView([18.445, -66], 10);
+  L.tileLayer('http://{s}.tile.cloudmade.com/' + api_key + '/997/256/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+      maxZoom: 18
+  }).addTo(map);
+  // var marker = L.marker([51.5, -0.09]).addTo(map);
+  var marker = L.marker([18.445, -66.05]).addTo(map);
+  marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();

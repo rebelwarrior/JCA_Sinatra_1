@@ -1,4 +1,7 @@
 es:
+  JCA:
+    long: Junta de Calidad Ambiental
+    short: JCA
   About:
     about: ! '&iquest;Que es la JCA?'
     board: Junta de Gobierno

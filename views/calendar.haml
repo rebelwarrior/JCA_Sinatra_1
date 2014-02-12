@@ -1,31 +1,77 @@
--#TODO Implement w/ Exchange Calendar
 .container-fluid
   .span10 
     %h1 
       !="#{t 'nav.dropdown-press.calendar'}"
       %small 
         %br
-        !="#{t 'sign_in_required'}"
-    %iframe{:src => "https://www.google.com/calendar/embed?title=Calendario%20de%20Vistas%20Publicas&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTz=0&amp;height=300&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=juntacalidadambientalcalendar%40gmail.com&amp;color=%23125A12&amp;ctz=America%2FPuerto_Rico", :style => " border:solid 1px #777 ", :width => "400", :height => "300", :frameborder => "0", :scrolling => "yes"}
-
+          != "#{t 'JCA.long'}"
 .container-fluid
-  .calendar
+  .span10
+    #loading
+      loading...
+    #calendar
 %link{:href => "#{url '/stylesheets/fullcalendar.css'}", :rel => "stylesheet"}
-%script{:src => "#{url '/javascripts/fullcalendar/gcal.js'}", :type => "text/javascript"}
+%link{:href => "#{url '/stylesheets/fullcalendar.print.css'}", :rel => "stylesheet", :media => 'print'}
+%link{:href => "#{url '/javascripts/fullcalendar/lib/cupertino/jquery-ui.min.css'}", :rel => "stylesheet"}
+%script{:src => "#{url '/javascripts/fullcalendar/lib/moment.min.js'}", :type => "text/javascript"}
+%script{:src => "#{url '/javascripts/fullcalendar/lib/jquery-ui.custom.min.js'}", :type => "text/javascript"}
 %script{:src => "#{url '/javascripts/fullcalendar/fullcalendar.min.js'}", :type => "text/javascript"}
+%script{:src => "#{url '/javascripts/fullcalendar/gcal.js'}", :type => "text/javascript"}
+%script{:src => "#{url '/javascripts/fullcalendar/lang/all.js'}", :type => "text/javascript"}
+:css
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+  }
+
+  #loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  #calendar {
+    width: 900px;
+    margin: 40px auto;
+  }
 :javascript 
   $(document).ready(function() {
-
-      // page is now ready, initialize the calendar...
-
-      $('#calendar').fullCalendar({
-          events: {
-              url: 'http://www.google.com/your_feed_url/',
-              className: 'gcal-event',           // an option!
-              currentTimezone: 'America/Puerto_Rico' // an option!
-              // editable: false //default
+    var currentLangCode = pathname[1]; //'es' or drives of url pathname prefix
+    
+    $('#calendar').fullCalendar({
+        theme: true,
+        lang: currentLangCode,
+        eventSources: [
+          {
+            url: 'http://www.google.com/calendar/feeds/usa__' + currentLangCode + 
+            '%40holiday.calendar.google.com/public/basic',
+            className: 'gcal-event',
+            currentTimezone: 'America/Puerto_Rico',
+            editable: false
+          },
+          { 
+            url: 'https://www.google.com/calendar/feeds/u1t4b8a7ae3eeghk71420kphvk%40group.calendar.google.com/public/basic',
+            className: 'gcal-event',
+            currentTimezone: 'America/Puerto_Rico',
+            editable: false
           }
-      })
-
+        ],
+      eventClick: function(event) {
+        //opens events in a popup window
+        //window.open(event.url, 'gcalevent', 'width=700,height=600');
+        $('.selector').dialog({
+          modal: true,
+          open: function (event.url)
+        });
+        // return false;
+      },
+      loading: function(bool) {
+        $('#loading').toggle(bool);
+      }
+    });
   });
 /
+.selector

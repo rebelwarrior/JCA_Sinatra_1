@@ -30,7 +30,7 @@ Jeff Bezos el presidente de Amazon se dio cuenta que los API eran super importan
 
 >All teams will henceforth expose their data and functionality through service interfaces [APIs]. Teams must communicate with each other through these interfaces. There will be no other form of interprocess communication allowed: no direct linking, no direct reads of another team’s data store, no shared-memory model, no back-doors whatsoever. The only communication allowed is via service interface calls over the network.It doesn’t matter what technology they use. HTTP, Corba, Pubsub, custom protocols—doesn’t matter. [Amazon CEO Jeff] Bezos doesn’t care. All service interfaces, without exception, must be designed from the ground up to be externalizable. That is to say, the team must plan and design to be able to expose the interface to developers in the outside world. No exceptions. Anyone who doesn’t do this will be fired. [via Steve Yegge](https://plus.google.com/112678702228711889851/posts/eVeouesvaVX)
 
-¿Por qué Bezos manda este memo en 2002? Porque se da cuenta que los API son la fundacion de lo que se llama ahora Service Oriented Architechture (SOA) y esto permite la modulirazon de servicios.
+¿Por qué Bezos manda este memo en 2002? Porque se da cuenta que los API son la fundacion de lo que se llama ahora Service Oriented Architechture (SOA) y esto permite la **modulización** de servicios.
 
 Vamos a ver los beneficios de construir software con API como punto de partida de diseño:
 

@@ -11,9 +11,6 @@ $(document).ready(function() {
     var $spy = $(this).scrollspy('refresh')
   }); //Scroll spy
   $('.carousel').carousel(); //Slideshow
-  // if (pathname[2] === "home") {
-  //   $("body").addClass("mainpage");
-  // }
 });
 
 // Javascript for language switching
